@@ -1,0 +1,18 @@
+# Data files (too large for git - store separately)
+data/series/
+data/pm_history/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Excel logs (generated at runtime)
+log_*.xlsx
+log_*_console.txt
+
+# Scrape logs
+scrape_log.txt
+
+# Secrets - DO NOT COMMIT (API key is in config.py, move to env var later)
+# config.py  -- keeping for now since key is already in repo history
