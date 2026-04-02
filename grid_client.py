@@ -213,9 +213,6 @@ class GridClient:
                         kills
                         deaths
                         firstKill
-                        money
-                        loadoutValue
-                        netWorth
                         weaponKills { weaponName count }
                         objectives { type completionCount }
                         players {
@@ -224,9 +221,6 @@ class GridClient:
                             deaths
                             killAssistsReceived
                             firstKill
-                            money
-                            loadoutValue
-                            netWorth
                             weaponKills { weaponName count }
                             objectives { type completionCount }
                         }

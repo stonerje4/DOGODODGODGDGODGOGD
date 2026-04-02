@@ -48,7 +48,9 @@ def format_dt(dt):
 
 
 def should_monitor_now(scheduled_str):
-    """Is this match in the window we want to monitor?"""
+    """Is this match in the window we want to monitor?
+    Includes: matches starting within 60 min AND matches already in progress
+    (up to 4h after scheduled start — covers late starts + full Bo3)."""
     sched = parse_iso(scheduled_str)
     if not sched:
         return True  # Unknown time — monitor anyway
