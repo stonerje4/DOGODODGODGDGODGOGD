@@ -595,7 +595,10 @@ def run(series_id, pm_slug, poll_interval=10, prior_override=None, log_dir=None)
                       f"| P/L: ${pnl:+.2f}", flush=True)
 
             _print_summary(trades, realized_pnl)
-            write_excel(snapshots, trades, log_path)
+            try:
+                write_excel(snapshots, trades, log_path)
+            except Exception as _xe:
+                print(f"  [WARN] Excel write failed: {_xe}", flush=True)
             git_push_log(log_dir, _build_status_md(
                 pm_slug, ta, tb, sa, sb, 0, "FINISHED", 0, 0,
                 0, 0, {}, positions, trades, realized_pnl, 0, snapshots,
@@ -880,7 +883,10 @@ def run(series_id, pm_slug, poll_interval=10, prior_override=None, log_dir=None)
 
         # ── Write Excel every 5 minutes ──────────────────────
         if now_ts - last_excel_write > 300:
-            write_excel(snapshots, trades, log_path)
+            try:
+                write_excel(snapshots, trades, log_path)
+            except Exception as _xe:
+                print(f"  [WARN] Excel write failed: {_xe}", flush=True)
             git_push_log(log_dir, _build_status_md(
                 pm_slug, ta, tb, sa, sb, ai, mn, ms_a, ms_b,
                 f.round_num, p_map, sp, positions, trades,
