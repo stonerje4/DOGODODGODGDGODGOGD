@@ -729,9 +729,17 @@ def run(series_id, pm_slug, poll_interval=10, prior_override=None, log_dir=None)
             liq = float(liq_data.get("liquidity", 0))
 
             if label == "WINNER":
-                snap_pm_ask = book["a"]["ask"] if oidx_a == 0 else book["b"]["ask"]
-                snap_pm_bid = book["a"]["bid"] if oidx_a == 0 else book["b"]["bid"]
+                book_a_key = "a" if oidx_a == 0 else "b"
+                live_ask = book[book_a_key]["ask"]
+                live_bid = book[book_a_key]["bid"]
+                snap_pm_ask = live_ask
+                snap_pm_bid = live_bid
                 snap_pm_liq = liq
+                # Use live mid-price for snapshot (not stale cached gamma price)
+                if live_ask is not None and live_bid is not None:
+                    snap_pm_price = (live_ask + live_bid) / 2
+                elif live_ask is not None:
+                    snap_pm_price = live_ask
 
             # ── SELL CHECK ────────────────────────────────────
             if holding:

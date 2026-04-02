@@ -151,8 +151,21 @@ class EconomyReconstructor:
                 self.consec_losses[team] = 0
                 self.prev_won[team] = None
 
-        # Pistol rounds (1 and 13)
-        is_pistol = round_num in (1, config.ROUNDS_PER_HALF + 1)
+        # OT resets: every 6 rounds starting at round 25 (MR3 halves)
+        # Rounds 25, 31, 37... = OT pistol rounds
+        ot = config.OT_START_ROUND
+        ot_half = config.OT_HALF_ROUNDS * 2  # 6 rounds per OT period
+        is_ot_reset = (round_num >= ot and (round_num - ot) % ot_half == 0)
+        if is_ot_reset and round_num != 1 and round_num != config.ROUNDS_PER_HALF + 1:
+            for team in [self.team_a, self.team_b]:
+                self.money[team] = config.OT_START_MONEY * 5
+                self.loss_tier[team] = 0
+                self.consec_losses[team] = 0
+                self.prev_won[team] = None
+
+        # Pistol rounds: 1, 13, and every OT start (25, 31, ...)
+        is_ot_pistol = (round_num >= ot and (round_num - ot) % ot_half == 0)
+        is_pistol = round_num in (1, config.ROUNDS_PER_HALF + 1) or is_ot_pistol
 
         # Record economy STATE at the start of this round (before resolution)
         for team in [self.team_a, self.team_b]:

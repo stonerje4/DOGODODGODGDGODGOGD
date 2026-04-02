@@ -155,8 +155,17 @@ def extract_features_from_grid_state(
         is_ct_a = side_a == "counter-terrorists"
         is_second_half = round_num > config.ROUNDS_PER_HALF
 
-        rounds_until_switch = (config.ROUNDS_PER_HALF - round_num + 1
-                               if not is_second_half else 0)
+        # OT side switches every OT_HALF_ROUNDS rounds
+        ot_start = config.OT_START_ROUND
+        ot_half = config.OT_HALF_ROUNDS
+        in_ot = round_num >= ot_start
+        if in_ot:
+            ot_offset = (round_num - ot_start) % (ot_half * 2)
+            rounds_until_switch = max(0, ot_half - ot_offset)
+        elif not is_second_half:
+            rounds_until_switch = config.ROUNDS_PER_HALF - round_num + 1
+        else:
+            rounds_until_switch = 0
 
         # Momentum (from completed rounds only)
         recent = round_winners[-5:]
@@ -177,10 +186,15 @@ def extract_features_from_grid_state(
                     break
 
         rounds_played = score_a + score_b
-        # Max possible remaining = need 13 to win. Worst case: 13-12 = 25 rounds.
-        # Rounds remaining = max total rounds possible - rounds played
-        max_total = 2 * config.ROUNDS_TO_WIN - 1  # 25 in MR12
-        rounds_remaining = max(0, max_total - rounds_played)
+        # Regulation: max 25 rounds. OT: effectively unbounded but cap at 6 per period.
+        # Use rounds until one team reaches 13 (or 16 in OT) as signal.
+        max_total = 2 * config.ROUNDS_TO_WIN - 1  # 25 in regulation
+        if round_num >= config.OT_START_ROUND:
+            # In OT - count rounds until current OT period ends
+            ot_offset = (round_num - config.OT_START_ROUND) % (config.OT_HALF_ROUNDS * 2)
+            rounds_remaining = max(0, config.OT_HALF_ROUNDS * 2 - ot_offset)
+        else:
+            rounds_remaining = max(0, max_total - rounds_played)
 
         # ── ECONOMY: prefer GRID actual money, fall back to reconstruction ──
         # GRID live API may return per-segment money; historical data never has it.
@@ -238,8 +252,12 @@ def extract_features_from_grid_state(
         loss_tier_a = min(consec_losses_a, len(config.LOSS_BONUS_TIERS) - 1)
         loss_tier_b = min(consec_losses_b, len(config.LOSS_BONUS_TIERS) - 1)
 
-        # Reset loss tracking at half
-        if round_num == config.ROUNDS_PER_HALF + 1:
+        # Reset loss tracking at half and OT resets
+        ot_start = config.OT_START_ROUND
+        ot_half_len = config.OT_HALF_ROUNDS * 2
+        is_ot_reset = (round_num >= ot_start and
+                       (round_num - ot_start) % ot_half_len == 0)
+        if round_num == config.ROUNDS_PER_HALF + 1 or is_ot_reset:
             consec_losses_a = 0
             consec_losses_b = 0
             loss_tier_a = 0

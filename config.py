@@ -22,6 +22,12 @@ MAX_MONEY = 16000
 ROUNDS_PER_HALF = 12  # MR12 format
 ROUNDS_TO_WIN = 13
 
+# Overtime (MR3): starts at round 25, each half = 3 rounds, $10k start
+OT_START_ROUND = 25        # Round where OT begins
+OT_HALF_ROUNDS = 3         # Rounds per OT half
+OT_START_MONEY = 10000     # Per player at OT start
+OT_ROUNDS_TO_WIN = 4       # First to 4 rounds wins OT half (16 maps total)
+
 # Round win/loss rewards
 ROUND_WIN_BONUS = 3250
 BOMB_EXPLODE_WIN_BONUS = 3500
