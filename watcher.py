@@ -28,7 +28,7 @@ from find_overlaps import run as find_overlaps
 import config
 
 # How long before a match starts to begin monitoring (seconds)
-MONITOR_AHEAD_SECS = 30 * 60   # 30 min before scheduled start
+MONITOR_AHEAD_SECS = 60 * 60   # 60 min before scheduled start
 # How long after scheduled start to still try (matches run late)
 MONITOR_LATE_SECS = 4 * 60 * 60  # 4 hours after scheduled start
 
@@ -138,8 +138,8 @@ def main():
                 print(f"  [PENDING {mins}min] {teams} → {slug}")
                 continue
 
-            # Skip low liquidity markets
-            if liq < 500:
+            # Skip very low liquidity markets (under $30 - basically no market)
+            if liq < 30:
                 print(f"  [SKIP low liq ${liq:.0f}] {teams} → {slug}")
                 launched.add(sid)
                 continue
