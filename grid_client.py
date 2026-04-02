@@ -108,7 +108,7 @@ class GridClient:
         """
         Get all series in a date range. Paginates automatically.
         Dates should be ISO format: "2026-03-01T00:00:00Z"
-        title_id: "7" for CS2
+        title_id: "28" for CS2
         """
         all_series = []
         cursor = None
@@ -213,6 +213,9 @@ class GridClient:
                         kills
                         deaths
                         firstKill
+                        money
+                        loadoutValue
+                        netWorth
                         weaponKills { weaponName count }
                         objectives { type completionCount }
                         players {
@@ -221,6 +224,9 @@ class GridClient:
                             deaths
                             killAssistsReceived
                             firstKill
+                            money
+                            loadoutValue
+                            netWorth
                             weaponKills { weaponName count }
                             objectives { type completionCount }
                         }

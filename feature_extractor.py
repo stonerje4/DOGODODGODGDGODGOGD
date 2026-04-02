@@ -8,6 +8,10 @@ from dataclasses import dataclass
 from economy_engine import EconomyReconstructor, RoundResult, RoundEconomy, classify_buy_type
 import config
 
+# Source labels for debug/logging
+MONEY_SOURCE_GRID = "grid"
+MONEY_SOURCE_ECON = "econ"
+
 
 @dataclass
 class RoundFeatures:
@@ -110,6 +114,12 @@ def extract_features_from_grid_state(
     # Parse all rounds into RoundResults
     round_results = _parse_rounds(segments, team_a, team_b, game_teams)
 
+    # Build economy reconstruction as fallback for when GRID doesn't
+    # provide per-round money (historical data never has it; live may).
+    econ = EconomyReconstructor(team_a, team_b)
+    for rr in round_results:
+        econ.process_round(rr)
+
     # Build feature vectors
     # We emit a feature row for the state ENTERING each round.
     # Round 1: no prior data, emit baseline features.
@@ -173,21 +183,27 @@ def extract_features_from_grid_state(
         rounds_remaining = max(0, max_total - rounds_played)
 
         # ── ECONOMY: prefer GRID actual money, fall back to reconstruction ──
-        # GRID money fields on the segment represent state AT START of round
-        # (money before buy phase / during buy phase).
+        # GRID live API may return per-segment money; historical data never has it.
+        # Economy reconstruction is accurate and used as fallback for training.
         grid_money_a = rr.team_money.get(team_a)
         grid_money_b = rr.team_money.get(team_b)
 
         if grid_money_a is not None and grid_money_b is not None:
+            # Live mode: use real GRID money
             money_a = grid_money_a
             money_b = grid_money_b
         else:
-            # Fallback for pistol or missing data
-            if round_num == 1 or round_num == config.ROUNDS_PER_HALF + 1:
+            # Training mode / historical: use economy reconstruction
+            econ_state = econ.get_economy_at_round(round_num)
+            econ_a = econ_state.get(team_a)
+            econ_b = econ_state.get(team_b)
+            if econ_a and econ_b:
+                money_a = econ_a.money_estimate
+                money_b = econ_b.money_estimate
+            elif round_num == 1 or round_num == config.ROUNDS_PER_HALF + 1:
                 money_a = config.STARTING_MONEY * 5
                 money_b = config.STARTING_MONEY * 5
             elif features:
-                # Carry forward last known values
                 money_a = features[-1].money_a
                 money_b = features[-1].money_b
             else:
