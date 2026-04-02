@@ -42,6 +42,12 @@ class RoundResult:
     weapon_kills: dict = field(default_factory=dict)
     # Per-team total kills
     team_kills: dict = field(default_factory=dict)
+    # GRID actual money per team: {team_name: total_money_across_5_players}
+    team_money: dict = field(default_factory=dict)
+    # GRID loadout value per team: {team_name: total_loadout_value}
+    team_loadout: dict = field(default_factory=dict)
+    # Team name that got first kill this round ("" if unknown)
+    first_kill_team: str = ""
 
 
 def classify_buy_type(money_per_player: int, side: str) -> str:

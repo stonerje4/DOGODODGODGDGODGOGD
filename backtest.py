@@ -327,8 +327,13 @@ def match_grid_to_pm(
 # Timestamp alignment
 # ---------------------------------------------------------------------------
 
-def get_round_end_timestamps(game: dict) -> List[Tuple[int, float]]:
-    """Return [(round_num, unix_timestamp_of_round_end), ...] for a game."""
+def get_round_start_timestamps(game: dict) -> List[Tuple[int, float]]:
+    """Return [(round_num, unix_timestamp_of_round_start), ...] for a game.
+
+    Uses round START time so we compare model predictions against PM prices
+    BEFORE the round resolves (no look-ahead bias from PM reacting to the
+    round outcome).
+    """
     segments = game.get("segments", [])
     results = []
     for seg in segments:
@@ -336,9 +341,8 @@ def get_round_end_timestamps(game: dict) -> List[Tuple[int, float]]:
             continue
         seq = seg.get("sequenceNumber", 0)
         started = parse_iso_ts(seg.get("startedAt", ""))
-        dur = parse_iso_duration(seg.get("duration", ""))
         if started > 0:
-            results.append((seq, started + dur))
+            results.append((seq, started))
     results.sort(key=lambda x: x[0])
     return results
 
@@ -404,9 +408,9 @@ def run_backtest(pairs: List[MatchedPair], model: MapWinModel) -> List[RoundResu
         team_a_won = game_teams[0].get("won", False)
         map_name = (game.get("map") or {}).get("name", "unknown")
 
-        # Get round-end timestamps
-        round_ends = get_round_end_timestamps(game)
-        if not round_ends:
+        # Get round-start timestamps (avoids look-ahead from PM reacting)
+        round_starts = get_round_start_timestamps(game)
+        if not round_starts:
             continue
 
         # Pick the right PM history based on outcome mapping
@@ -433,7 +437,7 @@ def run_backtest(pairs: List[MatchedPair], model: MapWinModel) -> List[RoundResu
         # Build a map: round_num -> features
         feat_by_round = {f.round_num: f for f in features_list}
 
-        for round_num, round_end_ts in round_ends:
+        for round_num, round_start_ts in round_starts:
             if round_num not in feat_by_round:
                 continue
 
@@ -445,8 +449,8 @@ def run_backtest(pairs: List[MatchedPair], model: MapWinModel) -> List[RoundResu
             except Exception as e:
                 continue
 
-            # Get PM price at this round's end
-            pm_price_a = find_pm_price_at(pm_hist_sorted, round_end_ts)
+            # Get PM price at round START (before round resolves)
+            pm_price_a = find_pm_price_at(pm_hist_sorted, round_start_ts)
             if pm_price_a is None:
                 continue
 
