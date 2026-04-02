@@ -274,7 +274,7 @@ def write_excel(snapshots, trades, log_path):
             if c == 13:
                 cell.number_format = '$#,##0.00'
                 if isinstance(v, (int, float)):
-                    cell.fill = green if v > 0 else red if v < 0 else None
+                    cell.fill = green if v > 0 else (red if v < 0 else PatternFill())
             if c == 6:  # action
                 if v == "BUY":
                     cell.fill = green
