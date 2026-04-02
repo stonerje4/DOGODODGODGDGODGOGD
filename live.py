@@ -318,74 +318,89 @@ def _get_starting_prior(pm, pm_slug):
     """
     Get the pre-match starting odds for team A.
 
-    Priority:
-    1. data/starting_odds.json (backfilled historical prices)
-    2. PM CLOB price history: median price 60-5 min before game start
-    3. Current PM Gamma price (may be mid-match if called late — warns)
+    Uses PM CLOB price history: median price from 60-5 min before game start.
+    Falls back to current PM price if history unavailable.
 
     Returns (prior_float, source_string)
     """
     import requests as _req
 
-    # 1. Check backfilled starting odds
-    try:
-        odds_path = os.path.join(config.DATA_DIR, "starting_odds.json")
-        if os.path.exists(odds_path):
-            with open(odds_path) as f:
-                odds_list = json.load(f)
-            for entry in odds_list:
-                if entry.get("slug") == pm_slug:
-                    return entry["starting_odd_a"], "backfilled"
-    except Exception:
-        pass
-
-    # 2. Try PM CLOB price history (pre-match window)
     try:
         mkt = pm.get_market_by_slug(pm_slug)
-        if mkt:
-            token_ids = pm.get_clob_token_ids(mkt)
-            game_start_str = mkt.get("gameStartTime", "")
-            if token_ids and game_start_str:
-                # Parse game start time
-                gs = game_start_str.replace(" ", "T").replace("+00:00", "Z")
-                from datetime import datetime, timezone
-                try:
-                    dt = datetime.fromisoformat(gs.replace("Z", "+00:00"))
-                    start_ts = int(dt.timestamp())
-                    # Get prices from 60 min to 5 min before start
-                    window_start = start_ts - 3600
-                    window_end = start_ts - 300
-                    resp = _req.get(
-                        f"{config.POLYMARKET_CLOB_URL}/prices-history",
-                        params={
-                            "market": token_ids[0],
-                            "startTs": window_start,
-                            "endTs": window_end,
-                            "fidelity": 1,
-                        },
-                        timeout=10,
-                    )
-                    if resp.status_code == 200:
-                        hist = resp.json().get("history", [])
-                        if len(hist) >= 3:
-                            prices = [h["p"] for h in hist]
-                            median_p = sorted(prices)[len(prices) // 2]
-                            return float(median_p), "clob_history"
-                except Exception:
-                    pass
-    except Exception:
-        pass
+        if not mkt:
+            return 0.50, "no_market"
 
-    # 3. Fall back to current PM price (may be mid-match)
-    try:
-        mkt = pm.get_market_by_slug(pm_slug)
-        if mkt:
-            prices = pm.extract_prices(mkt)
-            outcomes = list(prices.keys())
-            if outcomes:
-                return prices[outcomes[0]], "current_pm_price"
-    except Exception:
-        pass
+        token_ids = pm.get_clob_token_ids(mkt)
+        game_start_str = mkt.get("gameStartTime", "")
+
+        if token_ids and game_start_str:
+            # Parse game start time
+            gs = game_start_str.replace(" ", "T")
+            if not gs.endswith("Z") and "+" not in gs:
+                gs += "+00:00"
+            gs = gs.replace("Z", "+00:00")
+            try:
+                dt = datetime.fromisoformat(gs)
+                start_ts = int(dt.timestamp())
+                now_ts = int(datetime.now(timezone.utc).timestamp())
+
+                if now_ts < start_ts - 300:
+                    # Match hasn't started yet — grab current price, it IS the pre-match price
+                    prices = pm.extract_prices(mkt)
+                    outcomes = list(prices.keys())
+                    if outcomes:
+                        return prices[outcomes[0]], "pre_match_live"
+
+                # Match started or about to start — pull price history
+                window_start = start_ts - 3600   # 60 min before start
+                window_end = start_ts - 300       # 5 min before start
+                resp = _req.get(
+                    f"{config.POLYMARKET_CLOB_URL}/prices-history",
+                    params={
+                        "market": token_ids[0],
+                        "startTs": window_start,
+                        "endTs": window_end,
+                        "fidelity": 1,
+                    },
+                    timeout=15,
+                )
+                if resp.status_code == 200:
+                    hist = resp.json().get("history", [])
+                    if len(hist) >= 3:
+                        prices_list = [float(h["p"]) for h in hist]
+                        median_p = sorted(prices_list)[len(prices_list) // 2]
+                        return median_p, f"clob_history({len(hist)}pts)"
+
+                # Narrow window had nothing — try wider (3h before)
+                window_start = start_ts - 10800
+                resp = _req.get(
+                    f"{config.POLYMARKET_CLOB_URL}/prices-history",
+                    params={
+                        "market": token_ids[0],
+                        "startTs": window_start,
+                        "endTs": window_end,
+                        "fidelity": 1,
+                    },
+                    timeout=15,
+                )
+                if resp.status_code == 200:
+                    hist = resp.json().get("history", [])
+                    if hist:
+                        prices_list = [float(h["p"]) for h in hist]
+                        median_p = sorted(prices_list)[len(prices_list) // 2]
+                        return median_p, f"clob_history_wide({len(hist)}pts)"
+
+            except Exception as e:
+                print(f"  [WARN] Price history parse error: {e}", flush=True)
+
+        # No gameStartTime or CLOB failed — use current price as fallback
+        prices = pm.extract_prices(mkt)
+        outcomes = list(prices.keys())
+        if outcomes:
+            return prices[outcomes[0]], "current_price(no_history)"
+
+    except Exception as e:
+        print(f"  [WARN] Prior fetch failed: {e}", flush=True)
 
     return 0.50, "fallback_50_50"
 
