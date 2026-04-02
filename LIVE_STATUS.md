@@ -1,13 +1,13 @@
 # CS2 Live Paper Trader — 🏁 FINISHED
 
-**Last update:** 2026-04-02 20:11:42 UTC  
-**Match:** `cs2-desemp-crash-2026-04-02`  
-**Teams:** desempleHADAS vs Crashers Esports  
+**Last update:** 2026-04-02 20:35:34 UTC  
+**Match:** `cs2-crash-shin-2026-04-02`  
+**Teams:** ShindeN vs Charrados  
 
 ## 📊 Current State
 | Field | Value |
 |-------|-------|
-| Series Score | desempleHADAS **0** — **2** Crashers Esports |
+| Series Score | ShindeN **2** — **0** Charrados |
 | Map 0 (FINISHED) | 0 — 0 |
 | Round | 0 |
 
