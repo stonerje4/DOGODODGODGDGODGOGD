@@ -1,13 +1,13 @@
 # CS2 Live Paper Trader — 🏁 FINISHED
 
-**Last update:** 2026-04-02 20:08:36 UTC  
-**Match:** `cs2-paina-mag-2026-04-02`  
-**Teams:** paiN Academy vs FOLHA AMARELA  
+**Last update:** 2026-04-02 20:11:42 UTC  
+**Match:** `cs2-desemp-crash-2026-04-02`  
+**Teams:** desempleHADAS vs Crashers Esports  
 
 ## 📊 Current State
 | Field | Value |
 |-------|-------|
-| Series Score | paiN Academy **2** — **0** FOLHA AMARELA |
+| Series Score | desempleHADAS **0** — **2** Crashers Esports |
 | Map 0 (FINISHED) | 0 — 0 |
 | Round | 0 |
 
