@@ -292,17 +292,22 @@ def write_excel(snapshots, trades, log_path):
     wb.save(log_path)
 
 
-def git_push_log(log_dir):
-    """Commit and push the log file."""
+def git_push_log(log_dir, status_md=None):
+    """Commit and push logs + status to the repo."""
+    repo_root = os.path.dirname(os.path.abspath(__file__))
     try:
-        subprocess.run(["git", "add", "."], cwd=log_dir,
-                        capture_output=True, timeout=10)
-        subprocess.run(
+        if status_md:
+            with open(os.path.join(repo_root, "LIVE_STATUS.md"), "w") as f:
+                f.write(status_md)
+        subprocess.run(["git", "add", "-A"], cwd=repo_root,
+                       capture_output=True, timeout=10)
+        result = subprocess.run(
             ["git", "commit", "-m",
-             f"live log update {datetime.now(timezone.utc).strftime('%H:%M:%S')}"],
-            cwd=log_dir, capture_output=True, timeout=10)
-        subprocess.run(["git", "push"], cwd=log_dir,
-                        capture_output=True, timeout=30)
+             f"live update {datetime.now(timezone.utc).strftime('%H:%M:%S UTC')}"],
+            cwd=repo_root, capture_output=True, timeout=10, text=True)
+        if "nothing to commit" not in (result.stdout + result.stderr):
+            subprocess.run(["git", "push", "origin", "main"],
+                           cwd=repo_root, capture_output=True, timeout=30)
     except Exception as e:
         print(f"  [WARN] Git push failed: {e}", flush=True)
 
@@ -501,7 +506,10 @@ def run(series_id, pm_slug, poll_interval=10, prior_override=None, log_dir=None)
 
             _print_summary(trades, realized_pnl)
             write_excel(snapshots, trades, log_path)
-            git_push_log(log_dir)
+            git_push_log(log_dir, _build_status_md(
+                pm_slug, ta, tb, sa, sb, 0, "FINISHED", 0, 0,
+                0, 0, {}, positions, trades, realized_pnl, 0, snapshots,
+                finished=True))
             return
 
         # ── Extract features (once per game_idx, cached) ─────────
@@ -783,12 +791,96 @@ def run(series_id, pm_slug, poll_interval=10, prior_override=None, log_dir=None)
         # ── Write Excel every 5 minutes ──────────────────────
         if now_ts - last_excel_write > 300:
             write_excel(snapshots, trades, log_path)
-            git_push_log(log_dir)
+            git_push_log(log_dir, _build_status_md(
+                pm_slug, ta, tb, sa, sb, ai, mn, ms_a, ms_b,
+                f.round_num, p_map, sp, positions, trades,
+                realized_pnl, snap_unrealized, snapshots))
             last_excel_write = now_ts
-            print(f"  [log] Excel updated + pushed ({len(snapshots)} rows)",
+            print(f"  [log] Excel + LIVE_STATUS.md pushed ({len(snapshots)} rows)",
                   flush=True)
 
         time.sleep(poll_interval)
+
+
+def _build_status_md(slug, ta, tb, sa, sb, map_num, map_name,
+                     ms_a, ms_b, round_num, p_map, sp,
+                     positions, trades, realized_pnl, unrealized_pnl,
+                     snapshots, finished=False):
+    """Build a LIVE_STATUS.md for GitHub display."""
+    now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
+    buys = [t for t in trades if t.action == "BUY"]
+    exits = [t for t in trades if t.action in ("SELL", "RESOLVE", "FORCE-EXIT")]
+    wins = [t for t in exits if t.pnl > 0]
+    total_risked = sum(t.shares * t.price for t in buys)
+    status = "🏁 FINISHED" if finished else "🟢 LIVE"
+
+    lines = [
+        f"# CS2 Live Paper Trader — {status}",
+        f"",
+        f"**Last update:** {now}  ",
+        f"**Match:** `{slug}`  ",
+        f"**Teams:** {ta} vs {tb}  ",
+        f"",
+        f"## 📊 Current State",
+        f"| Field | Value |",
+        f"|-------|-------|",
+        f"| Series Score | {ta} **{sa}** — **{sb}** {tb} |",
+        f"| Map {map_num} ({map_name}) | {ms_a} — {ms_b} |",
+        f"| Round | {round_num} |",
+    ]
+    if not finished and p_map:
+        lines += [
+            f"| Model P({ta} wins map) | **{p_map:.1%}** |",
+            f"| Model P({ta} wins series) | **{sp.get('series_win_a', 0):.1%}** |",
+            f"| P(goes to map 3) | {sp.get('goes_to_3', 0):.1%} |",
+        ]
+
+    lines += [
+        f"",
+        f"## 💰 P&L",
+        f"| Field | Value |",
+        f"|-------|-------|",
+        f"| Realized P/L | **${realized_pnl:+.2f}** |",
+        f"| Unrealized P/L | ${unrealized_pnl:+.2f} |",
+        f"| Total risked | ${total_risked:.2f} |",
+        f"| Buys | {len(buys)} |",
+        f"| Exits | {len(exits)} |",
+        f"| Win rate | {len(wins)}/{len(exits)} ({len(wins)/len(exits)*100:.0f}%)" if exits else "| Win rate | n/a |",
+    ]
+
+    if positions:
+        lines += [f"", f"## 📋 Open Positions"]
+        lines += ["| Market | Outcome | Shares | Avg Price | Entry Round |",
+                  "|--------|---------|--------|-----------|-------------|"] 
+        for pos in positions.values():
+            lines.append(f"| {pos.market_label} | {pos.outcome} | "
+                         f"{pos.shares:.0f} | ${pos.avg_price:.3f} | R{pos.entry_round} |")
+
+    if trades:
+        lines += [f"", f"## 📝 Trade Log"]
+        lines += ["| Time | Market | Action | Outcome | Price | Model% | Edge | P/L |",
+                  "|------|--------|--------|---------|-------|--------|------|-----|"] 
+        for t in trades[-20:]:  # Last 20 trades
+            pnl_str = f"${t.pnl:+.2f}" if t.action != "BUY" else "-"
+            lines.append(f"| {t.time} | {t.market} | {t.action} | {t.outcome} | "
+                         f"${t.price:.3f} | {t.model_prob:.0%} | {t.edge:+.1%} | {pnl_str} |")
+
+    if snapshots:
+        lines += [f"", f"## 📈 Round History (last 10)"]
+        lines += ["| Time | Round | Score | Side | Map% | Series% | Money A | Money B | Buy A/B | Kills | Edge |",
+                  "|------|-------|-------|------|------|---------|---------|---------|---------|-------|------|"] 
+        for snap in snapshots[-10:]:
+            edge_str = f"{snap.edge_winner:+.1%}" if snap.edge_winner else "-"
+            lines.append(
+                f"| {snap.time} | R{snap.round_num} | {snap.score} "
+                f"| {snap.side_a} | {snap.model_map_prob:.0%} "
+                f"| {snap.model_series_prob:.0%} "
+                f"| ${snap.money_a//1000}k | ${snap.money_b//1000}k "
+                f"| {snap.buy_type_a}/{snap.buy_type_b} "
+                f"| {snap.kills_a}-{snap.kills_b} | {edge_str} |")
+
+    lines += [f"", f"---", f"*Auto-updated every 5 minutes by live.py*"]
+    return "\n".join(lines)
 
 
 def _resolve_map_position(pos, games, teams):
