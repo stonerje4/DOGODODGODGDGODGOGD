@@ -644,19 +644,31 @@ def run(series_id, pm_slug, poll_interval=10, prior_override=None, log_dir=None)
                     unrealized = (book[held_key]["bid"] - pos.avg_price) * pos.shares
                     snap_unrealized += unrealized
 
+                # Late-game force-exit: if map is nearly decided and we're
+                # underwater, sell now rather than risk resolution at $0.
+                # "Nearly decided" = one team needs 1 more round to win.
+                max_score = max(ms_a, ms_b)
+                force_exit = False
+                if max_score >= config.ROUNDS_TO_WIN - 1 and unrealized < 0:
+                    force_exit = True
+                    sell = True
+                    bid = book[held_key]["bid"]
+
                 if sell and bid:
                     pnl = (bid - fee - pos.avg_price) * pos.shares
                     realized_pnl += pnl
                     gamma_mid = gamma_price_a if pos.outcome_idx == oidx_a else (1 - gamma_price_a)
+                    exit_reason = "FORCE-EXIT" if force_exit else "SELL"
                     trades.append(Trade(now, f.round_num, ai + 1, mn, label,
-                                        "SELL", pos.outcome, pos.shares,
+                                        exit_reason, pos.outcome, pos.shares,
                                         bid, held_prob, gamma_mid,
                                         held_prob - bid, pnl))
-                    snap_action += f"SELL {label} {pos.outcome} P/L:${pnl:+.2f}  "
-                    print(f"  >>> SELL {label}: {pos.outcome} "
+                    snap_action += f"{exit_reason} {label} {pos.outcome} P/L:${pnl:+.2f}  "
+                    print(f"  >>> {exit_reason} {label}: {pos.outcome} "
                           f"@ ${bid:.3f} | bought ${pos.avg_price:.3f} "
                           f"| P/L: ${pnl:+.2f} "
-                          f"| model:{held_prob:.0%} < bid:{bid:.0%}", flush=True)
+                          f"| model:{held_prob:.0%}"
+                          f"{' (map point!)' if force_exit else ''}", flush=True)
                     del positions[slug_key]
                 else:
                     if book[held_key]["bid"]:
@@ -688,7 +700,7 @@ def run(series_id, pm_slug, poll_interval=10, prior_override=None, log_dir=None)
             elif suffix.startswith("-game"):
                 snap_edge_map = best_edge if best_edge else (prob_a - gamma_price_a - fee)
 
-            if best_side and best_side["edge"] > 0:
+            if best_side and best_side["edge"] >= config.MIN_EDGE_THRESHOLD:
                 s = best_side
                 # Kelly with REAL available capital
                 open_exposure = sum(
