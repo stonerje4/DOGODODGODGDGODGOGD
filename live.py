@@ -314,6 +314,82 @@ def git_push_log(log_dir, status_md=None):
 
 # ── Main ─────────────────────────────────────────────────────────────────────
 
+def _get_starting_prior(pm, pm_slug):
+    """
+    Get the pre-match starting odds for team A.
+
+    Priority:
+    1. data/starting_odds.json (backfilled historical prices)
+    2. PM CLOB price history: median price 60-5 min before game start
+    3. Current PM Gamma price (may be mid-match if called late — warns)
+
+    Returns (prior_float, source_string)
+    """
+    import requests as _req
+
+    # 1. Check backfilled starting odds
+    try:
+        odds_path = os.path.join(config.DATA_DIR, "starting_odds.json")
+        if os.path.exists(odds_path):
+            with open(odds_path) as f:
+                odds_list = json.load(f)
+            for entry in odds_list:
+                if entry.get("slug") == pm_slug:
+                    return entry["starting_odd_a"], "backfilled"
+    except Exception:
+        pass
+
+    # 2. Try PM CLOB price history (pre-match window)
+    try:
+        mkt = pm.get_market_by_slug(pm_slug)
+        if mkt:
+            token_ids = pm.get_clob_token_ids(mkt)
+            game_start_str = mkt.get("gameStartTime", "")
+            if token_ids and game_start_str:
+                # Parse game start time
+                gs = game_start_str.replace(" ", "T").replace("+00:00", "Z")
+                from datetime import datetime, timezone
+                try:
+                    dt = datetime.fromisoformat(gs.replace("Z", "+00:00"))
+                    start_ts = int(dt.timestamp())
+                    # Get prices from 60 min to 5 min before start
+                    window_start = start_ts - 3600
+                    window_end = start_ts - 300
+                    resp = _req.get(
+                        f"{config.POLYMARKET_CLOB_URL}/prices-history",
+                        params={
+                            "market": token_ids[0],
+                            "startTs": window_start,
+                            "endTs": window_end,
+                            "fidelity": 1,
+                        },
+                        timeout=10,
+                    )
+                    if resp.status_code == 200:
+                        hist = resp.json().get("history", [])
+                        if len(hist) >= 3:
+                            prices = [h["p"] for h in hist]
+                            median_p = sorted(prices)[len(prices) // 2]
+                            return float(median_p), "clob_history"
+                except Exception:
+                    pass
+    except Exception:
+        pass
+
+    # 3. Fall back to current PM price (may be mid-match)
+    try:
+        mkt = pm.get_market_by_slug(pm_slug)
+        if mkt:
+            prices = pm.extract_prices(mkt)
+            outcomes = list(prices.keys())
+            if outcomes:
+                return prices[outcomes[0]], "current_pm_price"
+    except Exception:
+        pass
+
+    return 0.50, "fallback_50_50"
+
+
 def run(series_id, pm_slug, poll_interval=10, prior_override=None, log_dir=None):
     grid = GridClient()
     pm = PolymarketClient()
@@ -361,26 +437,25 @@ def run(series_id, pm_slug, poll_interval=10, prior_override=None, log_dir=None)
         match_prior = prior_override
         print(f"\nUsing manual prior: {match_prior:.0%}", flush=True)
     else:
-        print("\nGrabbing starting odds from Polymarket...", flush=True)
-        try:
-            mkt = pm.get_market_by_slug(pm_slug)
-            if mkt:
-                prices = pm.extract_prices(mkt)
-                outcomes = list(prices.keys())
-                pm_cache[pm_slug] = mkt
-                pm_outcomes_cache[pm_slug] = outcomes
-                match_prior = prices[outcomes[0]] if outcomes else 0.50
-                team_a_name = outcomes[0] if outcomes else "Team A"
-                team_b_name = outcomes[1] if len(outcomes) > 1 else "Team B"
-                print(f"  Match winner market found: {outcomes}", flush=True)
-                print(f"  Starting odds: {team_a_name} {match_prior:.0%} / "
-                      f"{team_b_name} {1-match_prior:.0%}", flush=True)
-            else:
-                match_prior = 0.50
-                print(f"  WARNING: No PM market found for {pm_slug}, using 50/50", flush=True)
-        except Exception as e:
-            match_prior = 0.50
-            print(f"  WARNING: PM fetch failed ({e}), using 50/50", flush=True)
+        match_prior, prior_source = _get_starting_prior(pm, pm_slug)
+        print(f"  Prior ({prior_source}): {match_prior:.0%}", flush=True)
+        if match_prior > 0.92 or match_prior < 0.08:
+            print("  WARNING: Looks mid-match - consider --prior 0.XX to override.",
+                  flush=True)
+
+    # Populate outcome names + PM cache
+    try:
+        mkt = pm.get_market_by_slug(pm_slug)
+        if mkt:
+            prices = pm.extract_prices(mkt)
+            outcomes = list(prices.keys())
+            pm_cache[pm_slug] = mkt
+            pm_outcomes_cache[pm_slug] = outcomes
+            team_a_name = outcomes[0] if outcomes else "Team A"
+            team_b_name = outcomes[1] if len(outcomes) > 1 else "Team B"
+            print(f"  Teams (PM): {team_a_name} vs {team_b_name}", flush=True)
+    except Exception:
+        pass
 
     if match_prior > 0.92 or match_prior < 0.08:
         print(f"\n  ⚠ Prior {match_prior:.0%} looks mid-match!", flush=True)
