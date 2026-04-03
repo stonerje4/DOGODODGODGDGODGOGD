@@ -107,6 +107,8 @@ KELLY_FRACTION = 0.25           # Quarter-Kelly for safety
 DEFAULT_BANKROLL = 1000         # Starting bankroll in dollars
 POLYMARKET_TAKER_FEE = 0.03     # 3% taker fee
 POLYMARKET_ORDER_DELAY_SEC = 3  # Built-in order delay
+MIN_LIQUIDITY = 50_000          # Skip markets with < $50K liquidity
+MIN_ROUND_TO_TRADE = 4          # Don't trade before round 4 (skip pistol noise)
 
 # ── Data paths ───────────────────────────────────────────────────────────────
 import os
