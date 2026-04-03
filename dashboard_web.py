@@ -132,6 +132,7 @@ def get_all_matches():
 
 
 @app.route("/api/matches")
+@app.route("/cs2/api/matches")
 def api_matches():
     matches = get_all_matches()
     return jsonify({
@@ -343,7 +344,7 @@ function toggleMatch(slug) {
 }
 
 function update() {
-    fetch('/api/matches')
+    fetch('/cs2/api/matches')
         .then(r => r.json())
         .then(data => {
             document.getElementById('update-time').textContent = data.now;

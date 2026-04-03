@@ -130,3 +130,12 @@ Watching series 2912651...
   WINNER: HOLD Team Nemesis @ $0.690 | mtm: $-1.30 | model:72%
   O/U: HOLD Under @ $0.520 | mtm: $-28.04 | model:44%
   [P/L] realized: $-8.15 | unrealized: $-29.34 | exposure: $271 | open(3): ECSTATIC@$0.76 | Team Nemesis@$0.69 | Under@$0.52
+[14:11:50] 0-1  M1(mirage):9-13  M2(ancient):1-1< R1(T) | ECSTATIC map:56% series:28% | $4k/$4k (pistol/pistol) K:0-0 FK:0-0
+  WINNER: HOLD Team Nemesis @ $0.690 | mtm: $+3.91 | model:72%
+  O/U: HOLD Under @ $0.520 | mtm: $-9.35 | model:44%
+  [P/L] realized: $-8.15 | unrealized: $-5.43 | exposure: $271 | open(3): ECSTATIC@$0.76 | Team Nemesis@$0.69 | Under@$0.52
+[14:12:01] 0-1  M1(mirage):9-13  M2(ancient):1-1< R2(T) | ECSTATIC map:68% series:34% | $0k/$11k (pistol/eco) K:5-2 FK:1-0
+  >>> SELL WINNER: Team Nemesis @ $0.720 | bought $0.690 | P/L: $+0.00 | model:66%
+  >>> BUY MAP2: ECSTATIC $82 @ $0.440 | edge:+21.1% | depth:$5843 | model:68% | avail:$819
+  >>> SELL O/U: Under @ $0.500 | bought $0.520 | P/L: $-7.79 | model:32%
+  [P/L] realized: $-15.94 | unrealized: $+0.80 | exposure: $182 | open(2): ECSTATIC@$0.76 | ECSTATIC@$0.44

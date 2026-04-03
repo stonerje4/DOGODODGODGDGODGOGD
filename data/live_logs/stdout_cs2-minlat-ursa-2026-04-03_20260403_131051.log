@@ -15,3 +15,11 @@ Watching series 2912555...
 [14:11:14] 0-0  M1(nuke):1-0< R1(T) | MINLATE map:54% series:54% | $4k/$4k (pistol/pistol) K:0-0 FK:0-0
   >>> BUY WINNER: MINLATE $67 @ $0.340 | edge:+17.0% | depth:$3720 | model:54% | avail:$1000
   [P/L] realized: $+0.00 | unrealized: $+0.00 | exposure: $67 | open(1): MINLATE@$0.34
+  [log] Excel + LIVE_STATUS.md pushed (1 rows)
+[14:12:18] 0-0  M1(nuke):2-0< R1(T) | MINLATE map:54% series:54% | $4k/$4k (pistol/pistol) K:0-0 FK:0-0
+  WINNER: HOLD MINLATE @ $0.340 | mtm: $-11.89 | model:54%
+  [P/L] realized: $+0.00 | unrealized: $-11.89 | exposure: $67 | open(1): MINLATE@$0.34
+[14:12:29] 0-0  M1(nuke):2-0< R2(T) | MINLATE map:67% series:60% | $0k/$11k (pistol/eco) K:5-1 FK:0-1
+  WINNER: HOLD MINLATE @ $0.340 | mtm: $-13.87 | model:60%
+  >>> BUY MAP1: MINLATE $86 @ $0.440 | edge:+19.6% | depth:$8332 | model:67% | avail:$933
+  [P/L] realized: $+0.00 | unrealized: $-13.87 | exposure: $154 | open(2): MINLATE@$0.34 | MINLATE@$0.44
