@@ -1,48 +1,60 @@
 # CS2 Live Paper Trader — 🟢 LIVE
 
-**Last update:** 2026-04-03 18:29:12 UTC  
-**Match:** `cs2-justpl-tnc-2026-04-03`  
-**Teams:** Just_Players vs TNC esports  
+**Last update:** 2026-04-03 18:33:28 UTC  
+**Match:** `cs2-bb3-hero-2026-04-03`  
+**Teams:** TNT vs Heroic Academy  
 
 ## 📊 Current State
 | Field | Value |
 |-------|-------|
-| Series Score | Just_Players **1** — **0** TNC esports |
-| Map 1 (ancient) | 4 — 5 |
-| Round | 9 |
-| Model P(Just_Players wins map) | **40.8%** |
-| Model P(Just_Players wins series) | **70.4%** |
-| P(goes to map 3) | 59.2% |
+| Series Score | TNT **0** — **1** Heroic Academy |
+| Map 1 (dust2) | 11 — 1 |
+| Round | 11 |
+| Model P(TNT wins map) | **98.3%** |
+| Model P(TNT wins series) | **49.1%** |
+| P(goes to map 3) | 98.3% |
 
 ## 💰 P&L
 | Field | Value |
 |-------|-------|
-| Realized P/L | **$-10.12** |
-| Unrealized P/L | $+0.00 |
-| Total risked | $41.60 |
-| Buys | 1 |
-| Exits | 1 |
-| Win rate | 0/1 (0%)
+| Realized P/L | **$-121.26** |
+| Unrealized P/L | $-13.75 |
+| Total risked | $320.82 |
+| Buys | 5 |
+| Exits | 4 |
+| Win rate | 1/4 (25%)
+
+## 📋 Open Positions
+| Market | Outcome | Shares | Avg Price | Entry Round |
+|--------|---------|--------|-----------|-------------|
+| WINNER | Heroic | 138 | $0.540 | R2 |
 
 ## 📝 Trade Log
 | Time | Market | Action | Outcome | Price | Model% | Edge | P/L |
 |------|--------|--------|---------|-------|--------|------|-----|
-| 17:10:26 | WINNER | BUY | TNC | $0.370 | 52% | +11.6% | - |
-| 17:35:12 | WINNER | SELL | TNC | $0.310 | 28% | -3.1% | $-10.12 |
+| 17:12:51 | WINNER | BUY | BetBoom Team | $0.290 | 56% | +23.9% | - |
+| 17:12:51 | MAP1 | BUY | BetBoom Team | $0.140 | 64% | +47.4% | - |
+| 18:12:47 | MAP1 | RESOLVE | BetBoom Team | $0.000 | 0% | +0.0% | $-91.20 |
+| 18:14:11 | WINNER | SELL | BetBoom Team | $0.470 | 25% | -22.1% | $+45.53 |
+| 18:15:24 | WINNER | BUY | Heroic | $0.540 | 70% | +12.8% | - |
+| 18:15:24 | MAP2 | BUY | Heroic | $0.220 | 40% | +14.5% | - |
+| 18:15:24 | O/U | BUY | Under | $0.280 | 40% | +8.5% | - |
+| 18:28:31 | MAP2 | FORCE-EXIT | Heroic | $0.001 | 4% | +3.6% | $-50.79 |
+| 18:28:31 | O/U | FORCE-EXIT | Under | $0.001 | 4% | +3.6% | $-24.81 |
 
 ## 📈 Round History (last 10)
 | Time | Round | Score | Side | Map% | Series% | Money A | Money B | Buy A/B | Kills | Edge |
 |------|-------|-------|------|------|---------|---------|---------|---------|-------|------|
-| 18:18:57 | R4 | 3-1 | CT | 69% | 85% | $1k | $8k | pistol/eco | 14-8 | -0.5% |
-| 18:21:14 | R4 | 3-2 | CT | 69% | 85% | $1k | $8k | pistol/eco | 14-8 | -3.5% |
-| 18:21:26 | R5 | 3-2 | CT | 57% | 78% | $9k | $4k | eco/eco | 18-13 | -9.7% |
-| 18:23:00 | R6 | 3-3 | CT | 45% | 72% | $7k | $0k | eco/pistol | 20-18 | -5.5% |
-| 18:24:25 | R6 | 4-3 | CT | 45% | 72% | $7k | $0k | eco/pistol | 20-18 | -6.5% |
-| 18:24:36 | R7 | 4-3 | CT | 38% | 69% | $6k | $6k | eco/eco | 21-23 | -6.0% |
-| 18:27:02 | R7 | 4-4 | CT | 38% | 69% | $6k | $6k | eco/eco | 21-23 | -9.0% |
-| 18:27:14 | R8 | 4-4 | CT | 55% | 77% | $9k | $4k | eco/eco | 26-25 | -2.4% |
-| 18:28:59 | R8 | 4-5 | CT | 55% | 77% | $9k | $4k | eco/eco | 26-25 | -15.6% |
-| 18:29:10 | R9 | 4-5 | CT | 41% | 70% | $10k | $0k | eco/pistol | 29-30 | -2.4% |
+| 18:23:32 | R6 | 6-0 | CT | 82% | 41% | $7k | $0k | eco/pistol | 25-8 | - |
+| 18:24:36 | R6 | 7-0 | CT | 82% | 41% | $7k | $0k | eco/pistol | 25-8 | - |
+| 18:24:47 | R7 | 7-0 | CT | 87% | 43% | $11k | $9k | eco/eco | 30-12 | - |
+| 18:26:22 | R8 | 8-0 | CT | 91% | 46% | $1k | $2k | pistol/pistol | 35-13 | - |
+| 18:28:18 | R8 | 9-0 | CT | 91% | 46% | $1k | $2k | pistol/pistol | 35-13 | - |
+| 18:28:31 | R9 | 9-0 | CT | 96% | 48% | $4k | $7k | eco/eco | 40-13 | - |
+| 18:29:34 | R9 | 10-0 | CT | 96% | 48% | $4k | $7k | eco/eco | 40-13 | - |
+| 18:29:46 | R10 | 10-0 | CT | 97% | 48% | $7k | $0k | eco/pistol | 45-14 | - |
+| 18:31:31 | R11 | 11-0 | CT | 98% | 49% | $9k | $6k | eco/eco | 50-17 | - |
+| 18:33:27 | R11 | 11-1 | CT | 98% | 49% | $9k | $6k | eco/eco | 50-17 | - |
 
 ---
 *Auto-updated every 5 minutes by live.py*
