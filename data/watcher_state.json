@@ -1,1 +1,54 @@
-{"launched": {"2912652": {"ts": 1775231115.0659204, "pid": 3908456, "slug": "cs2-ecs-nem-2026-04-03", "teams": "ESC Gaming vs Nemesis", "log": "./data/live_logs/stdout_cs2-ecs-nem-2026-04-03_20260403_154515.log"}, "2921135": {"ts": 1775232117.1484494, "pid": 3908830, "slug": "cs2-bb3-hero-2026-04-03", "teams": "TNT vs Heroic Academy", "log": "./data/live_logs/stdout_cs2-bb3-hero-2026-04-03_20260403_160157.log"}, "2921134": {"ts": 1775232117.1502867, "pid": 3908831, "slug": "cs2-don-g2a-2026-04-03", "teams": "G2 Ares vs DONSTU ESPORTS", "log": "./data/live_logs/stdout_cs2-don-g2a-2026-04-03_20260403_160157.log"}, "2921133": {"ts": 1775232117.1514165, "pid": 3908832, "slug": "cs2-atreid-qua1-2026-04-03", "teams": "Atreides vs QUAZAR", "log": "./data/live_logs/stdout_cs2-atreid-qua1-2026-04-03_20260403_160157.log"}, "2921131": {"ts": 1775232117.1526678, "pid": 3908833, "slug": "cs2-js1-mana-2026-04-03", "teams": "Johnny Speeds vs Mana Esports", "log": "./data/live_logs/stdout_cs2-js1-mana-2026-04-03_20260403_160157.log"}, "2912556": {"ts": 1775232117.1537037, "pid": 3908834, "slug": "cs2-sta6-rust-2026-04-03", "teams": "STATE vs Rustec", "log": "./data/live_logs/stdout_cs2-sta6-rust-2026-04-03_20260403_160157.log"}, "2921138": {"ts": 1775232117.1547816, "pid": 3908835, "slug": "cs2-justpl-tnc-2026-04-03", "teams": "Just_Players vs TNC esports", "log": "./data/live_logs/stdout_cs2-justpl-tnc-2026-04-03_20260403_160157.log"}, "2921136": {"ts": 1775232117.1556578, "pid": 3908836, "slug": "cs2-unity-encea1-2026-04-03", "teams": "Team UNiTY vs ENCE Academy", "log": "./data/live_logs/stdout_cs2-unity-encea1-2026-04-03_20260403_160157.log"}}, "updated": 1775233017.1878805}
+{
+  "launched": {
+    "2921135": {
+      "ts": 1775232117.1484494,
+      "pid": 3908830,
+      "slug": "cs2-bb3-hero-2026-04-03",
+      "teams": "TNT vs Heroic Academy",
+      "log": "./data/live_logs/stdout_cs2-bb3-hero-2026-04-03_20260403_160157.log"
+    },
+    "2921134": {
+      "ts": 1775232117.1502867,
+      "pid": 3908831,
+      "slug": "cs2-don-g2a-2026-04-03",
+      "teams": "G2 Ares vs DONSTU ESPORTS",
+      "log": "./data/live_logs/stdout_cs2-don-g2a-2026-04-03_20260403_160157.log"
+    },
+    "2921133": {
+      "ts": 1775232117.1514165,
+      "pid": 3908832,
+      "slug": "cs2-atreid-qua1-2026-04-03",
+      "teams": "Atreides vs QUAZAR",
+      "log": "./data/live_logs/stdout_cs2-atreid-qua1-2026-04-03_20260403_160157.log"
+    },
+    "2921131": {
+      "ts": 1775232117.1526678,
+      "pid": 3908833,
+      "slug": "cs2-js1-mana-2026-04-03",
+      "teams": "Johnny Speeds vs Mana Esports",
+      "log": "./data/live_logs/stdout_cs2-js1-mana-2026-04-03_20260403_160157.log"
+    },
+    "2912556": {
+      "ts": 1775232117.1537037,
+      "pid": 3908834,
+      "slug": "cs2-sta6-rust-2026-04-03",
+      "teams": "STATE vs Rustec",
+      "log": "./data/live_logs/stdout_cs2-sta6-rust-2026-04-03_20260403_160157.log"
+    },
+    "2921138": {
+      "ts": 1775232117.1547816,
+      "pid": 3908835,
+      "slug": "cs2-justpl-tnc-2026-04-03",
+      "teams": "Just_Players vs TNC esports",
+      "log": "./data/live_logs/stdout_cs2-justpl-tnc-2026-04-03_20260403_160157.log"
+    },
+    "2921136": {
+      "ts": 1775232117.1556578,
+      "pid": 3908836,
+      "slug": "cs2-unity-encea1-2026-04-03",
+      "teams": "Team UNiTY vs ENCE Academy",
+      "log": "./data/live_logs/stdout_cs2-unity-encea1-2026-04-03_20260403_160157.log"
+    }
+  },
+  "updated": 1775233165.2213929
+}

@@ -45,18 +45,35 @@ def normalize(name: str) -> str:
     return KNOWN_ALIASES.get(n, n)
 
 
-def teams_match(names_a: List[str], names_b: List[str]) -> bool:
-    """Check if two team name pairs refer to the same matchup."""
-    norm_a = {normalize(n) for n in names_a}
-    norm_b = {normalize(n) for n in names_b}
-    if norm_a == norm_b:
+def _name_similar(a: str, b: str) -> bool:
+    """Check if two normalized team names plausibly refer to the same team."""
+    if not a or not b:
+        return False
+    if a == b:
         return True
-    # Subset containment (handles abbreviations)
-    for a in norm_a:
-        for b in norm_b:
-            if a and b and (a in b or b in a):
-                return True
+    # Substring match only if the shorter string is ≥4 chars
+    # (avoids false positives like 'esc' matching random things)
+    shorter, longer = (a, b) if len(a) <= len(b) else (b, a)
+    if len(shorter) >= 4 and shorter in longer:
+        return True
     return False
+
+
+def teams_match(names_a: List[str], names_b: List[str]) -> bool:
+    """Check if two team name pairs refer to the same matchup.
+    
+    Requires BOTH teams to match (bipartite), not just one.
+    """
+    norm_a = [normalize(n) for n in names_a]
+    norm_b = [normalize(n) for n in names_b]
+    if set(norm_a) == set(norm_b):
+        return True
+    if len(norm_a) < 2 or len(norm_b) < 2:
+        return False
+    # Try both orderings: a0↔b0,a1↔b1  or  a0↔b1,a1↔b0
+    straight = _name_similar(norm_a[0], norm_b[0]) and _name_similar(norm_a[1], norm_b[1])
+    crossed  = _name_similar(norm_a[0], norm_b[1]) and _name_similar(norm_a[1], norm_b[0])
+    return straight or crossed
 
 
 # ── PM discovery: paginate all open markets, filter cs2- slugs ──────────────
