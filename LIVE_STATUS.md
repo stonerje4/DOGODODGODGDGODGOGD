@@ -1,63 +1,71 @@
-# CS2 Live Paper Trader — 🏁 FINISHED
+# CS2 Live Paper Trader — 🟢 LIVE
 
-**Last update:** 2026-04-03 14:42:47 UTC  
-**Match:** `cs2-cw-arise-2026-04-03`  
-**Teams:** Chinggis Warriors vs ARISE  
+**Last update:** 2026-04-03 14:44:47 UTC  
+**Match:** `cs2-ecs-nem-2026-04-03`  
+**Teams:** ECSTATIC vs Nemesis  
 
 ## 📊 Current State
 | Field | Value |
 |-------|-------|
-| Series Score | Chinggis Warriors **2** — **0** ARISE |
-| Map 0 (FINISHED) | 0 — 0 |
-| Round | 0 |
+| Series Score | ECSTATIC **0** — **1** Nemesis |
+| Map 1 (ancient) | 8 — 12 |
+| Round | 20 |
+| Model P(ECSTATIC wins map) | **5.7%** |
+| Model P(ECSTATIC wins series) | **2.8%** |
+| P(goes to map 3) | 5.7% |
 
 ## 💰 P&L
 | Field | Value |
 |-------|-------|
-| Realized P/L | **$-116.86** |
+| Realized P/L | **$-103.26** |
 | Unrealized P/L | $+0.00 |
-| Total risked | $164.37 |
-| Buys | 7 |
-| Exits | 7 |
-| Win rate | 0/7 (0%)
+| Total risked | $647.55 |
+| Buys | 11 |
+| Exits | 10 |
+| Win rate | 1/10 (10%)
 
 ## 📋 Open Positions
 | Market | Outcome | Shares | Avg Price | Entry Round |
 |--------|---------|--------|-----------|-------------|
-| WINNER | Team Arise | 211 | $0.190 | R4 |
-| MAP2 | Team Arise | 72 | $0.500 | R4 |
+| MAP1 | ECSTATIC | 132 | $0.760 | R10 |
 
 ## 📝 Trade Log
 | Time | Market | Action | Outcome | Price | Model% | Edge | P/L |
 |------|--------|--------|---------|-------|--------|------|-----|
-| 13:24:50 | MAP1 | BUY | Team Arise | $0.310 | 50% | +15.6% | - |
-| 13:26:54 | WINNER | BUY | Team Arise | $0.260 | 42% | +12.7% | - |
-| 13:34:11 | MAP1 | SELL | Team Arise | $0.280 | 19% | -9.4% | $-1.69 |
-| 13:34:22 | MAP1 | BUY | Chinggis Warriors | $0.690 | 88% | +16.2% | - |
-| 13:43:58 | MAP1 | SELL | Chinggis Warriors | $0.680 | 53% | -15.3% | $-1.65 |
-| 13:45:13 | MAP1 | BUY | Team Arise | $0.320 | 57% | +22.1% | - |
-| 13:55:32 | WINNER | FORCE-EXIT | Team Arise | $0.120 | 29% | +16.6% | $-3.40 |
-| 13:55:32 | MAP1 | FORCE-EXIT | Team Arise | $0.001 | 13% | +12.6% | $-31.00 |
-| 13:56:56 | WINNER | BUY | Chinggis Warriors | $0.880 | 99% | +8.0% | - |
-| 14:14:48 | WINNER | SELL | Chinggis Warriors | $0.760 | 71% | -5.1% | $-2.98 |
-| 14:19:34 | WINNER | BUY | Team Arise | $0.190 | 35% | +12.5% | - |
-| 14:19:34 | MAP2 | BUY | Team Arise | $0.500 | 69% | +16.0% | - |
-| 14:42:46 | WINNER | RESOLVE | Team Arise | $0.000 | 0% | +0.0% | $-40.08 |
-| 14:42:46 | MAP2 | RESOLVE | Team Arise | $0.000 | 0% | +0.0% | $-36.07 |
+| 13:24:20 | MAP1 | SELL | ECSTATIC | $0.750 | 70% | -5.2% | $+26.32 |
+| 13:24:31 | MAP1 | BUY | Team Nemesis | $0.250 | 36% | +8.5% | - |
+| 13:27:29 | MAP1 | SELL | Team Nemesis | $0.260 | 21% | -5.2% | $-2.36 |
+| 13:29:56 | MAP1 | BUY | ECSTATIC | $0.760 | 88% | +9.5% | - |
+| 13:34:49 | WINNER | BUY | ECSTATIC | $0.600 | 73% | +9.6% | - |
+| 13:49:30 | WINNER | FORCE-EXIT | ECSTATIC | $0.300 | 40% | +10.3% | $-32.11 |
+| 13:51:15 | WINNER | BUY | Team Nemesis | $0.690 | 97% | +25.3% | - |
+| 13:51:15 | O/U | BUY | Under | $0.520 | 95% | +39.6% | - |
+| 14:12:01 | WINNER | SELL | Team Nemesis | $0.720 | 66% | -6.1% | $+0.00 |
+| 14:12:01 | MAP2 | BUY | ECSTATIC | $0.440 | 68% | +21.1% | - |
+| 14:12:01 | O/U | SELL | Under | $0.500 | 32% | -18.1% | $-7.79 |
+| 14:13:47 | O/U | BUY | Over | $0.410 | 68% | +24.1% | - |
+| 14:17:53 | MAP2 | SELL | ECSTATIC | $0.350 | 30% | -4.7% | $-22.26 |
+| 14:20:11 | MAP2 | BUY | ECSTATIC | $0.290 | 46% | +13.9% | - |
+| 14:24:58 | MAP2 | SELL | ECSTATIC | $0.280 | 22% | -5.5% | $-6.18 |
+| 14:27:25 | O/U | SELL | Over | $0.230 | 16% | -7.1% | $-12.11 |
+| 14:29:10 | MAP2 | BUY | ECSTATIC | $0.150 | 26% | +8.4% | - |
+| 14:30:56 | O/U | BUY | Over | $0.120 | 26% | +11.4% | - |
+| 14:38:12 | MAP2 | FORCE-EXIT | ECSTATIC | $0.001 | 1% | +1.0% | $-27.53 |
+| 14:38:12 | O/U | FORCE-EXIT | Over | $0.001 | 1% | +1.0% | $-19.23 |
 
 ## 📈 Round History (last 10)
 | Time | Round | Score | Side | Map% | Series% | Money A | Money B | Buy A/B | Kills | Edge |
 |------|-------|-------|------|------|---------|---------|---------|---------|-------|------|
-| 14:34:05 | R12 | 8-5 | CT | 66% | 83% | $7k | $0k | eco/pistol | 49-34 | - |
-| 14:34:16 | R13 | 8-5 | T | 69% | 84% | $4k | $4k | pistol/pistol | 54-36 | - |
-| 14:35:19 | R13 | 9-5 | T | 69% | 84% | $4k | $4k | pistol/pistol | 54-36 | - |
-| 14:35:30 | R14 | 9-5 | T | 75% | 88% | $0k | $11k | pistol/eco | 59-39 | - |
-| 14:36:24 | R14 | 10-5 | T | 75% | 88% | $0k | $11k | pistol/eco | 59-39 | - |
-| 14:36:36 | R15 | 10-5 | T | 78% | 89% | $5k | $9k | eco/eco | 64-42 | - |
-| 14:37:39 | R15 | 11-5 | T | 78% | 89% | $5k | $9k | eco/eco | 64-42 | - |
-| 14:37:51 | R16 | 11-5 | T | 89% | 94% | $0k | $9k | pistol/eco | 69-42 | - |
-| 14:40:18 | R16 | 12-5 | T | 89% | 94% | $0k | $9k | pistol/eco | 69-42 | - |
-| 14:40:29 | R17 | 12-5 | T | 98% | 99% | $5k | $11k | eco/eco | 74-44 | - |
+| 14:33:47 | R14 | 3-11 | CT | 5% | 2% | $11k | $0k | eco/pistol | 27-54 | -3.7% |
+| 14:36:05 | R15 | 3-12 | CT | 2% | 1% | $9k | $7k | eco/eco | 29-59 | -2.8% |
+| 14:38:01 | R16 | 4-12 | CT | 1% | 1% | $9k | $1k | eco/pistol | 31-62 | -3.4% |
+| 14:38:12 | R16 | 4-12 | CT | 1% | 1% | $9k | $1k | eco/pistol | 31-62 | -3.4% |
+| 14:40:40 | R17 | 5-12 | CT | 2% | 1% | $1k | $4k | pistol/eco | 36-66 | -3.6% |
+| 14:42:05 | R17 | 6-12 | CT | 2% | 1% | $1k | $4k | pistol/eco | 36-66 | -3.1% |
+| 14:42:16 | R18 | 6-12 | CT | 3% | 1% | $6k | $9k | eco/eco | 41-70 | -2.4% |
+| 14:43:20 | R19 | 7-12 | CT | 3% | 2% | $8k | $0k | eco/pistol | 46-70 | -2.6% |
+| 14:44:34 | R19 | 8-12 | CT | 3% | 2% | $8k | $0k | eco/pistol | 46-70 | -2.6% |
+| 14:44:46 | R20 | 8-12 | CT | 6% | 3% | $11k | $5k | eco/eco | 51-73 | -1.7% |
 
 ---
 *Auto-updated every 5 minutes by live.py*
