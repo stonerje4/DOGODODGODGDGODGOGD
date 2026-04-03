@@ -1,60 +1,58 @@
 # CS2 Live Paper Trader — 🟢 LIVE
 
-**Last update:** 2026-04-03 18:33:28 UTC  
-**Match:** `cs2-bb3-hero-2026-04-03`  
-**Teams:** TNT vs Heroic Academy  
+**Last update:** 2026-04-03 18:37:12 UTC  
+**Match:** `cs2-js1-mana-2026-04-03`  
+**Teams:** Johnny Speeds vs Mana Esports  
 
 ## 📊 Current State
 | Field | Value |
 |-------|-------|
-| Series Score | TNT **0** — **1** Heroic Academy |
-| Map 1 (dust2) | 11 — 1 |
-| Round | 11 |
-| Model P(TNT wins map) | **98.3%** |
-| Model P(TNT wins series) | **49.1%** |
-| P(goes to map 3) | 98.3% |
+| Series Score | Johnny Speeds **1** — **0** Mana Esports |
+| Map 1 (mirage) | 9 — 8 |
+| Round | 16 |
+| Model P(Johnny Speeds wins map) | **73.0%** |
+| Model P(Johnny Speeds wins series) | **86.5%** |
+| P(goes to map 3) | 27.0% |
 
 ## 💰 P&L
 | Field | Value |
 |-------|-------|
-| Realized P/L | **$-121.26** |
-| Unrealized P/L | $-13.75 |
-| Total risked | $320.82 |
-| Buys | 5 |
-| Exits | 4 |
-| Win rate | 1/4 (25%)
+| Realized P/L | **$-41.06** |
+| Unrealized P/L | $+12.92 |
+| Total risked | $128.34 |
+| Buys | 4 |
+| Exits | 2 |
+| Win rate | 0/2 (0%)
 
 ## 📋 Open Positions
 | Market | Outcome | Shares | Avg Price | Entry Round |
 |--------|---------|--------|-----------|-------------|
-| WINNER | Heroic | 138 | $0.540 | R2 |
+| WINNER | MANA eSports | 230 | $0.110 | R1 |
+| MAP2 | MANA eSports | 212 | $0.220 | R1 |
 
 ## 📝 Trade Log
 | Time | Market | Action | Outcome | Price | Model% | Edge | P/L |
 |------|--------|--------|---------|-------|--------|------|-----|
-| 17:12:51 | WINNER | BUY | BetBoom Team | $0.290 | 56% | +23.9% | - |
-| 17:12:51 | MAP1 | BUY | BetBoom Team | $0.140 | 64% | +47.4% | - |
-| 18:12:47 | MAP1 | RESOLVE | BetBoom Team | $0.000 | 0% | +0.0% | $-91.20 |
-| 18:14:11 | WINNER | SELL | BetBoom Team | $0.470 | 25% | -22.1% | $+45.53 |
-| 18:15:24 | WINNER | BUY | Heroic | $0.540 | 70% | +12.8% | - |
-| 18:15:24 | MAP2 | BUY | Heroic | $0.220 | 40% | +14.5% | - |
-| 18:15:24 | O/U | BUY | Under | $0.280 | 40% | +8.5% | - |
-| 18:28:31 | MAP2 | FORCE-EXIT | Heroic | $0.001 | 4% | +3.6% | $-50.79 |
-| 18:28:31 | O/U | FORCE-EXIT | Under | $0.001 | 4% | +3.6% | $-24.81 |
+| 17:12:19 | MAP1 | BUY | MANA eSports | $0.260 | 49% | +20.2% | - |
+| 17:18:32 | WINNER | BUY | MANA eSports | $0.190 | 31% | +9.0% | - |
+| 17:37:22 | MAP1 | FORCE-EXIT | MANA eSports | $0.020 | 3% | +1.3% | $-29.19 |
+| 17:43:18 | WINNER | FORCE-EXIT | MANA eSports | $0.140 | 26% | +11.8% | $-11.87 |
+| 18:04:37 | WINNER | BUY | MANA eSports | $0.110 | 23% | +8.7% | - |
+| 18:04:37 | MAP2 | BUY | MANA eSports | $0.220 | 45% | +20.4% | - |
 
 ## 📈 Round History (last 10)
 | Time | Round | Score | Side | Map% | Series% | Money A | Money B | Buy A/B | Kills | Edge |
 |------|-------|-------|------|------|---------|---------|---------|---------|-------|------|
-| 18:23:32 | R6 | 6-0 | CT | 82% | 41% | $7k | $0k | eco/pistol | 25-8 | - |
-| 18:24:36 | R6 | 7-0 | CT | 82% | 41% | $7k | $0k | eco/pistol | 25-8 | - |
-| 18:24:47 | R7 | 7-0 | CT | 87% | 43% | $11k | $9k | eco/eco | 30-12 | - |
-| 18:26:22 | R8 | 8-0 | CT | 91% | 46% | $1k | $2k | pistol/pistol | 35-13 | - |
-| 18:28:18 | R8 | 9-0 | CT | 91% | 46% | $1k | $2k | pistol/pistol | 35-13 | - |
-| 18:28:31 | R9 | 9-0 | CT | 96% | 48% | $4k | $7k | eco/eco | 40-13 | - |
-| 18:29:34 | R9 | 10-0 | CT | 96% | 48% | $4k | $7k | eco/eco | 40-13 | - |
-| 18:29:46 | R10 | 10-0 | CT | 97% | 48% | $7k | $0k | eco/pistol | 45-14 | - |
-| 18:31:31 | R11 | 11-0 | CT | 98% | 49% | $9k | $6k | eco/eco | 50-17 | - |
-| 18:33:27 | R11 | 11-1 | CT | 98% | 49% | $9k | $6k | eco/eco | 50-17 | - |
+| 18:24:20 | R11 | 6-6 | T | 68% | 84% | $9k | $4k | eco/eco | 36-28 | - |
+| 18:24:31 | R12 | 6-6 | T | 58% | 79% | $8k | $7k | eco/eco | 37-33 | - |
+| 18:29:13 | R13 | 6-7 | CT | 59% | 80% | $4k | $4k | pistol/pistol | 38-38 | - |
+| 18:31:19 | R13 | 7-7 | CT | 59% | 80% | $4k | $4k | pistol/pistol | 38-38 | - |
+| 18:31:31 | R14 | 7-7 | CT | 46% | 73% | $12k | $0k | eco/pistol | 42-43 | - |
+| 18:33:37 | R14 | 8-7 | CT | 46% | 73% | $12k | $0k | eco/pistol | 42-43 | - |
+| 18:33:49 | R15 | 8-7 | CT | 63% | 82% | $3k | $7k | pistol/eco | 47-44 | - |
+| 18:34:32 | R15 | 9-7 | CT | 63% | 82% | $3k | $7k | pistol/eco | 47-44 | - |
+| 18:34:43 | R16 | 9-7 | CT | 73% | 86% | $6k | $8k | eco/eco | 52-47 | - |
+| 18:37:10 | R16 | 9-8 | CT | 73% | 86% | $6k | $8k | eco/eco | 52-47 | - |
 
 ---
 *Auto-updated every 5 minutes by live.py*
