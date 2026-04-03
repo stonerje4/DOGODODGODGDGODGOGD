@@ -799,15 +799,22 @@ def run(series_id, pm_slug, poll_interval=10, prior_override=None, log_dir=None)
                     unrealized = (book[held_key]["bid"] - pos.avg_price) * pos.shares
                     snap_unrealized += unrealized
 
-                # Late-game force-exit: if map is nearly decided and we're
-                # underwater, sell now rather than risk resolution at $0.
-                # "Nearly decided" = one team needs 1 more round to win.
+                # Late-game force-exit: only when the team we bet AGAINST
+                # is at map point and we're underwater.
+                # Do NOT exit when our team is at map point (they're winning!).
                 max_score = max(ms_a, ms_b)
                 force_exit = False
                 if max_score >= config.ROUNDS_TO_WIN - 1 and unrealized < 0:
-                    force_exit = True
-                    sell = True
-                    bid = book[held_key]["bid"] or 0.001  # Use 0.001 if no bids
+                    # Which team is at map point?
+                    # pos.outcome_idx tells us which PM outcome we bought
+                    our_team_is_a = (pos.outcome_idx == oidx_a)
+                    our_team_score = ms_a if our_team_is_a else ms_b
+                    opp_team_score = ms_b if our_team_is_a else ms_a
+                    # Only force-exit if OPPONENT is at map point (winning)
+                    if opp_team_score >= config.ROUNDS_TO_WIN - 1:
+                        force_exit = True
+                        sell = True
+                        bid = book[held_key]["bid"] or 0.001
 
                 # Also force-exit if model says < 5% and we're holding
                 if held_prob < 0.05 and not sell:
