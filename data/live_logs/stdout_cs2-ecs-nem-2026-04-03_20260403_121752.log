@@ -126,3 +126,7 @@ Watching series 2912651...
   >>> BUY O/U: Under $81 @ $0.520 | edge:+39.6% | depth:$101 | model:95% | avail:$810
   [P/L] realized: $-8.15 | unrealized: $+0.00 | exposure: $271 | open(3): ECSTATIC@$0.76 | Team Nemesis@$0.69 | Under@$0.52
   [cache] Refreshed PM markets: ['cs2-ecs-nem-2026-04-03', 'cs2-ecs-nem-2026-04-03-game1', 'cs2-ecs-nem-2026-04-03-game2', 'cs2-ecs-nem-2026-04-03-total-games-2pt5']
+[14:10:05] 0-1  M1(mirage):9-13  M2(ancient):1-0< R1(T) | ECSTATIC map:56% series:28% | $4k/$4k (pistol/pistol) K:0-0 FK:0-0
+  WINNER: HOLD Team Nemesis @ $0.690 | mtm: $-1.30 | model:72%
+  O/U: HOLD Under @ $0.520 | mtm: $-28.04 | model:44%
+  [P/L] realized: $-8.15 | unrealized: $-29.34 | exposure: $271 | open(3): ECSTATIC@$0.76 | Team Nemesis@$0.69 | Under@$0.52

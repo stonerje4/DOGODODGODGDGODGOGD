@@ -41,7 +41,7 @@ def parse_log(lines):
             r"\[(\d+:\d+:\d+)\]\s+(\d+-\d+)"
             r"(.*?)"
             r"R(\d+)\((\w+)\)"
-            r"\s*\|\s*(\S+)\s+map:([\d.]+)%\s+series:([\d.]+)%"
+            r"\s*\|\s*(.+?)\s+map:([\d.]+)%\s+series:([\d.]+)%"
             r"\s*\|\s*\$(\d+)k/\$(\d+)k\s+\((\w+)/(\w+)\)"
             r"\s+K:(\d+-\d+)\s+FK:(\d+-\d+)", line)
         if m:
