@@ -1,56 +1,66 @@
 # CS2 Live Paper Trader — 🟢 LIVE
 
-**Last update:** 2026-04-03 18:21:32 UTC  
-**Match:** `cs2-sta6-rust-2026-04-03`  
-**Teams:** STATE vs Rustec  
+**Last update:** 2026-04-03 18:21:48 UTC  
+**Match:** `cs2-don-g2a-2026-04-03`  
+**Teams:** G2 Ares vs DONSTU ESPORTS  
 
 ## 📊 Current State
 | Field | Value |
 |-------|-------|
-| Series Score | STATE **0** — **0** Rustec |
-| Map 0 (nuke) | 6 — 6 |
-| Round | 12 |
-| Model P(STATE wins map) | **62.7%** |
-| Model P(STATE wins series) | **56.8%** |
-| P(goes to map 3) | 49.7% |
+| Series Score | G2 Ares **1** — **0** DONSTU ESPORTS |
+| Map 1 (overpass) | 2 — 4 |
+| Round | 6 |
+| Model P(G2 Ares wins map) | **43.1%** |
+| Model P(G2 Ares wins series) | **71.6%** |
+| P(goes to map 3) | 56.9% |
 
 ## 💰 P&L
 | Field | Value |
 |-------|-------|
-| Realized P/L | **$+3.06** |
-| Unrealized P/L | $-5.09 |
-| Total risked | $124.01 |
-| Buys | 3 |
-| Exits | 1 |
-| Win rate | 1/1 (100%)
+| Realized P/L | **$+895.11** |
+| Unrealized P/L | $+245.00 |
+| Total risked | $672.07 |
+| Buys | 8 |
+| Exits | 7 |
+| Win rate | 7/7 (100%)
 
 ## 📋 Open Positions
 | Market | Outcome | Shares | Avg Price | Entry Round |
 |--------|---------|--------|-----------|-------------|
-| WINNER | STATE | 183 | $0.390 | R2 |
-| MAP1 | STATE | 44 | $0.610 | R11 |
+| WINNER | G2 Ares | 500 | $0.200 | R1 |
 
 ## 📝 Trade Log
 | Time | Market | Action | Outcome | Price | Model% | Edge | P/L |
 |------|--------|--------|---------|-------|--------|------|-----|
-| 18:03:06 | WINNER | BUY | STATE | $0.390 | 59% | +16.6% | - |
-| 18:03:06 | MAP1 | BUY | STATE | $0.420 | 66% | +21.1% | - |
-| 18:08:07 | MAP1 | SELL | STATE | $0.500 | 47% | -3.2% | $+3.06 |
-| 18:19:46 | MAP1 | BUY | STATE | $0.610 | 79% | +14.9% | - |
+| 17:23:43 | WINNER | BUY | G2 Ares | $0.350 | 54% | +16.0% | - |
+| 17:26:50 | WINNER | SELL | G2 Ares | $0.690 | 54% | -15.0% | $+57.20 |
+| 17:27:01 | WINNER | BUY | G2 Ares | $0.340 | 46% | +9.5% | - |
+| 17:28:45 | WINNER | SELL | G2 Ares | $0.750 | 46% | -28.5% | $+41.92 |
+| 17:28:56 | WINNER | BUY | G2 Ares | $0.250 | 53% | +24.6% | - |
+| 17:29:38 | WINNER | SELL | G2 Ares | $0.730 | 53% | -20.4% | $+154.01 |
+| 17:29:49 | WINNER | BUY | G2 Ares | $0.270 | 57% | +26.8% | - |
+| 17:31:43 | WINNER | SELL | G2 Ares | $0.730 | 60% | -12.5% | $+152.51 |
+| 17:44:12 | WINNER | BUY | G2 Ares | $0.260 | 54% | +25.2% | - |
+| 17:45:56 | WINNER | SELL | G2 Ares | $0.720 | 62% | -10.1% | $+146.63 |
+| 17:48:32 | WINNER | BUY | G2 Ares | $0.250 | 68% | +39.7% | - |
+| 17:51:29 | WINNER | SELL | G2 Ares | $0.750 | 68% | -7.3% | $+188.00 |
+| 17:53:34 | WINNER | BUY | G2 Ares | $0.310 | 68% | +34.3% | - |
+| 18:13:19 | WINNER | SELL | G2 Ares | $0.820 | 77% | -4.6% | $+154.84 |
+| 18:14:33 | WINNER | BUY | G2 Ares | $0.200 | 77% | +54.4% | - |
 
 ## 📈 Round History (last 10)
 | Time | Round | Score | Side | Map% | Series% | Money A | Money B | Buy A/B | Kills | Edge |
 |------|-------|-------|------|------|---------|---------|---------|---------|-------|------|
-| 18:08:18 | R5 | 2-3 | T | 42% | 46% | $0k | $9k | pistol/eco | 9-18 | - |
-| 18:10:12 | R6 | 3-3 | T | 61% | 56% | $5k | $5k | eco/eco | 14-22 | - |
-| 18:12:27 | R7 | 4-3 | T | 68% | 59% | $0k | $2k | pistol/pistol | 17-23 | - |
-| 18:14:31 | R8 | 5-3 | T | 73% | 62% | $6k | $2k | eco/pistol | 22-26 | - |
-| 18:16:16 | R8 | 5-4 | T | 73% | 62% | $6k | $2k | eco/pistol | 22-26 | - |
-| 18:16:27 | R9 | 5-4 | T | 78% | 64% | $0k | $5k | pistol/eco | 27-29 | - |
-| 18:18:43 | R10 | 6-4 | T | 64% | 58% | $7k | $8k | eco/eco | 27-34 | - |
-| 18:19:46 | R11 | 6-5 | T | 79% | 65% | $3k | $11k | pistol/eco | 32-37 | - |
-| 18:21:20 | R11 | 6-6 | T | 79% | 65% | $3k | $11k | pistol/eco | 32-37 | - |
-| 18:21:31 | R12 | 6-6 | T | 63% | 57% | $1k | $2k | pistol/pistol | 35-42 | - |
+| 18:13:19 | R1 | 1-0 | T | 55% | 77% | $4k | $4k | pistol/pistol | 0-0 | - |
+| 18:14:33 | R1 | 2-0 | T | 55% | 77% | $4k | $4k | pistol/pistol | 0-0 | +54.4% |
+| 18:14:43 | R2 | 2-0 | T | 65% | 83% | $0k | $12k | pistol/eco | 4-4 | - |
+| 18:16:28 | R3 | 2-1 | T | 71% | 85% | $5k | $9k | eco/eco | 9-6 | - |
+| 18:18:14 | R3 | 2-2 | T | 71% | 85% | $5k | $9k | eco/eco | 9-6 | - |
+| 18:18:25 | R4 | 2-2 | T | 57% | 79% | $3k | $12k | pistol/eco | 10-11 | - |
+| 18:19:18 | R4 | 2-3 | T | 57% | 79% | $3k | $12k | pistol/eco | 10-11 | - |
+| 18:19:29 | R5 | 2-3 | T | 48% | 74% | $3k | $2k | pistol/pistol | 12-16 | - |
+| 18:21:35 | R5 | 2-4 | T | 48% | 74% | $3k | $2k | pistol/pistol | 12-16 | - |
+| 18:21:46 | R6 | 2-4 | T | 43% | 72% | $5k | $5k | eco/eco | 12-21 | - |
 
 ---
 *Auto-updated every 5 minutes by live.py*
