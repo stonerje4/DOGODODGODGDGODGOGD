@@ -40,3 +40,11 @@ Watching series 2922905...
   WINNER: HOLD Team Arise @ $0.260 | mtm: $-0.40 | model:32%
   MAP1: HOLD Team Arise @ $0.310 | mtm: $-8.43 | model:19%
   [P/L] realized: $+0.00 | unrealized: $-8.83 | exposure: $14 | open(2): Team Arise@$0.31 | Team Arise@$0.26
+[13:34:11] 0-0  M1(mirage):5-1< R5(CT) | Chinggis Warriors map:81% series:68% | $3k/$9k (pistol/eco) K:20-7 FK:3-1
+  WINNER: HOLD Team Arise @ $0.260 | mtm: $-0.40 | model:32%
+  >>> SELL MAP1: Team Arise @ $0.280 | bought $0.310 | P/L: $-1.69 | model:19%
+  [P/L] realized: $-1.69 | unrealized: $-1.24 | exposure: $5 | open(1): Team Arise@$0.26
+[13:34:22] 0-0  M1(mirage):5-1< R6(CT) | Chinggis Warriors map:88% series:72% | $7k/$7k (eco/eco) K:25-11 FK:4-1
+  WINNER: HOLD Team Arise @ $0.260 | mtm: $-0.20 | model:28%
+  >>> BUY MAP1: Chinggis Warriors $28 @ $0.690 | edge:+16.2% | depth:$76 | model:88% | avail:$995
+  [P/L] realized: $-1.69 | unrealized: $-0.20 | exposure: $34 | open(2): Team Arise@$0.26 | Chinggis Warriors@$0.69
