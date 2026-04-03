@@ -1,58 +1,56 @@
 # CS2 Live Paper Trader — 🟢 LIVE
 
-**Last update:** 2026-04-03 13:38:31 UTC  
-**Match:** `cs2-ecs-nem-2026-04-03`  
-**Teams:** ECSTATIC vs Nemesis  
+**Last update:** 2026-04-03 13:45:02 UTC  
+**Match:** `cs2-cw-arise-2026-04-03`  
+**Teams:** Chinggis Warriors vs ARISE  
 
 ## 📊 Current State
 | Field | Value |
 |-------|-------|
-| Series Score | ECSTATIC **0** — **0** Nemesis |
-| Map 0 (mirage) | 9 — 7 |
-| Round | 16 |
-| Model P(ECSTATIC wins map) | **72.3%** |
-| Model P(ECSTATIC wins series) | **63.1%** |
-| P(goes to map 3) | 48.2% |
+| Series Score | Chinggis Warriors **0** — **0** ARISE |
+| Map 0 (mirage) | 6 — 5 |
+| Round | 10 |
+| Model P(Chinggis Warriors wins map) | **52.7%** |
+| Model P(Chinggis Warriors wins series) | **54.1%** |
+| P(goes to map 3) | 49.7% |
 
 ## 💰 P&L
 | Field | Value |
 |-------|-------|
-| Realized P/L | **$+23.96** |
-| Unrealized P/L | $-58.07 |
-| Total risked | $287.88 |
-| Buys | 4 |
+| Realized P/L | **$-3.33** |
+| Unrealized P/L | $-0.80 |
+| Total risked | $42.33 |
+| Buys | 3 |
 | Exits | 2 |
-| Win rate | 1/2 (50%)
+| Win rate | 0/2 (0%)
 
 ## 📋 Open Positions
 | Market | Outcome | Shares | Avg Price | Entry Round |
 |--------|---------|--------|-----------|-------------|
-| MAP1 | ECSTATIC | 132 | $0.760 | R10 |
-| WINNER | ECSTATIC | 97 | $0.600 | R13 |
+| WINNER | Team Arise | 20 | $0.260 | R2 |
 
 ## 📝 Trade Log
 | Time | Market | Action | Outcome | Price | Model% | Edge | P/L |
 |------|--------|--------|---------|-------|--------|------|-----|
-| 13:21:01 | MAP1 | BUY | ECSTATIC | $0.570 | 81% | +21.3% | - |
-| 13:24:20 | MAP1 | SELL | ECSTATIC | $0.750 | 70% | -5.2% | $+26.32 |
-| 13:24:31 | MAP1 | BUY | Team Nemesis | $0.250 | 36% | +8.5% | - |
-| 13:27:29 | MAP1 | SELL | Team Nemesis | $0.260 | 21% | -5.2% | $-2.36 |
-| 13:29:56 | MAP1 | BUY | ECSTATIC | $0.760 | 88% | +9.5% | - |
-| 13:34:49 | WINNER | BUY | ECSTATIC | $0.600 | 73% | +9.6% | - |
+| 13:24:50 | MAP1 | BUY | Team Arise | $0.310 | 50% | +15.6% | - |
+| 13:26:54 | WINNER | BUY | Team Arise | $0.260 | 42% | +12.7% | - |
+| 13:34:11 | MAP1 | SELL | Team Arise | $0.280 | 19% | -9.4% | $-1.69 |
+| 13:34:22 | MAP1 | BUY | Chinggis Warriors | $0.690 | 88% | +16.2% | - |
+| 13:43:58 | MAP1 | SELL | Chinggis Warriors | $0.680 | 53% | -15.3% | $-1.65 |
 
 ## 📈 Round History (last 10)
 | Time | Round | Score | Side | Map% | Series% | Money A | Money B | Buy A/B | Kills | Edge |
 |------|-------|-------|------|------|---------|---------|---------|---------|-------|------|
-| 13:30:59 | R10 | 8-3 | CT | 88% | 71% | $7k | $0k | eco/pistol | 38-15 | +0.2% |
-| 13:31:10 | R11 | 8-3 | CT | 81% | 67% | $1k | $6k | pistol/eco | 39-20 | -3.3% |
-| 13:33:46 | R11 | 9-3 | CT | 81% | 67% | $1k | $6k | pistol/eco | 39-20 | -2.7% |
-| 13:33:57 | R12 | 9-3 | CT | 87% | 71% | $4k | $0k | eco/pistol | 44-24 | +2.6% |
-| 13:34:49 | R13 | 9-4 | T | 91% | 73% | $4k | $4k | pistol/pistol | 49-28 | +9.6% |
-| 13:35:31 | R13 | 9-5 | T | 91% | 73% | $4k | $4k | pistol/pistol | 49-28 | - |
-| 13:35:42 | R14 | 9-5 | T | 85% | 69% | $1k | $6k | pistol/eco | 49-33 | - |
-| 13:36:24 | R14 | 9-6 | T | 85% | 69% | $1k | $6k | pistol/eco | 49-33 | - |
-| 13:36:35 | R15 | 9-6 | T | 79% | 66% | $0k | $9k | pistol/eco | 50-38 | - |
-| 13:38:30 | R16 | 9-7 | T | 72% | 63% | $3k | $12k | pistol/eco | 51-43 | - |
+| 13:34:11 | R5 | 5-1 | CT | 81% | 68% | $3k | $9k | pistol/eco | 20-7 | - |
+| 13:34:22 | R6 | 5-1 | CT | 88% | 72% | $7k | $7k | eco/eco | 25-11 | - |
+| 13:36:49 | R6 | 5-2 | CT | 88% | 72% | $7k | $7k | eco/eco | 25-11 | - |
+| 13:37:00 | R7 | 5-2 | CT | 79% | 67% | $2k | $2k | pistol/pistol | 27-16 | - |
+| 13:38:44 | R7 | 5-3 | CT | 79% | 67% | $2k | $2k | pistol/pistol | 27-16 | - |
+| 13:38:55 | R8 | 5-3 | CT | 71% | 63% | $0k | $8k | pistol/eco | 28-20 | - |
+| 13:41:42 | R8 | 5-4 | CT | 71% | 63% | $0k | $8k | pistol/eco | 28-20 | - |
+| 13:41:53 | R9 | 5-4 | CT | 51% | 53% | $12k | $3k | eco/pistol | 29-24 | - |
+| 13:43:58 | R10 | 5-5 | CT | 53% | 54% | $2k | $9k | pistol/eco | 30-28 | - |
+| 13:45:01 | R10 | 6-5 | CT | 53% | 54% | $2k | $9k | pistol/eco | 30-28 | - |
 
 ---
 *Auto-updated every 5 minutes by live.py*
