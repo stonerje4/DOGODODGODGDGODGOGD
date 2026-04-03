@@ -114,3 +114,15 @@ Watching series 2922906...
 [13:40:34] 0-0  M1(ancient):10-6< R16(T) | The QUBE Esports map:71% series:60% | $1k/$7k (pistol/eco) K:57-45 FK:9-6
   WINNER: HOLD NSN @ $0.270 | mtm: $-7.29 | model:40%
   [P/L] realized: $+19.00 | unrealized: $-7.29 | exposure: $39 | open(1): NSN@$0.27
+[13:45:47] 0-0  M1(ancient):11-6< R16(T) | The QUBE Esports map:71% series:60% | $1k/$7k (pistol/eco) K:57-45 FK:9-6
+  WINNER: HOLD NSN @ $0.270 | mtm: $-18.96 | model:40%
+  [P/L] realized: $+19.00 | unrealized: $-18.96 | exposure: $39 | open(1): NSN@$0.27
+[13:45:58] 0-0  M1(ancient):11-6< R17(T) | The QUBE Esports map:87% series:68% | $7k/$2k (eco/pistol) K:58-47 FK:9-7
+  WINNER: HOLD NSN @ $0.270 | mtm: $-18.96 | model:32%
+  [P/L] realized: $+19.00 | unrealized: $-18.96 | exposure: $39 | open(1): NSN@$0.27
+[13:47:21] 0-0  M1(ancient):12-6< R17(T) | The QUBE Esports map:87% series:68% | $7k/$2k (eco/pistol) K:58-47 FK:9-7
+  >>> FORCE-EXIT WINNER: NSN @ $0.150 | bought $0.270 | P/L: $-21.88 | model:32% (map point!)
+  >>> BUY MAP1: NSN $6 @ $0.010 | edge:+9.1% | depth:$6 | model:13% | avail:$1000
+  [P/L] realized: $-2.88 | unrealized: $-17.50 | exposure: $6 | open(1): NSN@$0.01
+[13:47:32] 0-0  M1(ancient):12-6< R18(T) | The QUBE Esports map:93% series:71% | $1k/$0k (pistol/pistol) K:60-48 FK:9-8
+  [P/L] realized: $-2.88 | unrealized: $+0.00 | exposure: $6 | open(1): NSN@$0.01

@@ -388,6 +388,7 @@ def get_all_matches():
 
 
 @app.route("/")
+@app.route("/cs2")
 def index():
     matches = get_all_matches()
     live = [m for m in matches if not m["finished"] and m["has_data"]]
