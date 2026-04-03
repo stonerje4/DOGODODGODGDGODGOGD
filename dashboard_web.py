@@ -377,8 +377,6 @@ function renderMatch(m, status) {
             });
             html += `</tbody></table></div>`;
         }
-
-        }
     }
 
     html += `</div></div>`;

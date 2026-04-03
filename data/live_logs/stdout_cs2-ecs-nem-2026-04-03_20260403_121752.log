@@ -179,3 +179,11 @@ Watching series 2912651...
   MAP2: HOLD ECSTATIC @ $0.290 | mtm: $-10.82 | model:34%
   O/U: HOLD Over @ $0.410 | mtm: $-12.69 | model:34%
   [P/L] realized: $-38.21 | unrealized: $-23.51 | exposure: $168 | open(3): ECSTATIC@$0.76 | Over@$0.41 | ECSTATIC@$0.29
+[14:24:46] 0-1  M1(mirage):9-13  M2(ancient):2-7< R8(T) | ECSTATIC map:34% series:17% | $8k/$11k (eco/eco) K:16-27 FK:3-4
+  MAP2: HOLD ECSTATIC @ $0.290 | mtm: $-1.55 | model:34%
+  O/U: HOLD Over @ $0.410 | mtm: $-11.53 | model:34%
+  [P/L] realized: $-38.21 | unrealized: $-13.08 | exposure: $168 | open(3): ECSTATIC@$0.76 | Over@$0.41 | ECSTATIC@$0.29
+[14:24:58] 0-1  M1(mirage):9-13  M2(ancient):2-7< R9(T) | ECSTATIC map:22% series:11% | $1k/$1k (pistol/pistol) K:18-32 FK:3-5
+  >>> SELL MAP2: ECSTATIC @ $0.280 | bought $0.290 | P/L: $-6.18 | model:22%
+  O/U: HOLD Over @ $0.410 | mtm: $-10.96 | model:22%
+  [P/L] realized: $-44.39 | unrealized: $-12.50 | exposure: $124 | open(2): ECSTATIC@$0.76 | Over@$0.41
