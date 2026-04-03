@@ -1,18 +1,15 @@
-# CS2 Live Paper Trader — 🟢 LIVE
+# CS2 Live Paper Trader — 🏁 FINISHED
 
-**Last update:** 2026-04-03 13:13:14 UTC  
-**Match:** `cs2-ecs-nem-2026-04-03`  
-**Teams:** ECSTATIC vs Nemesis  
+**Last update:** 2026-04-03 13:13:50 UTC  
+**Match:** `cs2-tyloo-bmz-2026-04-03`  
+**Teams:** TYLOO vs BMZ  
 
 ## 📊 Current State
 | Field | Value |
 |-------|-------|
-| Series Score | ECSTATIC **0** — **0** Nemesis |
-| Map 0 (mirage) | 1 — 0 |
-| Round | 1 |
-| Model P(ECSTATIC wins map) | **50.4%** |
-| Model P(ECSTATIC wins series) | **52.2%** |
-| P(goes to map 3) | 50.0% |
+| Series Score | TYLOO **0** — **2** BMZ |
+| Map 0 (FINISHED) | 0 — 0 |
+| Round | 0 |
 
 ## 💰 P&L
 | Field | Value |
@@ -23,11 +20,6 @@
 | Buys | 0 |
 | Exits | 0 |
 | Win rate | n/a |
-
-## 📈 Round History (last 10)
-| Time | Round | Score | Side | Map% | Series% | Money A | Money B | Buy A/B | Kills | Edge |
-|------|-------|-------|------|------|---------|---------|---------|---------|-------|------|
-| 13:13:13 | R1 | 1-0 | CT | 50% | 52% | $4k | $4k | pistol/pistol | 0-0 | -4.3% |
 
 ---
 *Auto-updated every 5 minutes by live.py*
