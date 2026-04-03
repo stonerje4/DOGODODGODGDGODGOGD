@@ -15,3 +15,19 @@ Watching series 2922906...
 [13:07:16] 0-0  M1(ancient):1-0< R1(CT) | The QUBE Esports map:50% series:50% | $4k/$4k (pistol/pistol) K:0-0 FK:0-0
   >>> BUY MAP1: The QUBE Esports $16 @ $0.330 | edge:+13.5% | depth:$16 | model:50% | avail:$1000
   [P/L] realized: $+0.00 | unrealized: $+0.00 | exposure: $16 | open(1): The QUBE Esports@$0.33
+  [log] Excel + LIVE_STATUS.md pushed (1 rows)
+[13:08:40] 0-0  M1(ancient):2-0< R1(CT) | The QUBE Esports map:50% series:50% | $4k/$4k (pistol/pistol) K:0-0 FK:0-0
+  MAP1: HOLD The QUBE Esports @ $0.330 | mtm: $-5.50 | model:50%
+  [P/L] realized: $+0.00 | unrealized: $-5.50 | exposure: $16 | open(1): The QUBE Esports@$0.33
+[13:08:51] 0-0  M1(ancient):2-0< R2(CT) | The QUBE Esports map:59% series:54% | $8k/$5k (eco/eco) K:5-3 FK:0-1
+  MAP1: HOLD The QUBE Esports @ $0.330 | mtm: $-5.50 | model:59%
+  [P/L] realized: $+0.00 | unrealized: $-5.50 | exposure: $16 | open(1): The QUBE Esports@$0.33
+[13:10:24] 0-0  M1(ancient):2-1< R2(CT) | The QUBE Esports map:59% series:54% | $8k/$5k (eco/eco) K:5-3 FK:0-1
+  MAP1: HOLD The QUBE Esports @ $0.330 | mtm: $-5.50 | model:59%
+  [P/L] realized: $+0.00 | unrealized: $-5.50 | exposure: $16 | open(1): The QUBE Esports@$0.33
+[13:10:35] 0-0  M1(ancient):2-1< R3(CT) | The QUBE Esports map:62% series:56% | $10k/$5k (eco/eco) K:10-4 FK:1-1
+  MAP1: HOLD The QUBE Esports @ $0.330 | mtm: $-5.50 | model:62%
+  [P/L] realized: $+0.00 | unrealized: $-5.50 | exposure: $16 | open(1): The QUBE Esports@$0.33
+[13:12:08] 0-0  M1(ancient):3-1< R3(CT) | The QUBE Esports map:62% series:56% | $10k/$5k (eco/eco) K:10-4 FK:1-1
+  MAP1: HOLD The QUBE Esports @ $0.330 | mtm: $-5.50 | model:62%
+  [P/L] realized: $+0.00 | unrealized: $-5.50 | exposure: $16 | open(1): The QUBE Esports@$0.33
