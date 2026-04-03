@@ -123,3 +123,6 @@ Watching series 2912555...
   WINNER: HOLD MINLATE @ $0.340 | mtm: $+23.78 | model:75%
   >>> SELL MAP1: Ursa @ $0.190 | bought $0.350 | P/L: $-27.48 | model:3%
   [P/L] realized: $+7.75 | unrealized: $+0.64 | exposure: $67 | open(1): MINLATE@$0.34
+[14:41:24] 0-0  M1(nuke):11-8< R19(CT) | MINLATE map:94% series:74% | $1k/$7k (pistol/eco) K:66-57 FK:11-7
+  WINNER: HOLD MINLATE @ $0.340 | mtm: $+31.71 | model:74%
+  [P/L] realized: $+7.75 | unrealized: $+31.71 | exposure: $67 | open(1): MINLATE@$0.34
