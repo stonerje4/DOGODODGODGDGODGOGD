@@ -136,7 +136,9 @@ def get_all_matches():
                 seen.add(slug)
                 try:
                     with open(log) as f:
-                        lines = f.readlines()[-200:]
+                        all_lines = f.readlines()
+                    # Read header (first 20 lines) + tail (last 300)
+                    lines = all_lines[:20] + all_lines[-300:]
                     st = parse_log(lines)
                     st["slug"] = slug
                     matches.append(st)
