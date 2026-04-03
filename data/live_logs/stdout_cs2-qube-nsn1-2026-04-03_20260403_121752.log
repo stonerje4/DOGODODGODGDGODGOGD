@@ -11,3 +11,7 @@ LIVE PAPER TRADING
 Watching series 2922906...
 
   [cache] Refreshed PM markets: ['cs2-qube-nsn1-2026-04-03', 'cs2-qube-nsn1-2026-04-03-game1', 'cs2-qube-nsn1-2026-04-03-game2', 'cs2-qube-nsn1-2026-04-03-total-games-2pt5']
+  [cache] Refreshed PM markets: ['cs2-qube-nsn1-2026-04-03', 'cs2-qube-nsn1-2026-04-03-game1', 'cs2-qube-nsn1-2026-04-03-game2', 'cs2-qube-nsn1-2026-04-03-total-games-2pt5']
+[13:07:16] 0-0  M1(ancient):1-0< R1(CT) | The QUBE Esports map:50% series:50% | $4k/$4k (pistol/pistol) K:0-0 FK:0-0
+  >>> BUY MAP1: The QUBE Esports $16 @ $0.330 | edge:+13.5% | depth:$16 | model:50% | avail:$1000
+  [P/L] realized: $+0.00 | unrealized: $+0.00 | exposure: $16 | open(1): The QUBE Esports@$0.33
