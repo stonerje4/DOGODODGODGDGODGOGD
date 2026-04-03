@@ -1,67 +1,56 @@
-# CS2 Live Paper Trader — 🏁 FINISHED
+# CS2 Live Paper Trader — 🟢 LIVE
 
-**Last update:** 2026-04-03 18:50:58 UTC  
-**Match:** `cs2-js1-mana-2026-04-03`  
-**Teams:** Johnny Speeds vs Mana Esports  
+**Last update:** 2026-04-03 19:17:12 UTC  
+**Match:** `cs2-sta6-rust-2026-04-03`  
+**Teams:** STATE vs Rustec  
 
 ## 📊 Current State
 | Field | Value |
 |-------|-------|
-| Series Score | Johnny Speeds **2** — **0** Mana Esports |
-| Map 0 (FINISHED) | 0 — 0 |
-| Round | 0 |
+| Series Score | STATE **0** — **1** Rustec |
+| Map 1 (overpass) | 6 — 3 |
+| Round | 9 |
+| Model P(STATE wins map) | **66.4%** |
+| Model P(STATE wins series) | **33.2%** |
+| P(goes to map 3) | 66.4% |
 
 ## 💰 P&L
 | Field | Value |
 |-------|-------|
-| Realized P/L | **$-184.87** |
+| Realized P/L | **$-52.22** |
 | Unrealized P/L | $+0.00 |
-| Total risked | $314.57 |
-| Buys | 9 |
-| Exits | 9 |
-| Win rate | 2/9 (22%)
-
-## 📋 Open Positions
-| Market | Outcome | Shares | Avg Price | Entry Round |
-|--------|---------|--------|-----------|-------------|
-| O/U | Over | 1473 | $0.010 | R20 |
-| MAP2 | MANA eSports | 3848 | $0.010 | R22 |
+| Total risked | $223.55 |
+| Buys | 5 |
+| Exits | 5 |
+| Win rate | 2/5 (40%)
 
 ## 📝 Trade Log
 | Time | Market | Action | Outcome | Price | Model% | Edge | P/L |
 |------|--------|--------|---------|-------|--------|------|-----|
-| 17:12:19 | MAP1 | BUY | MANA eSports | $0.260 | 49% | +20.2% | - |
-| 17:18:32 | WINNER | BUY | MANA eSports | $0.190 | 31% | +9.0% | - |
-| 17:37:22 | MAP1 | FORCE-EXIT | MANA eSports | $0.020 | 3% | +1.3% | $-29.19 |
-| 17:43:18 | WINNER | FORCE-EXIT | MANA eSports | $0.140 | 26% | +11.8% | $-11.87 |
-| 18:04:37 | WINNER | BUY | MANA eSports | $0.110 | 23% | +8.7% | - |
-| 18:04:37 | MAP2 | BUY | MANA eSports | $0.220 | 45% | +20.4% | - |
-| 18:37:22 | MAP2 | SELL | MANA eSports | $0.270 | 19% | -8.0% | $+4.25 |
-| 18:40:00 | WINNER | SELL | MANA eSports | $0.190 | 9% | -9.5% | $+11.50 |
-| 18:40:00 | MAP2 | BUY | Johnny Speeds | $0.660 | 81% | +12.0% | - |
-| 18:43:31 | MAP2 | SELL | Johnny Speeds | $0.680 | 61% | -6.7% | $-0.73 |
-| 18:43:43 | WINNER | BUY | MANA eSports | $0.110 | 27% | +13.4% | - |
-| 18:45:38 | MAP2 | BUY | MANA eSports | $0.130 | 55% | +38.8% | - |
-| 18:47:56 | O/U | BUY | Over | $0.010 | 62% | +58.0% | - |
-| 18:49:32 | WINNER | FORCE-EXIT | MANA eSports | $0.001 | 19% | +18.7% | $-49.26 |
-| 18:49:32 | MAP2 | FORCE-EXIT | MANA eSports | $0.001 | 38% | +37.6% | $-56.37 |
-| 18:49:44 | MAP2 | BUY | MANA eSports | $0.010 | 22% | +18.0% | - |
-| 18:50:58 | O/U | RESOLVE | Over | $0.000 | 0% | +0.0% | $-14.73 |
-| 18:50:58 | MAP2 | RESOLVE | MANA eSports | $0.000 | 0% | +0.0% | $-38.48 |
+| 18:03:06 | WINNER | BUY | STATE | $0.390 | 59% | +16.6% | - |
+| 18:03:06 | MAP1 | BUY | STATE | $0.420 | 66% | +21.1% | - |
+| 18:08:07 | MAP1 | SELL | STATE | $0.500 | 47% | -3.2% | $+3.06 |
+| 18:19:46 | MAP1 | BUY | STATE | $0.610 | 79% | +14.9% | - |
+| 18:29:01 | WINNER | SELL | STATE | $0.480 | 40% | -8.1% | $+10.98 |
+| 18:29:01 | MAP1 | SELL | STATE | $0.530 | 29% | -24.3% | $-4.85 |
+| 18:35:47 | MAP1 | BUY | STATE | $0.380 | 52% | +11.3% | - |
+| 18:35:57 | WINNER | BUY | STATE | $0.350 | 56% | +18.0% | - |
+| 18:39:57 | WINNER | FORCE-EXIT | STATE | $0.230 | 41% | +18.3% | $-30.25 |
+| 18:39:57 | MAP1 | FORCE-EXIT | STATE | $0.001 | 32% | +31.4% | $-31.17 |
 
 ## 📈 Round History (last 10)
 | Time | Round | Score | Side | Map% | Series% | Money A | Money B | Buy A/B | Kills | Edge |
 |------|-------|-------|------|------|---------|---------|---------|---------|-------|------|
-| 18:40:00 | R17 | 9-9 | CT | 81% | 91% | $9k | $0k | eco/pistol | 57-48 | - |
-| 18:40:12 | R18 | 9-9 | CT | 61% | 81% | $3k | $5k | pistol/eco | 57-49 | -3.3% |
-| 18:43:31 | R18 | 9-10 | CT | 61% | 81% | $3k | $5k | pistol/eco | 57-49 | +1.3% |
-| 18:43:43 | R19 | 9-10 | CT | 45% | 73% | $1k | $0k | pistol/pistol | 60-53 | +13.4% |
-| 18:45:38 | R19 | 10-10 | CT | 45% | 73% | $1k | $0k | pistol/pistol | 60-53 | - |
-| 18:45:50 | R20 | 10-10 | CT | 38% | 69% | $2k | $6k | pistol/eco | 64-57 | - |
-| 18:47:56 | R20 | 11-10 | CT | 38% | 69% | $2k | $6k | pistol/eco | 64-57 | - |
-| 18:48:08 | R21 | 11-10 | CT | 62% | 81% | $5k | $3k | eco/pistol | 69-60 | - |
-| 18:49:32 | R21 | 12-10 | CT | 62% | 81% | $5k | $3k | eco/pistol | 69-60 | - |
-| 18:49:44 | R22 | 12-10 | CT | 78% | 89% | $8k | $8k | eco/eco | 74-62 | +7.0% |
+| 19:05:44 | R4 | 4-0 | CT | 66% | 33% | $3k | $8k | pistol/eco | 15-8 | -5.1% |
+| 19:07:49 | R4 | 5-0 | CT | 66% | 33% | $3k | $8k | pistol/eco | 15-8 | -2.1% |
+| 19:08:01 | R5 | 5-0 | CT | 73% | 37% | $7k | $6k | eco/eco | 20-11 | -7.8% |
+| 19:11:09 | R5 | 5-1 | CT | 73% | 37% | $7k | $6k | eco/eco | 20-11 | -7.8% |
+| 19:11:20 | R6 | 5-1 | CT | 79% | 39% | $9k | $0k | eco/pistol | 24-13 | -5.1% |
+| 19:12:46 | R6 | 6-1 | CT | 79% | 39% | $9k | $0k | eco/pistol | 24-13 | -5.1% |
+| 19:12:57 | R7 | 6-1 | CT | 72% | 36% | $4k | $5k | eco/eco | 25-15 | -2.2% |
+| 19:15:24 | R8 | 6-2 | CT | 80% | 40% | $6k | $0k | eco/pistol | 30-18 | -4.3% |
+| 19:16:59 | R8 | 6-3 | CT | 80% | 40% | $6k | $0k | eco/pistol | 30-18 | -4.3% |
+| 19:17:11 | R9 | 6-3 | CT | 66% | 33% | $2k | $6k | pistol/eco | 33-23 | -2.8% |
 
 ---
 *Auto-updated every 5 minutes by live.py*
