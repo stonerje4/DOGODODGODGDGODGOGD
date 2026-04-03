@@ -1,18 +1,15 @@
-# CS2 Live Paper Trader — 🟢 LIVE
+# CS2 Live Paper Trader — 🏁 FINISHED
 
-**Last update:** 2026-04-03 03:00:37 UTC  
+**Last update:** 2026-04-03 03:10:23 UTC  
 **Match:** `cs2-farmvi-akimbo-2026-04-02`  
 **Teams:** F5 Esports vs FarmVille  
 
 ## 📊 Current State
 | Field | Value |
 |-------|-------|
-| Series Score | F5 Esports **1** — **0** FarmVille |
-| Map 1 (overpass) | 15 — 16 |
-| Round | 30 |
-| Model P(F5 Esports wins map) | **65.9%** |
-| Model P(F5 Esports wins series) | **83.0%** |
-| P(goes to map 3) | 34.1% |
+| Series Score | F5 Esports **2** — **0** FarmVille |
+| Map 0 (FINISHED) | 0 — 0 |
+| Round | 0 |
 
 ## 💰 P&L
 | Field | Value |
@@ -33,16 +30,16 @@
 ## 📈 Round History (last 10)
 | Time | Round | Score | Side | Map% | Series% | Money A | Money B | Buy A/B | Kills | Edge |
 |------|-------|-------|------|------|---------|---------|---------|---------|-------|------|
-| 02:47:32 | R26 | 13-13 | CT | 37% | 69% | $33k | $44k | full/full | 85-91 | -20.6% |
-| 02:49:38 | R26 | 13-14 | CT | 37% | 69% | $33k | $44k | full/full | 85-91 | -20.6% |
-| 02:49:49 | R27 | 13-14 | CT | 65% | 82% | $23k | $30k | force/full | 90-91 | -13.5% |
-| 02:51:57 | R27 | 14-14 | CT | 65% | 82% | $23k | $30k | force/full | 90-91 | -13.5% |
-| 02:52:09 | R28 | 14-14 | T | 28% | 64% | $6k | $25k | eco/force | 93-96 | -16.2% |
-| 02:55:39 | R28 | 15-14 | T | 28% | 64% | $6k | $25k | eco/force | 93-96 | -16.2% |
-| 02:55:51 | R29 | 15-14 | T | 47% | 74% | $1k | $8k | pistol/eco | 98-98 | -22.3% |
-| 02:58:38 | R29 | 15-15 | T | 47% | 74% | $1k | $8k | pistol/eco | 98-98 | -22.3% |
 | 02:58:49 | R30 | 15-15 | T | 66% | 83% | $7k | $6k | eco/eco | 103-100 | -13.0% |
 | 03:00:35 | R30 | 15-16 | T | 66% | 83% | $7k | $6k | eco/eco | 103-100 | -13.0% |
+| 03:00:48 | R31 | 15-16 | T | 53% | 76% | $50k | $50k | full/full | 106-104 | -19.7% |
+| 03:03:25 | R31 | 16-16 | T | 53% | 76% | $50k | $50k | full/full | 106-104 | -19.7% |
+| 03:03:37 | R32 | 16-16 | T | 26% | 63% | $36k | $40k | full/full | 108-109 | -15.1% |
+| 03:05:12 | R32 | 17-16 | T | 26% | 63% | $36k | $40k | full/full | 108-109 | -15.1% |
+| 03:05:24 | R33 | 17-16 | T | 51% | 75% | $30k | $23k | full/force | 113-112 | -20.5% |
+| 03:07:00 | R34 | 18-16 | CT | 72% | 86% | $25k | $8k | force/eco | 118-112 | -9.9% |
+| 03:08:56 | R34 | 18-17 | CT | 72% | 86% | $25k | $8k | force/eco | 118-112 | -9.9% |
+| 03:09:08 | R35 | 18-17 | CT | 89% | 95% | $16k | $0k | force/pistol | 123-113 | -1.3% |
 
 ---
 *Auto-updated every 5 minutes by live.py*
