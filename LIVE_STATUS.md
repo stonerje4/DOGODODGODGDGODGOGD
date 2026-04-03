@@ -1,18 +1,18 @@
 # CS2 Live Paper Trader — 🟢 LIVE
 
-**Last update:** 2026-04-03 17:11:28 UTC  
-**Match:** `cs2-bb3-hero-2026-04-03`  
-**Teams:** TNT vs Heroic Academy  
+**Last update:** 2026-04-03 17:16:06 UTC  
+**Match:** `cs2-don-g2a-2026-04-03`  
+**Teams:** G2 Ares vs DONSTU ESPORTS  
 
 ## 📊 Current State
 | Field | Value |
 |-------|-------|
-| Series Score | TNT **0** — **0** Heroic Academy |
-| Map 0 (nuke) | 1 — 0 |
+| Series Score | G2 Ares **0** — **0** DONSTU ESPORTS |
+| Map 0 (anubis) | 0 — 1 |
 | Round | 1 |
-| Model P(TNT wins map) | **54.5%** |
-| Model P(TNT wins series) | **51.0%** |
-| P(goes to map 3) | 50.2% |
+| Model P(G2 Ares wins map) | **51.8%** |
+| Model P(G2 Ares wins series) | **50.9%** |
+| P(goes to map 3) | 50.0% |
 
 ## 💰 P&L
 | Field | Value |
@@ -27,7 +27,7 @@
 ## 📈 Round History (last 10)
 | Time | Round | Score | Side | Map% | Series% | Money A | Money B | Buy A/B | Kills | Edge |
 |------|-------|-------|------|------|---------|---------|---------|---------|-------|------|
-| 17:11:27 | R1 | 1-0 | T | 54% | 51% | $4k | $4k | pistol/pistol | 0-0 | +0.5% |
+| 17:16:05 | R1 | 0-1 | CT | 52% | 51% | $4k | $4k | pistol/pistol | 0-0 | +1.9% |
 
 ---
 *Auto-updated every 5 minutes by live.py*
