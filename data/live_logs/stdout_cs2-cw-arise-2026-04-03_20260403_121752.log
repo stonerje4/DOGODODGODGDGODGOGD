@@ -126,3 +126,6 @@ Watching series 2922905...
   >>> BUY WINNER: Chinggis Warriors $17 @ $0.880 | edge:+8.0% | depth:$213 | model:99% | avail:$1000
   [P/L] realized: $-37.73 | unrealized: $+0.00 | exposure: $17 | open(1): Chinggis Warriors@$0.88
   [cache] Refreshed PM markets: ['cs2-cw-arise-2026-04-03', 'cs2-cw-arise-2026-04-03-game1', 'cs2-cw-arise-2026-04-03-game2', 'cs2-cw-arise-2026-04-03-total-games-2pt5']
+[14:13:04] 1-0  M1(mirage):13-5  M2(inferno):0-1< R1(CT) | Chinggis Warriors map:51% series:76% | $4k/$4k (pistol/pistol) K:0-0 FK:0-0
+  WINNER: HOLD Chinggis Warriors @ $0.880 | mtm: $-2.38 | model:76%
+  [P/L] realized: $-37.73 | unrealized: $-2.38 | exposure: $17 | open(1): Chinggis Warriors@$0.88
