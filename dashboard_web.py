@@ -260,6 +260,20 @@ body { background: #0d1117; color: #c9d1d9; font-family: 'JetBrains Mono', 'Fira
 .trade-table tr:hover { background: #1c2128; }
 .row-buy { border-left: 2px solid #3fb950; }
 .row-sell { border-left: 2px solid #d29922; }
+
+.pos-cards { display: flex; flex-direction: column; gap: 6px; }
+.pcard { background: #0d1117; border: 1px solid #21262d; border-radius: 6px; overflow: hidden; }
+.pcard-open { border-left: 3px solid #58a6ff; }
+.pcard-win { border-left: 3px solid #3fb950; }
+.pcard-loss { border-left: 3px solid #f85149; }
+.pcard-head { display: flex; align-items: center; gap: 8px; padding: 8px 12px; font-size: 12px; background: #161b22; }
+.pcard-id { color: #484f58; font-size: 11px; }
+.pcard-mkt { color: #8b949e; }
+.pcard-body { padding: 6px 12px; }
+.pcard-row { font-size: 12px; padding: 4px 0; border-bottom: 1px solid #21262d; display: flex; gap: 8px; flex-wrap: wrap; }
+.pcard-row:last-child { border-bottom: none; }
+.badge-win { background: #0d2818; color: #3fb950; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: bold; }
+.badge-loss { background: #2d0000; color: #f85149; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: bold; }
 #update-time { color: #8b949e; font-size: 12px; }
 </style>
 </head>
@@ -336,47 +350,52 @@ function renderMatch(m, status) {
         html += `<div class="stat"><div class="stat-label">Unrealized</div><div class="stat-value ${valClass(m.unrealized)}">$${m.unrealized.toFixed(2)}</div><div class="stat-sub">Exposure: $${m.exposure.toFixed(0)}</div></div>`;
         html += `</div>`;
 
-        // Build positions: match BUYs to their SELLs by market+outcome
+        // Build positions: match BUYs to their SELLs
         if (m.signals && m.signals.length > 0) {
             let positions = [];
             m.signals.forEach(s => {
                 if (s.type === 'BUY') {
-                    positions.push({ id: positions.length + 1, buy: s, sell: null, status: 'open' });
+                    positions.push({ id: positions.length + 1, buy: s, sell: null, status: 'OPEN' });
                 } else {
                     const pos = [...positions].reverse().find(p =>
-                        p.status === 'open' && p.buy && p.buy.market === s.market && p.buy.outcome === s.outcome
+                        p.status === 'OPEN' && p.buy && p.buy.market === s.market && p.buy.outcome === s.outcome
                     );
-                    if (pos) { pos.sell = s; pos.status = 'closed'; }
-                    else { positions.push({ id: positions.length + 1, buy: null, sell: s, status: 'closed' }); }
+                    if (pos) { pos.sell = s; pos.status = s.pnl >= 0 ? 'WIN' : 'LOSS'; }
+                    else { positions.push({ id: positions.length + 1, buy: null, sell: s, status: s.pnl >= 0 ? 'WIN' : 'LOSS' }); }
                 }
             });
 
             html += `<div class="signals"><h3>Positions (${positions.length})</h3>`;
-            html += `<table class="trade-table">`;
-            html += `<thead><tr><th>#</th><th>Market</th><th>Outcome</th><th>Entry</th><th>Entry Time</th><th>@ Score</th><th>Size</th><th>Edge</th><th>Model</th><th>Exit</th><th>Exit Time</th><th>@ Score</th><th>P&L</th><th>Status</th></tr></thead><tbody>`;
+            html += `<div class="pos-cards">`;
             [...positions].reverse().forEach(p => {
                 const b = p.buy, s = p.sell;
-                if (p.status === 'open' && b) {
-                    html += `<tr class="row-buy">`;
-                    html += `<td class="dim">#${p.id}</td><td>${b.market}</td><td>${b.outcome}</td>`;
-                    html += `<td>$${b.price}</td><td class="dim">${b.time}</td><td>${b.series_score} ${b.map_score} R${b.round}</td>`;
-                    html += `<td>$${b.bet}</td><td class="pos">${b.edge}</td><td>${b.model}</td>`;
-                    html += `<td class="dim">-</td><td class="dim">-</td><td class="dim">-</td><td class="dim">-</td>`;
-                    html += `<td><span class="badge badge-live">OPEN</span></td></tr>`;
-                } else if (b && s) {
-                    const pc = s.pnl >= 0 ? 'pos' : 'neg';
-                    const label = s.pnl >= 0 ? 'WIN' : 'LOSS';
-                    html += `<tr class="row-sell">`;
-                    html += `<td class="dim">#${p.id}</td><td>${b.market}</td><td>${b.outcome}</td>`;
-                    html += `<td>$${b.price}</td><td class="dim">${b.time}</td><td>${b.series_score} ${b.map_score} R${b.round}</td>`;
-                    html += `<td>$${b.bet}</td><td class="pos">${b.edge}</td><td>${b.model}</td>`;
-                    html += `<td>$${s.exit}</td><td class="dim">${s.time}</td><td>${s.series_score} ${s.map_score} R${s.round}</td>`;
-                    html += `<td class="${pc}">$${s.pnl.toFixed(2)}</td>`;
-                    html += `<td><span class="badge badge-done">${label}</span></td></tr>`;
+                const sc = p.status === 'OPEN' ? 'pcard-open' : (p.status === 'WIN' ? 'pcard-win' : 'pcard-loss');
+                html += `<div class="pcard ${sc}">`;
+                html += `<div class="pcard-head">`;
+                html += `<span class="pcard-id">#${p.id}</span>`;
+                if (b) html += ` <span class="pcard-mkt">${b.market}</span> <b>${b.outcome}</b>`;
+                if (p.status === 'OPEN') html += `<span class="badge badge-live" style="margin-left:auto">OPEN</span>`;
+                else if (p.status === 'WIN') html += `<span class="badge badge-win" style="margin-left:auto">WIN</span>`;
+                else html += `<span class="badge badge-loss" style="margin-left:auto">LOSS</span>`;
+                html += `</div>`;
+                html += `<div class="pcard-body">`;
+                if (b) {
+                    html += `<div class="pcard-row"><span class="pos">BUY</span> <b>$${b.price}</b> x $${b.bet} `;
+                    html += `<span class="dim">@ ${b.time}</span> `;
+                    html += `Series ${b.series_score} Map ${b.map_score} R${b.round} `;
+                    html += `| Model: ${b.model} Edge: <span class="pos">${b.edge}</span></div>`;
                 }
+                if (s) {
+                    html += `<div class="pcard-row"><span class="neutral">SELL</span> <b>$${s.exit}</b> `;
+                    html += `<span class="dim">@ ${s.time}</span> `;
+                    html += `Series ${s.series_score} Map ${s.map_score} R${s.round} `;
+                    html += `| P&L: <span class="${s.pnl>=0?'pos':'neg'}"><b>$${s.pnl.toFixed(2)}</b></span></div>`;
+                }
+                html += `</div></div>`;
             });
-            html += `</tbody></table></div>`;
+            html += `</div></div>`;
         }
+
     }
 
     html += `</div></div>`;

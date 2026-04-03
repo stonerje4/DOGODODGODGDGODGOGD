@@ -564,6 +564,32 @@ def run(series_id, pm_slug, poll_interval=10, prior_override=None, log_dir=None)
             print(f"  [cache] Refreshed PM markets: {list(pm_cache.keys())}",
                   flush=True)
 
+            # ── Auto-resolve finished map positions ───────────────
+            # When a map finishes, resolve any MAP positions for it
+            for gi, gm in enumerate(games):
+                if gm.get("finished"):
+                    map_label = f"MAP{gi + 1}"
+                    map_suffix = f"-game{gi + 1}"
+                    map_slug = pm_slug + map_suffix
+                    if map_slug in positions:
+                        pos = positions[map_slug]
+                        if pos.market_label == map_label:
+                            gmt = gm.get("teams", [])
+                            won = _resolve_map_position(pos, games, state.get("teams", []))
+                            payout = 1.0 if won else 0.0
+                            pnl = (payout - pos.avg_price) * pos.shares
+                            realized_pnl += pnl
+                            result = "WIN" if won else "LOSS"
+                            trades.append(Trade(now, 0, gi + 1, mn,
+                                                pos.market_label, "RESOLVE",
+                                                pos.outcome, pos.shares,
+                                                payout, 0, 0, 0, pnl))
+                            print(f"  >>> RESOLVE {map_label}: {pos.outcome} "
+                                  f"{result} | bought ${pos.avg_price:.3f} "
+                                  f"| payout ${payout:.2f} "
+                                  f"| P/L: ${pnl:+.2f}", flush=True)
+                            del positions[map_slug]
+
         # ── Finished? ────────────────────────────────────────────
         if state.get("finished"):
             winner_idx = 0 if teams[0].get("won") else 1
