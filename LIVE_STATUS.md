@@ -1,6 +1,6 @@
 # CS2 Live Paper Trader — 🟢 LIVE
 
-**Last update:** 2026-04-03 01:35:08 UTC  
+**Last update:** 2026-04-03 01:45:12 UTC  
 **Match:** `cs2-zomb-emp2-2026-04-02`  
 **Teams:** Zomblers LLC vs Surge  
 
@@ -8,11 +8,11 @@
 | Field | Value |
 |-------|-------|
 | Series Score | Zomblers LLC **0** — **1** Surge |
-| Map 1 (nuke) | 0 — 1 |
-| Round | 1 |
-| Model P(Zomblers LLC wins map) | **56.6%** |
-| Model P(Zomblers LLC wins series) | **28.3%** |
-| P(goes to map 3) | 56.6% |
+| Map 1 (nuke) | 3 — 2 |
+| Round | 5 |
+| Model P(Zomblers LLC wins map) | **54.7%** |
+| Model P(Zomblers LLC wins series) | **27.4%** |
+| P(goes to map 3) | 54.7% |
 
 ## 💰 P&L
 | Field | Value |
@@ -42,6 +42,11 @@
 | Time | Round | Score | Side | Map% | Series% | Money A | Money B | Buy A/B | Kills | Edge |
 |------|-------|-------|------|------|---------|---------|---------|---------|-------|------|
 | 01:35:07 | R1 | 0-1 | T | 57% | 28% | $4k | $4k | pistol/pistol | 0-0 | +68.6% |
+| 01:36:21 | R2 | 1-1 | T | 49% | 24% | $6k | $8k | eco/eco | 4-5 | - |
+| 01:37:55 | R3 | 2-1 | T | 65% | 32% | $1k | $2k | pistol/pistol | 9-6 | - |
+| 01:39:59 | R4 | 2-2 | T | 71% | 35% | $7k | $0k | eco/pistol | 14-9 | - |
+| 01:45:00 | R4 | 3-2 | T | 71% | 35% | $7k | $0k | eco/pistol | 14-9 | - |
+| 01:45:11 | R5 | 3-2 | T | 55% | 27% | $5k | $3k | eco/pistol | 18-13 | - |
 
 ---
 *Auto-updated every 5 minutes by live.py*
