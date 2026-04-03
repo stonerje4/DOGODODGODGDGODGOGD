@@ -222,3 +222,7 @@ Watching series 2912651...
   [P/L] realized: $-103.26 | unrealized: $-38.27 | exposure: $100 | open(1): ECSTATIC@$0.76
 [14:40:40] 0-1  M1(mirage):9-13  M2(ancient):5-12< R17(CT) | ECSTATIC map:2% series:1% | $1k/$4k (pistol/eco) K:36-66 FK:6-10
   [P/L] realized: $-103.26 | unrealized: $+0.00 | exposure: $100 | open(1): ECSTATIC@$0.76
+[14:42:05] 0-1  M1(mirage):9-13  M2(ancient):6-12< R17(CT) | ECSTATIC map:2% series:1% | $1k/$4k (pistol/eco) K:36-66 FK:6-10
+  [P/L] realized: $-103.26 | unrealized: $+0.00 | exposure: $100 | open(1): ECSTATIC@$0.76
+[14:42:16] 0-1  M1(mirage):9-13  M2(ancient):6-12< R18(CT) | ECSTATIC map:3% series:1% | $6k/$9k (eco/eco) K:41-70 FK:7-10
+  [P/L] realized: $-103.26 | unrealized: $+0.00 | exposure: $100 | open(1): ECSTATIC@$0.76

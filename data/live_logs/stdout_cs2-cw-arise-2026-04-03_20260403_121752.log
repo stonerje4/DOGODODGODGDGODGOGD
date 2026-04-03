@@ -237,3 +237,33 @@ Watching series 2922905...
   [P/L] realized: $-40.71 | unrealized: $+0.00 | exposure: $76 | open(2): Team Arise@$0.19 | Team Arise@$0.50
 [14:40:29] 1-0  M1(mirage):13-5  M2(inferno):12-5< R17(T) | Chinggis Warriors map:98% series:99% | $5k/$11k (eco/eco) K:74-44 FK:7-9
   [P/L] realized: $-40.71 | unrealized: $+0.00 | exposure: $76 | open(2): Team Arise@$0.19 | Team Arise@$0.50
+
+[14:42:46] FINISHED: Chinggis Warriors wins 2-0
+  WINNER: Team Arise LOSS ✗ | bought @ $0.190 | P/L: $-40.08
+  MAP2: Team Arise LOSS ✗ | bought @ $0.500 | P/L: $-36.07
+
+============================================================
+TRADE LOG:
+  [13:24:50]     BUY MAP1     Team Arise x28 @ $0.310 (model:50% pm:30% edge:+15.6%)
+  [13:26:54]     BUY WINNER   Team Arise x20 @ $0.260 (model:42% pm:50% edge:+12.7%)
+  [13:34:11]    SELL MAP1     Team Arise x28 @ $0.280 (model:19% pm:30% edge:-9.4%)  P/L: $-1.69
+  [13:34:22]     BUY MAP1     Chinggis Warriors x41 @ $0.690 (model:88% pm:70% edge:+16.2%)
+  [13:43:58]    SELL MAP1     Chinggis Warriors x41 @ $0.680 (model:53% pm:70% edge:-15.3%)  P/L: $-1.65
+  [13:45:13]     BUY MAP1     Team Arise x89 @ $0.320 (model:57% pm:30% edge:+22.1%)
+  [13:55:32] FORCE-EXIT WINNER   Team Arise x20 @ $0.120 (model:29% pm:50% edge:+16.6%)
+  [13:55:32] FORCE-EXIT MAP1     Team Arise x89 @ $0.001 (model:13% pm:30% edge:+12.6%)
+  [13:56:56]     BUY WINNER   Chinggis Warriors x20 @ $0.880 (model:99% pm:50% edge:+8.0%)
+  [14:14:48]    SELL WINNER   Chinggis Warriors x20 @ $0.760 (model:71% pm:82% edge:-5.1%)  P/L: $-2.98
+  [14:19:34]     BUY WINNER   Team Arise x211 @ $0.190 (model:35% pm:18% edge:+12.5%)
+  [14:19:34]     BUY MAP2     Team Arise x72 @ $0.500 (model:69% pm:44% edge:+16.0%)
+  [14:42:46] RESOLVE WINNER   Team Arise x211 @ $0.000 (model:0% pm:0% edge:+0.0%)  P/L: $-40.08
+  [14:42:46] RESOLVE MAP2     Team Arise x72 @ $0.000 (model:0% pm:0% edge:+0.0%)  P/L: $-36.07
+
+SUMMARY:
+  Total trades: 14
+  Buys: 7  |  Exits: 5
+  Win rate: 0/5 (0%)
+  Realized P/L: $-116.86
+  Total risked: $164.37
+  ROI: -71.1%
+============================================================
