@@ -116,3 +116,8 @@ Watching series 2912651...
   WINNER: HOLD ECSTATIC @ $0.600 | mtm: $-26.27 | model:40%
   MAP1: HOLD ECSTATIC @ $0.760 | mtm: $-96.05 | model:27%
   [P/L] realized: $+23.96 | unrealized: $-122.32 | exposure: $158 | open(2): ECSTATIC@$0.76 | ECSTATIC@$0.60
+[13:49:30] 0-0  M1(mirage):9-12< R20(T) | ECSTATIC map:27% series:40% | $0k/$10k (pistol/eco) K:55-63 FK:8-11
+  >>> FORCE-EXIT WINNER: ECSTATIC @ $0.300 | bought $0.600 | P/L: $-32.11 | model:40% (map point!)
+  [P/L] realized: $-8.15 | unrealized: $-29.19 | exposure: $100 | open(1): ECSTATIC@$0.76
+[13:49:41] 0-0  M1(mirage):9-12< R21(T) | ECSTATIC map:12% series:33% | $9k/$2k (eco/pistol) K:57-68 FK:8-12
+  [P/L] realized: $-8.15 | unrealized: $+0.00 | exposure: $100 | open(1): ECSTATIC@$0.76
