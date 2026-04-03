@@ -1,66 +1,64 @@
 # CS2 Live Paper Trader — 🟢 LIVE
 
-**Last update:** 2026-04-03 18:21:48 UTC  
-**Match:** `cs2-don-g2a-2026-04-03`  
-**Teams:** G2 Ares vs DONSTU ESPORTS  
+**Last update:** 2026-04-03 18:24:00 UTC  
+**Match:** `cs2-unity-encea1-2026-04-03`  
+**Teams:** Team UNiTY vs ENCE Academy  
 
 ## 📊 Current State
 | Field | Value |
 |-------|-------|
-| Series Score | G2 Ares **1** — **0** DONSTU ESPORTS |
-| Map 1 (overpass) | 2 — 4 |
-| Round | 6 |
-| Model P(G2 Ares wins map) | **43.1%** |
-| Model P(G2 Ares wins series) | **71.6%** |
-| P(goes to map 3) | 56.9% |
+| Series Score | Team UNiTY **0** — **1** ENCE Academy |
+| Map 1 (ancient) | 4 — 8 |
+| Round | 12 |
+| Model P(Team UNiTY wins map) | **38.7%** |
+| Model P(Team UNiTY wins series) | **19.4%** |
+| P(goes to map 3) | 38.7% |
 
 ## 💰 P&L
 | Field | Value |
 |-------|-------|
-| Realized P/L | **$+895.11** |
-| Unrealized P/L | $+245.00 |
-| Total risked | $672.07 |
-| Buys | 8 |
-| Exits | 7 |
-| Win rate | 7/7 (100%)
+| Realized P/L | **$-15.43** |
+| Unrealized P/L | $+7.27 |
+| Total risked | $253.87 |
+| Buys | 7 |
+| Exits | 5 |
+| Win rate | 1/5 (20%)
 
 ## 📋 Open Positions
 | Market | Outcome | Shares | Avg Price | Entry Round |
 |--------|---------|--------|-----------|-------------|
-| WINNER | G2 Ares | 500 | $0.200 | R1 |
+| WINNER | ENCE Academy | 133 | $0.750 | R11 |
+| MAP2 | ENCE Academy | 12 | $0.500 | R11 |
 
 ## 📝 Trade Log
 | Time | Market | Action | Outcome | Price | Model% | Edge | P/L |
 |------|--------|--------|---------|-------|--------|------|-----|
-| 17:23:43 | WINNER | BUY | G2 Ares | $0.350 | 54% | +16.0% | - |
-| 17:26:50 | WINNER | SELL | G2 Ares | $0.690 | 54% | -15.0% | $+57.20 |
-| 17:27:01 | WINNER | BUY | G2 Ares | $0.340 | 46% | +9.5% | - |
-| 17:28:45 | WINNER | SELL | G2 Ares | $0.750 | 46% | -28.5% | $+41.92 |
-| 17:28:56 | WINNER | BUY | G2 Ares | $0.250 | 53% | +24.6% | - |
-| 17:29:38 | WINNER | SELL | G2 Ares | $0.730 | 53% | -20.4% | $+154.01 |
-| 17:29:49 | WINNER | BUY | G2 Ares | $0.270 | 57% | +26.8% | - |
-| 17:31:43 | WINNER | SELL | G2 Ares | $0.730 | 60% | -12.5% | $+152.51 |
-| 17:44:12 | WINNER | BUY | G2 Ares | $0.260 | 54% | +25.2% | - |
-| 17:45:56 | WINNER | SELL | G2 Ares | $0.720 | 62% | -10.1% | $+146.63 |
-| 17:48:32 | WINNER | BUY | G2 Ares | $0.250 | 68% | +39.7% | - |
-| 17:51:29 | WINNER | SELL | G2 Ares | $0.750 | 68% | -7.3% | $+188.00 |
-| 17:53:34 | WINNER | BUY | G2 Ares | $0.310 | 68% | +34.3% | - |
-| 18:13:19 | WINNER | SELL | G2 Ares | $0.820 | 77% | -4.6% | $+154.84 |
-| 18:14:33 | WINNER | BUY | G2 Ares | $0.200 | 77% | +54.4% | - |
+| 17:08:02 | MAP1 | BUY | UNiTY esports | $0.400 | 52% | +9.0% | - |
+| 17:09:36 | WINNER | BUY | ENCE Academy | $0.450 | 60% | +12.2% | - |
+| 17:13:45 | MAP1 | SELL | UNiTY esports | $0.380 | 35% | -3.5% | $-1.69 |
+| 17:20:32 | MAP1 | BUY | UNiTY esports | $0.240 | 41% | +13.6% | - |
+| 17:40:46 | MAP1 | FORCE-EXIT | UNiTY esports | $0.020 | 8% | +6.1% | $-45.68 |
+| 18:12:10 | WINNER | SELL | ENCE Academy | $0.750 | 70% | -5.2% | $+34.64 |
+| 18:12:10 | MAP2 | BUY | UNiTY esports | $0.450 | 60% | +12.4% | - |
+| 18:14:57 | WINNER | BUY | UNiTY esports | $0.190 | 30% | +8.2% | - |
+| 18:18:20 | WINNER | SELL | UNiTY esports | $0.210 | 17% | -4.2% | $-1.37 |
+| 18:21:40 | MAP2 | SELL | UNiTY esports | $0.390 | 34% | -5.4% | $-1.34 |
+| 18:21:51 | WINNER | BUY | ENCE Academy | $0.750 | 88% | +9.8% | - |
+| 18:21:51 | MAP2 | BUY | ENCE Academy | $0.500 | 76% | +22.6% | - |
 
 ## 📈 Round History (last 10)
 | Time | Round | Score | Side | Map% | Series% | Money A | Money B | Buy A/B | Kills | Edge |
 |------|-------|-------|------|------|---------|---------|---------|---------|-------|------|
-| 18:13:19 | R1 | 1-0 | T | 55% | 77% | $4k | $4k | pistol/pistol | 0-0 | - |
-| 18:14:33 | R1 | 2-0 | T | 55% | 77% | $4k | $4k | pistol/pistol | 0-0 | +54.4% |
-| 18:14:43 | R2 | 2-0 | T | 65% | 83% | $0k | $12k | pistol/eco | 4-4 | - |
-| 18:16:28 | R3 | 2-1 | T | 71% | 85% | $5k | $9k | eco/eco | 9-6 | - |
-| 18:18:14 | R3 | 2-2 | T | 71% | 85% | $5k | $9k | eco/eco | 9-6 | - |
-| 18:18:25 | R4 | 2-2 | T | 57% | 79% | $3k | $12k | pistol/eco | 10-11 | - |
-| 18:19:18 | R4 | 2-3 | T | 57% | 79% | $3k | $12k | pistol/eco | 10-11 | - |
-| 18:19:29 | R5 | 2-3 | T | 48% | 74% | $3k | $2k | pistol/pistol | 12-16 | - |
-| 18:21:35 | R5 | 2-4 | T | 48% | 74% | $3k | $2k | pistol/pistol | 12-16 | - |
-| 18:21:46 | R6 | 2-4 | T | 43% | 72% | $5k | $5k | eco/eco | 12-21 | - |
+| 18:14:57 | R7 | 3-5 | T | 60% | 30% | $2k | $0k | pistol/pistol | 17-19 | +8.2% |
+| 18:15:09 | R8 | 3-5 | T | 43% | 21% | $4k | $2k | eco/pistol | 18-24 | - |
+| 18:17:15 | R8 | 3-6 | T | 43% | 21% | $4k | $2k | eco/pistol | 18-24 | - |
+| 18:17:26 | R9 | 3-6 | T | 39% | 20% | $9k | $5k | eco/eco | 21-29 | - |
+| 18:18:09 | R9 | 3-7 | T | 39% | 20% | $9k | $5k | eco/eco | 21-29 | - |
+| 18:18:20 | R10 | 3-7 | T | 34% | 17% | $3k | $8k | pistol/eco | 24-34 | - |
+| 18:21:40 | R10 | 4-7 | T | 34% | 17% | $3k | $8k | pistol/eco | 24-34 | +5.2% |
+| 18:21:51 | R11 | 4-7 | T | 24% | 12% | $8k | $11k | eco/eco | 25-39 | +9.8% |
+| 18:23:47 | R11 | 4-8 | T | 24% | 12% | $8k | $11k | eco/eco | 25-39 | - |
+| 18:23:59 | R12 | 4-8 | T | 39% | 19% | $3k | $6k | pistol/eco | 30-43 | - |
 
 ---
 *Auto-updated every 5 minutes by live.py*
