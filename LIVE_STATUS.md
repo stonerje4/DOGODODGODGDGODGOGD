@@ -1,56 +1,54 @@
 # CS2 Live Paper Trader — 🟢 LIVE
 
-**Last update:** 2026-04-03 18:08:38 UTC  
-**Match:** `cs2-unity-encea1-2026-04-03`  
-**Teams:** Team UNiTY vs ENCE Academy  
+**Last update:** 2026-04-03 18:16:28 UTC  
+**Match:** `cs2-sta6-rust-2026-04-03`  
+**Teams:** STATE vs Rustec  
 
 ## 📊 Current State
 | Field | Value |
 |-------|-------|
-| Series Score | Team UNiTY **0** — **1** ENCE Academy |
-| Map 1 (ancient) | 2 — 3 |
-| Round | 4 |
-| Model P(Team UNiTY wins map) | **55.1%** |
-| Model P(Team UNiTY wins series) | **27.5%** |
-| P(goes to map 3) | 55.1% |
+| Series Score | STATE **0** — **0** Rustec |
+| Map 0 (nuke) | 5 — 4 |
+| Round | 9 |
+| Model P(STATE wins map) | **77.7%** |
+| Model P(STATE wins series) | **64.4%** |
+| P(goes to map 3) | 49.4% |
 
 ## 💰 P&L
 | Field | Value |
 |-------|-------|
-| Realized P/L | **$-47.37** |
-| Unrealized P/L | $+28.23 |
-| Total risked | $115.09 |
-| Buys | 3 |
-| Exits | 2 |
-| Win rate | 0/2 (0%)
+| Realized P/L | **$+3.06** |
+| Unrealized P/L | $+23.79 |
+| Total risked | $97.12 |
+| Buys | 2 |
+| Exits | 1 |
+| Win rate | 1/1 (100%)
 
 ## 📋 Open Positions
 | Market | Outcome | Shares | Avg Price | Entry Round |
 |--------|---------|--------|-----------|-------------|
-| WINNER | ENCE Academy | 128 | $0.450 | R2 |
+| WINNER | STATE | 183 | $0.390 | R2 |
 
 ## 📝 Trade Log
 | Time | Market | Action | Outcome | Price | Model% | Edge | P/L |
 |------|--------|--------|---------|-------|--------|------|-----|
-| 17:08:02 | MAP1 | BUY | UNiTY esports | $0.400 | 52% | +9.0% | - |
-| 17:09:36 | WINNER | BUY | ENCE Academy | $0.450 | 60% | +12.2% | - |
-| 17:13:45 | MAP1 | SELL | UNiTY esports | $0.380 | 35% | -3.5% | $-1.69 |
-| 17:20:32 | MAP1 | BUY | UNiTY esports | $0.240 | 41% | +13.6% | - |
-| 17:40:46 | MAP1 | FORCE-EXIT | UNiTY esports | $0.020 | 8% | +6.1% | $-45.68 |
+| 18:03:06 | WINNER | BUY | STATE | $0.390 | 59% | +16.6% | - |
+| 18:03:06 | MAP1 | BUY | STATE | $0.420 | 66% | +21.1% | - |
+| 18:08:07 | MAP1 | SELL | STATE | $0.500 | 47% | -3.2% | $+3.06 |
 
 ## 📈 Round History (last 10)
 | Time | Round | Score | Side | Map% | Series% | Money A | Money B | Buy A/B | Kills | Edge |
 |------|-------|-------|------|------|---------|---------|---------|---------|-------|------|
-| 17:40:46 | R15 | 4-12 | T | 8% | 23% | $1k | $10k | pistol/eco | 38-47 | - |
-| 17:40:57 | R16 | 4-12 | T | 7% | 23% | $8k | $2k | eco/pistol | 42-52 | - |
-| 17:42:32 | R17 | 5-12 | T | 2% | 20% | $6k | $6k | eco/eco | 44-57 | - |
-| 18:03:59 | R1 | 1-0 | T | 54% | 27% | $4k | $4k | pistol/pistol | 0-0 | - |
-| 18:05:03 | R2 | 2-0 | T | 65% | 33% | $0k | $11k | pistol/eco | 5-1 | - |
-| 18:05:56 | R2 | 2-1 | T | 65% | 33% | $0k | $11k | pistol/eco | 5-1 | - |
-| 18:06:07 | R3 | 2-1 | T | 70% | 35% | $8k | $8k | eco/eco | 10-2 | - |
-| 18:07:21 | R3 | 2-2 | T | 70% | 35% | $8k | $8k | eco/eco | 10-2 | - |
-| 18:07:33 | R4 | 2-2 | T | 55% | 28% | $5k | $11k | eco/eco | 11-7 | - |
-| 18:08:36 | R4 | 2-3 | T | 55% | 28% | $5k | $11k | eco/eco | 11-7 | - |
+| 18:03:06 | R2 | 1-1 | T | 66% | 59% | $0k | $11k | pistol/eco | 5-3 | +16.6% |
+| 18:05:21 | R3 | 1-2 | T | 53% | 52% | $7k | $3k | eco/pistol | 6-8 | - |
+| 18:06:03 | R4 | 1-3 | T | 47% | 49% | $8k | $6k | eco/eco | 9-13 | - |
+| 18:08:07 | R4 | 2-3 | T | 47% | 49% | $8k | $6k | eco/eco | 9-13 | - |
+| 18:08:18 | R5 | 2-3 | T | 42% | 46% | $0k | $9k | pistol/eco | 9-18 | - |
+| 18:10:12 | R6 | 3-3 | T | 61% | 56% | $5k | $5k | eco/eco | 14-22 | - |
+| 18:12:27 | R7 | 4-3 | T | 68% | 59% | $0k | $2k | pistol/pistol | 17-23 | - |
+| 18:14:31 | R8 | 5-3 | T | 73% | 62% | $6k | $2k | eco/pistol | 22-26 | - |
+| 18:16:16 | R8 | 5-4 | T | 73% | 62% | $6k | $2k | eco/pistol | 22-26 | - |
+| 18:16:27 | R9 | 5-4 | T | 78% | 64% | $0k | $5k | pistol/eco | 27-29 | - |
 
 ---
 *Auto-updated every 5 minutes by live.py*
