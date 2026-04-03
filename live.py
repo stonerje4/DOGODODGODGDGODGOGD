@@ -189,7 +189,7 @@ TEAM_ALIASES = {
 
 def normalize_team(name):
     """Normalize for comparison."""
-    n = name.lower().strip()
+    n = name.lower().strip().replace("_", " ")
     for sfx in [" esports", " esport", " gaming"]:
         if n.endswith(sfx):
             n = n[:-len(sfx)].strip()
@@ -203,10 +203,15 @@ def teams_equivalent(name_a, name_b):
     a, b = normalize_team(name_a), normalize_team(name_b)
     if a == b:
         return True
-    # Substring only if shorter is >=4 chars (avoid false positives)
+    # Substring only if shorter is >=4 chars AND the longer string
+    # doesn't have significant extra words (avoid "heroic" matching
+    # "heroic academy" — they're different orgs)
     shorter, longer = (a, b) if len(a) <= len(b) else (b, a)
     if len(shorter) >= 4 and shorter in longer:
-        return True
+        # Reject if the extra part is a meaningful word (not just suffix)
+        extra = longer.replace(shorter, "", 1).strip()
+        if not extra or len(extra) <= 2:
+            return True
     return False
 
 
