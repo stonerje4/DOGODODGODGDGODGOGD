@@ -131,13 +131,48 @@ def get_all_matches():
     return matches
 
 
+def get_pending_matches():
+    """Parse watcher log for PENDING matches."""
+    pending = []
+    try:
+        with open("/var/log/cs2-watcher.log") as f:
+            lines = f.readlines()[-80:]
+        for line in lines:
+            m = re.search(r"\[PENDING (\d+)min\]\s+(.+?)\s+→\s+(\S+)", line)
+            if m:
+                mins = int(m.group(1))
+                teams_str = m.group(2).strip()
+                slug = m.group(3)
+                parts = teams_str.split(" vs ")
+                if len(parts) == 2:
+                    pending.append({
+                        "teams": parts,
+                        "slug": slug,
+                        "mins_until": mins,
+                    })
+    except:
+        pass
+    # Deduplicate by slug, sort by time
+    seen = set()
+    deduped = []
+    for p in pending:
+        if p["slug"] not in seen:
+            seen.add(p["slug"])
+            deduped.append(p)
+    return sorted(deduped, key=lambda x: x["mins_until"])
+
+
 @app.route("/api/matches")
 @app.route("/cs2/api/matches")
 def api_matches():
     matches = get_all_matches()
+    pending = get_pending_matches()
+    # "waiting" = launched but no GRID data yet + pending from watcher
+    launched_waiting = [m for m in matches if not m["finished"] and not m["has_data"]]
     return jsonify({
         "live": [m for m in matches if not m["finished"] and m["has_data"]],
-        "waiting": [m for m in matches if not m["finished"] and not m["has_data"]],
+        "waiting": launched_waiting,
+        "pending": pending,
         "finished": [m for m in matches if m["finished"]],
         "now": datetime.now(timezone.utc).strftime("%H:%M:%S UTC"),
     })
@@ -218,6 +253,13 @@ body { background: #0d1117; color: #c9d1d9; font-family: 'JetBrains Mono', 'Fira
 .pos-row { padding: 8px 10px; background: #0d1117; border: 1px solid #21262d; border-radius: 4px; margin-bottom: 4px; font-size: 12px; }
 
 .no-data { text-align: center; padding: 40px; color: #484f58; }
+
+.trade-table { width: 100%; border-collapse: collapse; font-size: 11px; margin-top: 4px; }
+.trade-table th { text-align: left; padding: 6px 8px; color: #8b949e; border-bottom: 1px solid #30363d; font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; position: sticky; top: 0; background: #161b22; }
+.trade-table td { padding: 5px 8px; border-bottom: 1px solid #21262d; }
+.trade-table tr:hover { background: #1c2128; }
+.row-buy { border-left: 2px solid #3fb950; }
+.row-sell { border-left: 2px solid #d29922; }
 #update-time { color: #8b949e; font-size: 12px; }
 </style>
 </head>
@@ -231,7 +273,7 @@ body { background: #0d1117; color: #c9d1d9; font-family: 'JetBrains Mono', 'Fira
 
 <div class="tabs">
     <div class="tab active" data-tab="live"><span class="dot dot-live"></span>Live <span class="count" id="cnt-live">0</span></div>
-    <div class="tab" data-tab="waiting"><span class="dot dot-wait"></span>Waiting <span class="count" id="cnt-waiting">0</span></div>
+    <div class="tab" data-tab="waiting"><span class="dot dot-wait"></span>Upcoming <span class="count" id="cnt-waiting">0</span></div>
     <div class="tab" data-tab="finished"><span class="dot dot-done"></span>Finished <span class="count" id="cnt-finished">0</span></div>
 </div>
 
@@ -294,40 +336,46 @@ function renderMatch(m, status) {
         html += `<div class="stat"><div class="stat-label">Unrealized</div><div class="stat-value ${valClass(m.unrealized)}">$${m.unrealized.toFixed(2)}</div><div class="stat-sub">Exposure: $${m.exposure.toFixed(0)}</div></div>`;
         html += `</div>`;
 
-        // Open positions
-        if (m.open_str && m.open_str !== 'none') {
-            html += `<div class="positions"><h3>Open Positions</h3>`;
-            m.open_str.split(' | ').forEach(p => {
-                html += `<div class="pos-row">${p}</div>`;
-            });
-            html += `</div>`;
-        }
-
-        // Signals with context
+        // Trade log table
         if (m.signals && m.signals.length > 0) {
             html += `<div class="signals"><h3>Trade Log</h3>`;
-            // Reverse so newest on top
+            html += `<table class="trade-table">`;
+            html += `<thead><tr><th>Time</th><th>Type</th><th>Market</th><th>Outcome</th><th>Score</th><th>Price</th><th>Edge</th><th>Model</th><th>Size</th><th>Realized</th><th>Unrealized</th></tr></thead><tbody>`;
+            // Newest on top
             [...m.signals].reverse().forEach(s => {
+                const rowClass = s.type === 'BUY' ? 'row-buy' : 'row-sell';
                 if (s.type === 'BUY') {
-                    html += `<div class="sig sig-buy">`;
-                    html += `<span class="sig-type pos">BUY</span>`;
-                    html += `<span>${s.market}</span>`;
-                    html += `<span>${s.series_score} ${s.map_score} R${s.round}</span>`;
-                    html += `<span class="dim">${s.time}</span>`;
-                    html += `<span>${s.outcome} $${s.bet} @ $${s.price} edge=${s.edge} depth=$${s.depth} model=${s.model}</span>`;
-                    html += `</div>`;
+                    html += `<tr class="${rowClass}">`;
+                    html += `<td>${s.time}</td>`;
+                    html += `<td class="pos">BUY</td>`;
+                    html += `<td>${s.market}</td>`;
+                    html += `<td>${s.outcome}</td>`;
+                    html += `<td>${s.series_score} ${s.map_score} R${s.round}</td>`;
+                    html += `<td>$${s.price}</td>`;
+                    html += `<td class="pos">${s.edge}</td>`;
+                    html += `<td>${s.model}</td>`;
+                    html += `<td>$${s.bet}</td>`;
+                    html += `<td>-</td>`;
+                    html += `<td class="dim">open</td>`;
+                    html += `</tr>`;
                 } else {
                     const pc = s.pnl >= 0 ? 'pos' : 'neg';
-                    html += `<div class="sig sig-sell">`;
-                    html += `<span class="sig-type neutral">SELL</span>`;
-                    html += `<span>${s.market}</span>`;
-                    html += `<span>${s.series_score} ${s.map_score} R${s.round}</span>`;
-                    html += `<span class="dim">${s.time}</span>`;
-                    html += `<span>${s.outcome} $${s.entry}→$${s.exit} <span class="${pc}">P&L $${s.pnl.toFixed(2)}</span></span>`;
-                    html += `</div>`;
+                    html += `<tr class="${rowClass}">`;
+                    html += `<td>${s.time}</td>`;
+                    html += `<td class="neutral">SELL</td>`;
+                    html += `<td>${s.market}</td>`;
+                    html += `<td>${s.outcome}</td>`;
+                    html += `<td>${s.series_score} ${s.map_score} R${s.round}</td>`;
+                    html += `<td>$${s.entry} → $${s.exit}</td>`;
+                    html += `<td>-</td>`;
+                    html += `<td>-</td>`;
+                    html += `<td>-</td>`;
+                    html += `<td class="${pc}">$${s.pnl.toFixed(2)}</td>`;
+                    html += `<td>-</td>`;
+                    html += `</tr>`;
                 }
             });
-            html += `</div>`;
+            html += `</tbody></table></div>`;
         }
     }
 
@@ -366,7 +414,27 @@ function update() {
             let doneHtml = data.finished.length ? data.finished.map(m => renderMatch(m, 'finished')).join('') : '<div class="no-data">No finished matches</div>';
 
             document.getElementById('sec-live').innerHTML = liveHtml;
-            document.getElementById('sec-waiting').innerHTML = waitHtml;
+            // Waiting = launched but no data + pending from watcher
+            let allWaiting = [...(data.waiting || []), ...(data.pending || []).map(p => ({
+                teams: p.teams, slug: p.slug, mins_until: p.mins_until, isPending: true
+            }))];
+            let waitHtmlFinal = '';
+            if (allWaiting.length) {
+                waitHtmlFinal = allWaiting.map(m => {
+                    if (m.isPending) {
+                        const hrs = Math.floor(m.mins_until / 60);
+                        const mins = m.mins_until % 60;
+                        const timeStr = hrs > 0 ? `${hrs}h ${mins}m` : `${mins}m`;
+                        return `<div class="match"><div class="match-header"><span class="match-teams">${m.teams[0]} vs ${m.teams[1]}</span><div class="match-meta"><span class="dim">${m.slug}</span><span>${timeStr}</span><span class="badge badge-wait">PENDING</span></div></div></div>`;
+                    } else {
+                        return renderMatch(m, 'waiting');
+                    }
+                }).join('');
+            } else {
+                waitHtmlFinal = '<div class="no-data">No upcoming matches</div>';
+            }
+            document.getElementById('sec-waiting').innerHTML = waitHtmlFinal;
+            document.getElementById('cnt-waiting').textContent = allWaiting.length;
             document.getElementById('sec-finished').innerHTML = doneHtml;
 
             // Restore expanded state

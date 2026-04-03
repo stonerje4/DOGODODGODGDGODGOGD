@@ -35,3 +35,11 @@ Watching series 2912555...
   WINNER: HOLD MINLATE @ $0.340 | mtm: $+3.96 | model:55%
   MAP1: HOLD MINLATE @ $0.440 | mtm: $+31.32 | model:57%
   [P/L] realized: $+0.00 | unrealized: $+35.28 | exposure: $154 | open(2): MINLATE@$0.34 | MINLATE@$0.44
+[14:17:11] 0-0  M1(nuke):4-1< R4(T) | MINLATE map:57% series:55% | $3k/$11k (pistol/eco) K:12-7 FK:2-1
+  WINNER: HOLD MINLATE @ $0.340 | mtm: $-1.98 | model:55%
+  MAP1: HOLD MINLATE @ $0.440 | mtm: $+11.74 | model:57%
+  [P/L] realized: $+0.00 | unrealized: $+9.76 | exposure: $154 | open(2): MINLATE@$0.34 | MINLATE@$0.44
+[14:17:22] 0-0  M1(nuke):4-1< R5(T) | MINLATE map:74% series:64% | $0k/$9k (pistol/eco) K:17-10 FK:3-1
+  WINNER: HOLD MINLATE @ $0.340 | mtm: $-3.96 | model:64%
+  MAP1: HOLD MINLATE @ $0.440 | mtm: $+7.83 | model:74%
+  [P/L] realized: $+0.00 | unrealized: $+3.87 | exposure: $154 | open(2): MINLATE@$0.34 | MINLATE@$0.44
