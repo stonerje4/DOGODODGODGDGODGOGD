@@ -89,3 +89,10 @@ Watching series 2922906...
   WINNER: HOLD NSN @ $0.270 | mtm: $-8.75 | model:41%
   MAP1: HOLD The QUBE Esports @ $0.330 | mtm: $+1.00 | model:69%
   [P/L] realized: $+0.00 | unrealized: $-7.75 | exposure: $56 | open(2): The QUBE Esports@$0.33 | NSN@$0.27
+[13:31:19] 0-0  M1(ancient):8-5< R12(CT) | The QUBE Esports map:69% series:59% | $12k/$3k (eco/pistol) K:46-30 FK:5-6
+  WINNER: HOLD NSN @ $0.270 | mtm: $-10.21 | model:41%
+  >>> SELL MAP1: The QUBE Esports @ $0.740 | bought $0.330 | P/L: $+19.00 | model:69%
+  [P/L] realized: $+19.00 | unrealized: $+10.29 | exposure: $39 | open(1): NSN@$0.27
+[13:31:30] 0-0  M1(ancient):8-5< R13(T) | The QUBE Esports map:80% series:65% | $4k/$4k (pistol/pistol) K:51-32 FK:6-6
+  WINNER: HOLD NSN @ $0.270 | mtm: $-10.21 | model:35%
+  [P/L] realized: $+19.00 | unrealized: $-10.21 | exposure: $39 | open(1): NSN@$0.27
