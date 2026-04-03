@@ -1,54 +1,60 @@
 # CS2 Live Paper Trader — 🟢 LIVE
 
-**Last update:** 2026-04-03 18:16:28 UTC  
-**Match:** `cs2-sta6-rust-2026-04-03`  
-**Teams:** STATE vs Rustec  
+**Last update:** 2026-04-03 18:18:03 UTC  
+**Match:** `cs2-bb3-hero-2026-04-03`  
+**Teams:** TNT vs Heroic Academy  
 
 ## 📊 Current State
 | Field | Value |
 |-------|-------|
-| Series Score | STATE **0** — **0** Rustec |
-| Map 0 (nuke) | 5 — 4 |
-| Round | 9 |
-| Model P(STATE wins map) | **77.7%** |
-| Model P(STATE wins series) | **64.4%** |
-| P(goes to map 3) | 49.4% |
+| Series Score | TNT **0** — **1** Heroic Academy |
+| Map 1 (dust2) | 3 — 0 |
+| Round | 2 |
+| Model P(TNT wins map) | **60.5%** |
+| Model P(TNT wins series) | **30.2%** |
+| P(goes to map 3) | 60.5% |
 
 ## 💰 P&L
 | Field | Value |
 |-------|-------|
-| Realized P/L | **$+3.06** |
-| Unrealized P/L | $+23.79 |
-| Total risked | $97.12 |
-| Buys | 2 |
-| Exits | 1 |
-| Win rate | 1/1 (100%)
+| Realized P/L | **$-45.67** |
+| Unrealized P/L | $-73.56 |
+| Total risked | $320.82 |
+| Buys | 5 |
+| Exits | 2 |
+| Win rate | 1/2 (50%)
 
 ## 📋 Open Positions
 | Market | Outcome | Shares | Avg Price | Entry Round |
 |--------|---------|--------|-----------|-------------|
-| WINNER | STATE | 183 | $0.390 | R2 |
+| WINNER | Heroic | 138 | $0.540 | R2 |
+| MAP2 | Heroic | 204 | $0.220 | R2 |
+| O/U | Under | 80 | $0.280 | R2 |
 
 ## 📝 Trade Log
 | Time | Market | Action | Outcome | Price | Model% | Edge | P/L |
 |------|--------|--------|---------|-------|--------|------|-----|
-| 18:03:06 | WINNER | BUY | STATE | $0.390 | 59% | +16.6% | - |
-| 18:03:06 | MAP1 | BUY | STATE | $0.420 | 66% | +21.1% | - |
-| 18:08:07 | MAP1 | SELL | STATE | $0.500 | 47% | -3.2% | $+3.06 |
+| 17:12:51 | WINNER | BUY | BetBoom Team | $0.290 | 56% | +23.9% | - |
+| 17:12:51 | MAP1 | BUY | BetBoom Team | $0.140 | 64% | +47.4% | - |
+| 18:12:47 | MAP1 | RESOLVE | BetBoom Team | $0.000 | 0% | +0.0% | $-91.20 |
+| 18:14:11 | WINNER | SELL | BetBoom Team | $0.470 | 25% | -22.1% | $+45.53 |
+| 18:15:24 | WINNER | BUY | Heroic | $0.540 | 70% | +12.8% | - |
+| 18:15:24 | MAP2 | BUY | Heroic | $0.220 | 40% | +14.5% | - |
+| 18:15:24 | O/U | BUY | Under | $0.280 | 40% | +8.5% | - |
 
 ## 📈 Round History (last 10)
 | Time | Round | Score | Side | Map% | Series% | Money A | Money B | Buy A/B | Kills | Edge |
 |------|-------|-------|------|------|---------|---------|---------|---------|-------|------|
-| 18:03:06 | R2 | 1-1 | T | 66% | 59% | $0k | $11k | pistol/eco | 5-3 | +16.6% |
-| 18:05:21 | R3 | 1-2 | T | 53% | 52% | $7k | $3k | eco/pistol | 6-8 | - |
-| 18:06:03 | R4 | 1-3 | T | 47% | 49% | $8k | $6k | eco/eco | 9-13 | - |
-| 18:08:07 | R4 | 2-3 | T | 47% | 49% | $8k | $6k | eco/eco | 9-13 | - |
-| 18:08:18 | R5 | 2-3 | T | 42% | 46% | $0k | $9k | pistol/eco | 9-18 | - |
-| 18:10:12 | R6 | 3-3 | T | 61% | 56% | $5k | $5k | eco/eco | 14-22 | - |
-| 18:12:27 | R7 | 4-3 | T | 68% | 59% | $0k | $2k | pistol/pistol | 17-23 | - |
-| 18:14:31 | R8 | 5-3 | T | 73% | 62% | $6k | $2k | eco/pistol | 22-26 | - |
-| 18:16:16 | R8 | 5-4 | T | 73% | 62% | $6k | $2k | eco/pistol | 22-26 | - |
-| 18:16:27 | R9 | 5-4 | T | 78% | 64% | $0k | $5k | pistol/eco | 27-29 | - |
+| 17:46:25 | R18 | 8-10 | CT | 40% | 44% | $7k | $9k | eco/eco | 59-64 | - |
+| 17:48:30 | R18 | 9-10 | CT | 40% | 44% | $7k | $9k | eco/eco | 59-64 | - |
+| 17:48:41 | R19 | 9-10 | CT | 34% | 41% | $6k | $3k | eco/pistol | 60-69 | - |
+| 17:50:15 | R19 | 9-11 | CT | 34% | 41% | $6k | $3k | eco/pistol | 60-69 | - |
+| 17:50:26 | R20 | 9-11 | CT | 53% | 50% | $10k | $5k | eco/eco | 65-71 | - |
+| 17:52:51 | R20 | 9-12 | CT | 53% | 50% | $10k | $5k | eco/eco | 65-71 | - |
+| 17:53:02 | R21 | 9-12 | CT | 28% | 38% | $10k | $0k | eco/pistol | 67-76 | - |
+| 18:14:11 | R1 | 1-0 | CT | 50% | 25% | $4k | $4k | pistol/pistol | 0-0 | - |
+| 18:15:24 | R2 | 2-0 | CT | 60% | 30% | $8k | $5k | eco/eco | 5-2 | +12.8% |
+| 18:18:02 | R2 | 3-0 | CT | 60% | 30% | $8k | $5k | eco/eco | 5-2 | - |
 
 ---
 *Auto-updated every 5 minutes by live.py*
