@@ -28,3 +28,10 @@ Watching series 2912651...
 [13:23:17] 0-0  M1(mirage):4-2< R6(CT) | ECSTATIC map:70% series:62% | $0k/$3k (pistol/pistol) K:19-8 FK:3-2
   MAP1: HOLD ECSTATIC @ $0.570 | mtm: $+19.30 | model:70%
   [P/L] realized: $+0.00 | unrealized: $+19.30 | exposure: $100 | open(1): ECSTATIC@$0.57
+  [log] Excel + LIVE_STATUS.md pushed (8 rows)
+[13:24:20] 0-0  M1(mirage):5-2< R6(CT) | ECSTATIC map:70% series:62% | $0k/$3k (pistol/pistol) K:19-8 FK:3-2
+  >>> SELL MAP1: ECSTATIC @ $0.750 | bought $0.570 | P/L: $+26.32 | model:70%
+  [P/L] realized: $+26.32 | unrealized: $+31.58 | exposure: $0 | open(0): none
+[13:24:31] 0-0  M1(mirage):5-2< R7(CT) | ECSTATIC map:64% series:59% | $11k/$9k (eco/eco) K:23-13 FK:3-3
+  >>> BUY MAP1: Team Nemesis $30 @ $0.250 | edge:+8.5% | depth:$3221 | model:36% | avail:$1000
+  [P/L] realized: $+26.32 | unrealized: $+0.00 | exposure: $30 | open(1): Team Nemesis@$0.25
