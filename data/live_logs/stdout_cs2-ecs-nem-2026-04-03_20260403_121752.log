@@ -220,3 +220,5 @@ Watching series 2912651...
   >>> FORCE-EXIT MAP2: ECSTATIC @ $0.001 | bought $0.150 | P/L: $-27.53 | model:1% (map point!)
   >>> FORCE-EXIT O/U: Over @ $0.001 | bought $0.120 | P/L: $-19.23 | model:1% (map point!)
   [P/L] realized: $-103.26 | unrealized: $-38.27 | exposure: $100 | open(1): ECSTATIC@$0.76
+[14:40:40] 0-1  M1(mirage):9-13  M2(ancient):5-12< R17(CT) | ECSTATIC map:2% series:1% | $1k/$4k (pistol/eco) K:36-66 FK:6-10
+  [P/L] realized: $-103.26 | unrealized: $+0.00 | exposure: $100 | open(1): ECSTATIC@$0.76
