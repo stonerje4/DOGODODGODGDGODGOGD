@@ -35,3 +35,12 @@ Watching series 2912651...
 [13:24:31] 0-0  M1(mirage):5-2< R7(CT) | ECSTATIC map:64% series:59% | $11k/$9k (eco/eco) K:23-13 FK:3-3
   >>> BUY MAP1: Team Nemesis $30 @ $0.250 | edge:+8.5% | depth:$3221 | model:36% | avail:$1000
   [P/L] realized: $+26.32 | unrealized: $+0.00 | exposure: $30 | open(1): Team Nemesis@$0.25
+[13:26:15] 0-0  M1(mirage):6-2< R7(CT) | ECSTATIC map:64% series:59% | $11k/$9k (eco/eco) K:23-13 FK:3-3
+  MAP1: HOLD Team Nemesis @ $0.250 | mtm: $-3.54 | model:36%
+  [P/L] realized: $+26.32 | unrealized: $-3.54 | exposure: $30 | open(1): Team Nemesis@$0.25
+[13:26:26] 0-0  M1(mirage):6-2< R8(CT) | ECSTATIC map:79% series:67% | $2k/$0k (pistol/pistol) K:28-14 FK:4-3
+  MAP1: HOLD Team Nemesis @ $0.250 | mtm: $-3.54 | model:21%
+  [P/L] realized: $+26.32 | unrealized: $-3.54 | exposure: $30 | open(1): Team Nemesis@$0.25
+[13:27:29] 0-0  M1(mirage):7-2< R8(CT) | ECSTATIC map:79% series:67% | $2k/$0k (pistol/pistol) K:28-14 FK:4-3
+  >>> SELL MAP1: Team Nemesis @ $0.260 | bought $0.250 | P/L: $-2.36 | model:21%
+  [P/L] realized: $+23.96 | unrealized: $+1.18 | exposure: $0 | open(0): none

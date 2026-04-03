@@ -15,3 +15,8 @@ Watching series 2922905...
 [13:24:50] 0-0  M1(mirage):1-0< R1(CT) | Chinggis Warriors map:50% series:53% | $4k/$4k (pistol/pistol) K:0-0 FK:0-0
   >>> BUY MAP1: Team Arise $9 @ $0.310 | edge:+15.6% | depth:$9 | model:50% | avail:$1000
   [P/L] realized: $+0.00 | unrealized: $+0.00 | exposure: $9 | open(1): Team Arise@$0.31
+  [log] Excel + LIVE_STATUS.md pushed (1 rows)
+[13:26:54] 0-0  M1(mirage):2-0< R2(CT) | Chinggis Warriors map:61% series:58% | $6k/$1k (eco/pistol) K:5-1 FK:0-1
+  >>> BUY WINNER: Team Arise $5 @ $0.260 | edge:+12.7% | depth:$5 | model:42% | avail:$991
+  MAP1: HOLD Team Arise @ $0.310 | mtm: $-7.59 | model:39%
+  [P/L] realized: $+0.00 | unrealized: $-7.59 | exposure: $14 | open(2): Team Arise@$0.31 | Team Arise@$0.26
