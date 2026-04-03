@@ -857,15 +857,29 @@ def run(series_id, pm_slug, poll_interval=10, prior_override=None, log_dir=None)
                     opp_team_score = ms_b if our_team_is_a else ms_a
                     # Only force-exit if OPPONENT is at map point (winning)
                     if opp_team_score >= config.ROUNDS_TO_WIN - 1:
-                        force_exit = True
-                        sell = True
-                        bid = book[held_key]["bid"] or 0.001
+                        actual_bid = book[held_key]["bid"]
+                        if actual_bid and actual_bid >= 0.01:
+                            force_exit = True
+                            sell = True
+                            bid = actual_bid
+                        else:
+                            # No real buyers — hold for market resolution
+                            print(f"  {label}: HOLD {pos.outcome} "
+                                  f"(no bids, waiting for resolution)",
+                                  flush=True)
 
                 # Also force-exit if model says < 5% and we're holding
                 if held_prob < 0.05 and not sell:
-                    force_exit = True
-                    sell = True
-                    bid = book[held_key]["bid"] or 0.001
+                    actual_bid = book[held_key]["bid"]
+                    if actual_bid and actual_bid >= 0.01:
+                        force_exit = True
+                        sell = True
+                        bid = actual_bid
+                    else:
+                        # No real buyers — hold for market resolution
+                        print(f"  {label}: HOLD {pos.outcome} "
+                              f"(model <5%, no bids, waiting for resolution)",
+                              flush=True)
 
                 if sell and bid:
                     pnl = (bid - fee - pos.avg_price) * pos.shares
@@ -893,17 +907,23 @@ def run(series_id, pm_slug, poll_interval=10, prior_override=None, log_dir=None)
                 continue
 
             # ── BUY CHECK ─────────────────────────────────────
+            # Map PM outcome index to book side correctly.
+            # book["a"] = PM outcome 0's orderbook
+            # book["b"] = PM outcome 1's orderbook
+            # oidx_a = which PM outcome index corresponds to GRID team A
             best_edge = None
             best_side = None
-            for sk, oi in [("a", 0), ("b", 1)]:
-                actual_oi = oidx_a if oi == 0 else oidx_b
-                prob = prob_a if oi == 0 else (1 - prob_a)
-                edge, max_bet = find_edge(prob, book[sk])
+            for pm_oi in [0, 1]:  # iterate PM outcome indices
+                book_key = "a" if pm_oi == 0 else "b"
+                # Model prob for this PM outcome
+                prob = prob_a if pm_oi == oidx_a else (1 - prob_a)
+                edge, max_bet = find_edge(prob, book[book_key])
                 if edge is not None and (best_edge is None or edge > best_edge):
                     best_edge = edge
                     best_side = {
-                        "key": sk, "oi": actual_oi, "outcome": outcomes[actual_oi],
-                        "prob": prob, "ask": book[sk]["ask"],
+                        "key": book_key, "oi": pm_oi,
+                        "outcome": outcomes[pm_oi],
+                        "prob": prob, "ask": book[book_key]["ask"],
                         "edge": edge, "max_bet": max_bet,
                     }
 
