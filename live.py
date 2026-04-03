@@ -515,9 +515,11 @@ def run(series_id, pm_slug, poll_interval=10, prior_override=None, log_dir=None)
 
         # Find active map
         ai = 0
+        active_map_live = False  # Is a map actually in progress?
         for i, gm in enumerate(games):
             if gm.get("started") and not gm.get("finished"):
                 ai = i
+                active_map_live = True
                 break
             elif gm.get("finished"):
                 ai = i
@@ -646,6 +648,21 @@ def run(series_id, pm_slug, poll_interval=10, prior_override=None, log_dir=None)
             continue
 
         f = feats[-1]
+
+        # CRITICAL: If no map is in progress (between maps), skip trading entirely.
+        # The model would predict on a finished map's state which is meaningless.
+        # We only log the state and wait for the next map to start.
+        if not active_map_live:
+            print(f"[{now}] Between maps (series {sa}-{sb}). "
+                  f"Waiting for next map...", flush=True)
+            # Still write Excel periodically
+            if now_ts - last_excel_write > 300 and snapshots:
+                write_excel(snapshots, trades, log_path)
+                git_push_log(log_dir)
+                last_excel_write = now_ts
+            time.sleep(poll_interval)
+            continue
+
         p_map = model.predict(f)
 
         # Use PM map prices for future maps if available
@@ -664,7 +681,8 @@ def run(series_id, pm_slug, poll_interval=10, prior_override=None, log_dir=None)
                     else:
                         p_map3 = val
 
-        sp = (calc.bo3_probabilities(p_map, p_map2, p_map3, sa, sb)
+        sp = (calc.bo3_probabilities(p_map, p_map2, p_map3, sa, sb,
+                                     current_map_in_progress=active_map_live)
               if is_bo3 else calc.bo1_probabilities(p_map))
 
         # ── Print state ──────────────────────────────────────────
@@ -789,7 +807,13 @@ def run(series_id, pm_slug, poll_interval=10, prior_override=None, log_dir=None)
                 if max_score >= config.ROUNDS_TO_WIN - 1 and unrealized < 0:
                     force_exit = True
                     sell = True
-                    bid = book[held_key]["bid"]
+                    bid = book[held_key]["bid"] or 0.001  # Use 0.001 if no bids
+
+                # Also force-exit if model says < 5% and we're holding
+                if held_prob < 0.05 and not sell:
+                    force_exit = True
+                    sell = True
+                    bid = book[held_key]["bid"] or 0.001
 
                 if sell and bid:
                     pnl = (bid - fee - pos.avg_price) * pos.shares
@@ -841,7 +865,12 @@ def run(series_id, pm_slug, poll_interval=10, prior_override=None, log_dir=None)
             # PM orderbooks are stale right after a map ends
             map_cooldown = time.time() - map_change_ts < 90
 
-            if best_side and best_side["edge"] >= config.MIN_EDGE_THRESHOLD and not map_cooldown:
+            # Skip if probability is too extreme (garbage lottery or stale prediction)
+            prob_ok = (best_side and
+                       best_side["prob"] >= config.MIN_PROB_THRESHOLD and
+                       best_side["prob"] <= config.MAX_PROB_THRESHOLD)
+
+            if best_side and best_side["edge"] >= config.MIN_EDGE_THRESHOLD and not map_cooldown and prob_ok:
                 s = best_side
                 # Kelly with REAL available capital
                 open_exposure = sum(

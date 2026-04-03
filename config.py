@@ -101,6 +101,8 @@ MAP_CT_WIN_RATE = {
 
 # ── Model / Betting Config ───────────────────────────────────────────────────
 MIN_EDGE_THRESHOLD = 0.08       # 8% minimum edge to consider a bet
+MIN_PROB_THRESHOLD = 0.20       # Don't bet if model probability < 20%
+MAX_PROB_THRESHOLD = 0.95       # Don't bet if model probability > 95% (likely stale/transition)
 KELLY_FRACTION = 0.25           # Quarter-Kelly for safety
 DEFAULT_BANKROLL = 1000         # Starting bankroll in dollars
 POLYMARKET_TAKER_FEE = 0.03     # 3% taker fee

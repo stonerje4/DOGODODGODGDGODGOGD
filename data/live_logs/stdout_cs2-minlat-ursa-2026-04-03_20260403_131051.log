@@ -135,3 +135,11 @@ Watching series 2912555...
 [14:45:48] 0-0  M1(nuke):12-9< R21(CT) | MINLATE map:97% series:75% | $3k/$8k (pistol/eco) K:72-62 FK:12-8
   WINNER: HOLD MINLATE @ $0.340 | mtm: $+29.73 | model:75%
   [P/L] realized: $+7.75 | unrealized: $+29.73 | exposure: $67 | open(1): MINLATE@$0.34
+[14:48:25] 0-0  M1(nuke):12-10< R21(CT) | MINLATE map:97% series:75% | $3k/$8k (pistol/eco) K:72-62 FK:12-8
+  WINNER: HOLD MINLATE @ $0.340 | mtm: $+17.84 | model:75%
+  >>> BUY MAP1: MINLATE $93 @ $0.710 | edge:+23.2% | depth:$10406 | model:97% | avail:$933
+  [P/L] realized: $+7.75 | unrealized: $+17.84 | exposure: $161 | open(2): MINLATE@$0.34 | MINLATE@$0.71
+[14:48:37] 0-0  M1(nuke):12-10< R22(CT) | MINLATE map:94% series:74% | $0k/$3k (pistol/pistol) K:73-65 FK:12-9
+  WINNER: HOLD MINLATE @ $0.340 | mtm: $+13.87 | model:74%
+  >>> FORCE-EXIT MAP1: MINLATE @ $0.670 | bought $0.710 | P/L: $-9.19 | model:94% (map point!)
+  [P/L] realized: $-1.44 | unrealized: $+8.62 | exposure: $67 | open(1): MINLATE@$0.34
