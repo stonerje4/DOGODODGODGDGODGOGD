@@ -1,56 +1,48 @@
 # CS2 Live Paper Trader — 🟢 LIVE
 
-**Last update:** 2026-04-03 17:28:13 UTC  
-**Match:** `cs2-unity-encea1-2026-04-03`  
-**Teams:** Team UNiTY vs ENCE Academy  
+**Last update:** 2026-04-03 17:48:38 UTC  
+**Match:** `cs2-justpl-tnc-2026-04-03`  
+**Teams:** Just_Players vs TNC esports  
 
 ## 📊 Current State
 | Field | Value |
 |-------|-------|
-| Series Score | Team UNiTY **0** — **0** ENCE Academy |
-| Map 0 (mirage) | 2 — 8 |
-| Round | 9 |
-| Model P(Team UNiTY wins map) | **20.9%** |
-| Model P(Team UNiTY wins series) | **29.7%** |
-| P(goes to map 3) | 43.3% |
+| Series Score | Just_Players **0** — **0** TNC esports |
+| Map 0 (mirage) | 11 — 9 |
+| Round | 20 |
+| Model P(Just_Players wins map) | **94.9%** |
+| Model P(Just_Players wins series) | **73.4%** |
+| P(goes to map 3) | 48.2% |
 
 ## 💰 P&L
 | Field | Value |
 |-------|-------|
-| Realized P/L | **$-1.69** |
-| Unrealized P/L | $-6.18 |
-| Total risked | $115.09 |
-| Buys | 3 |
+| Realized P/L | **$-10.12** |
+| Unrealized P/L | $+0.00 |
+| Total risked | $41.60 |
+| Buys | 1 |
 | Exits | 1 |
 | Win rate | 0/1 (0%)
-
-## 📋 Open Positions
-| Market | Outcome | Shares | Avg Price | Entry Round |
-|--------|---------|--------|-----------|-------------|
-| WINNER | ENCE Academy | 128 | $0.450 | R2 |
-| MAP1 | UNiTY esports | 183 | $0.240 | R7 |
 
 ## 📝 Trade Log
 | Time | Market | Action | Outcome | Price | Model% | Edge | P/L |
 |------|--------|--------|---------|-------|--------|------|-----|
-| 17:08:02 | MAP1 | BUY | UNiTY esports | $0.400 | 52% | +9.0% | - |
-| 17:09:36 | WINNER | BUY | ENCE Academy | $0.450 | 60% | +12.2% | - |
-| 17:13:45 | MAP1 | SELL | UNiTY esports | $0.380 | 35% | -3.5% | $-1.69 |
-| 17:20:32 | MAP1 | BUY | UNiTY esports | $0.240 | 41% | +13.6% | - |
+| 17:10:26 | WINNER | BUY | TNC | $0.370 | 52% | +11.6% | - |
+| 17:35:12 | WINNER | SELL | TNC | $0.310 | 28% | -3.1% | $-10.12 |
 
 ## 📈 Round History (last 10)
 | Time | Round | Score | Side | Map% | Series% | Money A | Money B | Buy A/B | Kills | Edge |
 |------|-------|-------|------|------|---------|---------|---------|---------|-------|------|
-| 17:16:00 | R5 | 1-4 | CT | 43% | 41% | $11k | $7k | eco/eco | 9-9 | - |
-| 17:17:33 | R5 | 2-4 | CT | 43% | 41% | $11k | $7k | eco/eco | 9-9 | - |
-| 17:17:44 | R6 | 2-4 | CT | 29% | 34% | $11k | $1k | eco/pistol | 10-12 | - |
-| 17:20:21 | R6 | 2-5 | CT | 29% | 34% | $11k | $1k | eco/pistol | 10-12 | - |
-| 17:20:32 | R7 | 2-5 | CT | 41% | 40% | $2k | $3k | pistol/pistol | 15-14 | - |
-| 17:23:08 | R7 | 2-6 | CT | 41% | 40% | $2k | $3k | pistol/pistol | 15-14 | - |
-| 17:23:20 | R8 | 2-6 | CT | 25% | 32% | $2k | $9k | pistol/eco | 18-19 | - |
-| 17:25:35 | R8 | 2-7 | CT | 25% | 32% | $2k | $9k | pistol/eco | 18-19 | - |
-| 17:25:46 | R9 | 2-7 | CT | 21% | 30% | $6k | $3k | eco/pistol | 22-24 | - |
-| 17:28:12 | R9 | 2-8 | CT | 21% | 30% | $6k | $3k | eco/pistol | 22-24 | - |
+| 17:38:53 | R15 | 8-7 | CT | 81% | 67% | $9k | $6k | eco/eco | 43-40 | +2.4% |
+| 17:40:57 | R15 | 8-8 | CT | 81% | 67% | $9k | $6k | eco/eco | 43-40 | +2.4% |
+| 17:41:08 | R16 | 8-8 | CT | 77% | 64% | $9k | $1k | eco/pistol | 45-44 | +4.7% |
+| 17:43:03 | R16 | 9-8 | CT | 77% | 64% | $9k | $1k | eco/pistol | 45-44 | +5.7% |
+| 17:43:14 | R17 | 9-8 | CT | 70% | 61% | $0k | $7k | pistol/eco | 49-48 | +1.6% |
+| 17:45:39 | R17 | 10-8 | CT | 70% | 61% | $0k | $7k | pistol/eco | 49-48 | +1.6% |
+| 17:45:50 | R18 | 10-8 | CT | 78% | 65% | $4k | $9k | eco/eco | 54-49 | -5.2% |
+| 17:46:42 | R18 | 11-8 | CT | 78% | 65% | $4k | $9k | eco/eco | 54-49 | -2.8% |
+| 17:46:53 | R19 | 11-8 | CT | 88% | 70% | $8k | $1k | eco/pistol | 59-50 | +1.8% |
+| 17:48:38 | R20 | 11-9 | CT | 95% | 73% | $10k | $3k | eco/pistol | 64-52 | -6.6% |
 
 ---
 *Auto-updated every 5 minutes by live.py*
