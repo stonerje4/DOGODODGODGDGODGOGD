@@ -239,9 +239,9 @@ def main():
                 print(f"  [PENDING {mins}min] {teams} → {slug}")
                 continue
 
-            # Skip very low liquidity markets
-            if liq < 30:
-                print(f"  [SKIP low liq ${liq:.0f}] {teams} → {slug}")
+            # Skip low liquidity markets
+            if liq < config.MIN_LIQUIDITY:
+                print(f"  [SKIP low liq ${liq:,.0f} < ${config.MIN_LIQUIDITY:,.0f}] {teams} → {slug}")
                 launched[sid] = {"ts": time.time(), "skipped": True}
                 save_state(launched)
                 continue

@@ -993,7 +993,10 @@ def run(series_id, pm_slug, poll_interval=10, prior_override=None, log_dir=None)
                        best_side["prob"] >= config.MIN_PROB_THRESHOLD and
                        best_side["prob"] <= config.MAX_PROB_THRESHOLD)
 
-            if best_side and best_side["edge"] >= config.MIN_EDGE_THRESHOLD and not map_cooldown and prob_ok:
+            # Skip early rounds (pistol noise — no real signal)
+            round_ok = f.round_num >= config.MIN_ROUND_TO_TRADE
+
+            if best_side and best_side["edge"] >= config.MIN_EDGE_THRESHOLD and not map_cooldown and prob_ok and round_ok:
                 s = best_side
                 # Kelly with REAL available capital
                 open_exposure = sum(
