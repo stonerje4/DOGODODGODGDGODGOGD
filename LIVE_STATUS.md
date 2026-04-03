@@ -1,62 +1,62 @@
 # CS2 Live Paper Trader — 🏁 FINISHED
 
-**Last update:** 2026-04-03 19:48:31 UTC  
-**Match:** `cs2-bb3-hero-2026-04-03`  
-**Teams:** TNT vs Heroic Academy  
+**Last update:** 2026-04-03 19:51:31 UTC  
+**Match:** `cs2-sta6-rust-2026-04-03`  
+**Teams:** STATE vs Rustec  
 
 ## 📊 Current State
 | Field | Value |
 |-------|-------|
-| Series Score | TNT **1** — **2** Heroic Academy |
+| Series Score | STATE **0** — **2** Rustec |
 | Map 0 (FINISHED) | 0 — 0 |
 | Round | 0 |
 
 ## 💰 P&L
 | Field | Value |
 |-------|-------|
-| Realized P/L | **$+1.63** |
+| Realized P/L | **$-145.78** |
 | Unrealized P/L | $+0.00 |
-| Total risked | $473.34 |
+| Total risked | $308.63 |
 | Buys | 7 |
 | Exits | 7 |
-| Win rate | 3/7 (43%)
+| Win rate | 2/7 (29%)
 
 ## 📋 Open Positions
 | Market | Outcome | Shares | Avg Price | Entry Round |
 |--------|---------|--------|-----------|-------------|
-| WINNER | Heroic | 263 | $0.380 | R9 |
+| WINNER | STATE | 4998 | $0.010 | R23 |
 
 ## 📝 Trade Log
 | Time | Market | Action | Outcome | Price | Model% | Edge | P/L |
 |------|--------|--------|---------|-------|--------|------|-----|
-| 17:12:51 | WINNER | BUY | BetBoom Team | $0.290 | 56% | +23.9% | - |
-| 17:12:51 | MAP1 | BUY | BetBoom Team | $0.140 | 64% | +47.4% | - |
-| 18:12:47 | MAP1 | RESOLVE | BetBoom Team | $0.000 | 0% | +0.0% | $-91.20 |
-| 18:14:11 | WINNER | SELL | BetBoom Team | $0.470 | 25% | -22.1% | $+45.53 |
-| 18:15:24 | WINNER | BUY | Heroic | $0.540 | 70% | +12.8% | - |
-| 18:15:24 | MAP2 | BUY | Heroic | $0.220 | 40% | +14.5% | - |
-| 18:15:24 | O/U | BUY | Under | $0.280 | 40% | +8.5% | - |
-| 18:28:31 | MAP2 | FORCE-EXIT | Heroic | $0.001 | 4% | +3.6% | $-50.79 |
-| 18:28:31 | O/U | FORCE-EXIT | Under | $0.001 | 4% | +3.6% | $-24.81 |
-| 18:47:13 | WINNER | FORCE-EXIT | Heroic | $0.270 | 53% | +25.7% | $-41.25 |
-| 19:13:24 | WINNER | BUY | BetBoom Team | $0.530 | 65% | +9.2% | - |
-| 19:26:16 | WINNER | SELL | BetBoom Team | $0.570 | 23% | -33.5% | $+0.99 |
-| 19:28:12 | WINNER | BUY | Heroic | $0.380 | 77% | +35.5% | - |
-| 19:48:30 | WINNER | RESOLVE | Heroic | $1.000 | 0% | +0.0% | $+163.16 |
+| 18:03:06 | WINNER | BUY | STATE | $0.390 | 59% | +16.6% | - |
+| 18:03:06 | MAP1 | BUY | STATE | $0.420 | 66% | +21.1% | - |
+| 18:08:07 | MAP1 | SELL | STATE | $0.500 | 47% | -3.2% | $+3.06 |
+| 18:19:46 | MAP1 | BUY | STATE | $0.610 | 79% | +14.9% | - |
+| 18:29:01 | WINNER | SELL | STATE | $0.480 | 40% | -8.1% | $+10.98 |
+| 18:29:01 | MAP1 | SELL | STATE | $0.530 | 29% | -24.3% | $-4.85 |
+| 18:35:47 | MAP1 | BUY | STATE | $0.380 | 52% | +11.3% | - |
+| 18:35:57 | WINNER | BUY | STATE | $0.350 | 56% | +18.0% | - |
+| 18:39:57 | WINNER | FORCE-EXIT | STATE | $0.230 | 41% | +18.3% | $-30.25 |
+| 18:39:57 | MAP1 | FORCE-EXIT | STATE | $0.001 | 32% | +31.4% | $-31.17 |
+| 19:42:54 | WINNER | BUY | STATE | $0.120 | 27% | +11.9% | - |
+| 19:49:24 | WINNER | FORCE-EXIT | STATE | $0.001 | 9% | +9.3% | $-43.58 |
+| 19:49:35 | WINNER | BUY | STATE | $0.010 | 23% | +19.2% | - |
+| 19:51:30 | WINNER | RESOLVE | STATE | $0.000 | 0% | +0.0% | $-49.98 |
 
 ## 📈 Round History (last 10)
 | Time | Round | Score | Side | Map% | Series% | Money A | Money B | Buy A/B | Kills | Edge |
 |------|-------|-------|------|------|---------|---------|---------|---------|-------|------|
-| 19:39:24 | R13 | 2-12 | CT | 5% | 5% | $4k | $4k | pistol/pistol | 30-50 | - |
-| 19:39:36 | R14 | 2-12 | CT | 3% | 3% | $11k | $9k | eco/eco | 33-55 | - |
-| 19:41:33 | R14 | 3-12 | CT | 3% | 3% | $11k | $9k | eco/eco | 33-55 | - |
-| 19:41:45 | R15 | 3-12 | CT | 1% | 1% | $8k | $5k | eco/eco | 33-60 | - |
-| 19:43:09 | R15 | 4-12 | CT | 1% | 1% | $8k | $5k | eco/eco | 33-60 | - |
-| 19:43:21 | R16 | 4-12 | CT | 1% | 1% | $11k | $3k | eco/pistol | 38-63 | - |
-| 19:44:04 | R16 | 5-12 | CT | 1% | 1% | $11k | $3k | eco/pistol | 38-63 | - |
-| 19:44:16 | R17 | 5-12 | CT | 2% | 2% | $2k | $2k | pistol/pistol | 43-64 | - |
-| 19:45:30 | R18 | 6-12 | CT | 3% | 3% | $5k | $4k | eco/eco | 48-64 | - |
-| 19:46:44 | R19 | 7-12 | CT | 5% | 5% | $8k | $9k | eco/eco | 53-66 | - |
+| 19:37:46 | R18 | 9-9 | T | 40% | 20% | $9k | $11k | eco/eco | 59-59 | -0.8% |
+| 19:40:33 | R18 | 10-9 | T | 40% | 20% | $9k | $11k | eco/eco | 59-59 | -0.2% |
+| 19:40:45 | R19 | 10-9 | T | 31% | 16% | $2k | $2k | pistol/pistol | 59-64 | -3.3% |
+| 19:42:41 | R19 | 10-10 | T | 31% | 16% | $2k | $2k | pistol/pistol | 59-64 | +0.7% |
+| 19:42:54 | R20 | 10-10 | T | 54% | 27% | $8k | $10k | eco/eco | 63-68 | +11.9% |
+| 19:44:28 | R20 | 10-11 | T | 54% | 27% | $8k | $10k | eco/eco | 63-68 | - |
+| 19:44:39 | R21 | 10-11 | T | 32% | 16% | $1k | $1k | pistol/pistol | 64-73 | - |
+| 19:47:28 | R22 | 11-11 | T | 19% | 9% | $6k | $4k | eco/pistol | 65-78 | - |
+| 19:49:24 | R22 | 11-12 | T | 19% | 9% | $6k | $4k | eco/pistol | 65-78 | - |
+| 19:49:35 | R23 | 11-12 | T | 46% | 23% | $1k | $11k | pistol/eco | 70-81 | +19.2% |
 
 ---
 *Auto-updated every 5 minutes by live.py*
