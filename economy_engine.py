@@ -48,6 +48,8 @@ class RoundResult:
     team_loadout: dict = field(default_factory=dict)
     # Team name that got first kill this round ("" if unknown)
     first_kill_team: str = ""
+    # Per-team objectives: {team_name: ["plantBomb", "beginDefuseWithKit", ...]}
+    team_objectives: dict = field(default_factory=dict)
 
 
 def classify_buy_type(money_per_player: int, side: str) -> str:

@@ -67,15 +67,6 @@ class RoundFeatures:
     pistol_1_winner: str   # "a", "b", or "none" (if not yet played)
     pistol_2_winner: str   # "a", "b", or "none"
 
-    # ── NEW: Tactical / objective features ───────────────────────────────
-    h1_score_diff: int = 0             # Score diff at halftime (0 before R13)
-    plant_rate_diff: float = 0.0       # (A plants/A T-rounds) - (B plants/B T-rounds)
-    plant_win_rate_diff: float = 0.0   # Of planted rounds: A win% - B win%
-    ct_outperformance_a: float = 0.0   # A CT win rate minus map historical avg
-    defuse_attempt_rate_diff: float = 0.0  # A defuse attempts/CT rounds - B's
-    post_pistol_r2_a: int = 0          # 1 if A won anti-eco after pistol, -1 if lost, 0 if N/A
-    post_pistol_r2_b: int = 0          # same for B
-
     # ── Target (for training) ────────────────────────────────────────────
     team_a_won_map: Optional[bool] = None  # Did team A win this map?
 
@@ -145,20 +136,6 @@ def extract_features_from_grid_state(
     pistol_1 = "none"
     pistol_2 = "none"
     last_side_a = None  # Track side from previous round
-
-    # NEW: tactical trackers (updated AFTER each round resolves)
-    h1_score_a, h1_score_b = 0, 0  # Scores at halftime (frozen at R12)
-    h1_frozen = False
-    # Plant tracking
-    a_t_rounds, a_plants, a_plant_wins = 0, 0, 0
-    b_t_rounds, b_plants, b_plant_wins = 0, 0, 0
-    # CT tracking
-    a_ct_rounds, a_ct_wins = 0, 0
-    a_defuse_attempts, b_defuse_attempts = 0, 0
-    b_ct_rounds = 0
-    # Post-pistol tracking
-    post_pistol_r2_a_val = 0  # 1/-1/0
-    post_pistol_r2_b_val = 0
 
     # Map CT rate
     ct_rate = config.MAP_CT_WIN_RATE.get(map_name, 0.50)
@@ -286,29 +263,6 @@ def extract_features_from_grid_state(
             loss_tier_a = 0
             loss_tier_b = 0
 
-        # ── Compute new tactical features (from completed rounds) ────
-        # H1 score diff (only meaningful after halftime)
-        _h1_diff = h1_score_a - h1_score_b if h1_frozen else 0
-
-        # Plant rate diff
-        _plant_rate_a = a_plants / a_t_rounds if a_t_rounds >= 2 else 0.5
-        _plant_rate_b = b_plants / b_t_rounds if b_t_rounds >= 2 else 0.5
-        _plant_rate_diff = _plant_rate_a - _plant_rate_b
-
-        # Plant win rate diff
-        _plant_wr_a = a_plant_wins / a_plants if a_plants >= 2 else 0.5
-        _plant_wr_b = b_plant_wins / b_plants if b_plants >= 2 else 0.5
-        _plant_wr_diff = _plant_wr_a - _plant_wr_b
-
-        # CT outperformance
-        _ct_rate_a = a_ct_wins / a_ct_rounds if a_ct_rounds >= 2 else ct_rate
-        _ct_outperf = _ct_rate_a - ct_rate
-
-        # Defuse attempt rate diff
-        _def_rate_a = a_defuse_attempts / a_ct_rounds if a_ct_rounds >= 2 else 0.0
-        _def_rate_b = b_defuse_attempts / b_ct_rounds if b_ct_rounds >= 2 else 0.0
-        _def_rate_diff = _def_rate_a - _def_rate_b
-
         features.append(RoundFeatures(
             series_id=series_state.get("id", ""),
             game_seq=game_idx + 1,
@@ -345,14 +299,6 @@ def extract_features_from_grid_state(
             map_ct_rate=ct_rate,
             pistol_1_winner=pistol_1,
             pistol_2_winner=pistol_2,
-            # NEW features
-            h1_score_diff=_h1_diff,
-            plant_rate_diff=round(_plant_rate_diff, 4),
-            plant_win_rate_diff=round(_plant_wr_diff, 4),
-            ct_outperformance_a=round(_ct_outperf, 4),
-            defuse_attempt_rate_diff=round(_def_rate_diff, 4),
-            post_pistol_r2_a=post_pistol_r2_a_val,
-            post_pistol_r2_b=post_pistol_r2_b_val,
             team_a_won_map=team_a_won,
         ))
 
@@ -381,63 +327,6 @@ def extract_features_from_grid_state(
             pistol_1 = "a" if winner_is_a else "b"
         elif round_num == config.ROUNDS_PER_HALF + 1:
             pistol_2 = "a" if winner_is_a else "b"
-
-        # ── NEW: Update tactical trackers ──────────────────────────
-        # Freeze H1 score at round 12
-        if round_num == config.ROUNDS_PER_HALF and not h1_frozen:
-            h1_score_a = score_a  # already updated above
-            h1_score_b = score_b
-            h1_frozen = True
-
-        # Plant tracking: who planted, who won when planting?
-        a_objs = rr.team_objectives.get(team_a, [])
-        b_objs = rr.team_objectives.get(team_b, [])
-
-        # Determine sides this round
-        a_side = rr.winner_side if winner_is_a else rr.loser_side
-        b_side = rr.loser_side if winner_is_a else rr.winner_side
-
-        if a_side == "terrorists":
-            a_t_rounds += 1
-            if "plantBomb" in a_objs:
-                a_plants += 1
-                if winner_is_a:
-                    a_plant_wins += 1
-        if b_side == "terrorists":
-            b_t_rounds += 1
-            if "plantBomb" in b_objs:
-                b_plants += 1
-                if not winner_is_a:
-                    b_plant_wins += 1
-
-        # CT tracking
-        if a_side == "counter-terrorists":
-            a_ct_rounds += 1
-            if winner_is_a:
-                a_ct_wins += 1
-            if any("beginDefuse" in o for o in a_objs):
-                a_defuse_attempts += 1
-        if b_side == "counter-terrorists":
-            b_ct_rounds += 1
-            if any("beginDefuse" in o for o in b_objs):
-                b_defuse_attempts += 1
-
-        # Post-pistol R2: did you convert the anti-eco after pistol?
-        if round_num == 2:
-            if pistol_1 == "a":
-                post_pistol_r2_a_val = 1 if winner_is_a else -1
-            elif pistol_1 == "b":
-                post_pistol_r2_b_val = 1 if not winner_is_a else -1
-                # Losing team pulled an eco steal
-                if winner_is_a:
-                    post_pistol_r2_a_val = 1  # eco steal = big positive signal
-        elif round_num == config.ROUNDS_PER_HALF + 2:
-            if pistol_2 == "a":
-                post_pistol_r2_a_val = 1 if winner_is_a else -1
-            elif pistol_2 == "b":
-                post_pistol_r2_b_val = 1 if not winner_is_a else -1
-                if winner_is_a:
-                    post_pistol_r2_a_val = 1
 
     return features
 
@@ -483,19 +372,12 @@ def _parse_rounds(
         # Check objectives for bomb plant/defuse
         bomb_planted = False
         bomb_defused = False
-        team_objectives = {}
         for t in teams:
-            tname = t.get("name", "")
-            tobj_list = []
             for obj in (t.get("objectives") or []):
-                otype = obj.get("type", "")
-                if otype == "plantBomb":
+                if obj.get("type") == "plantBomb":
                     bomb_planted = True
-                if otype == "defuseBomb":
+                if obj.get("type") == "defuseBomb":
                     bomb_defused = True
-                if otype:
-                    tobj_list.append(otype)
-            team_objectives[tname] = tobj_list
 
         # ── GRID actual money: sum player money per team ──────────────
         team_money = {}
@@ -549,7 +431,6 @@ def _parse_rounds(
             team_money=team_money,
             team_loadout=team_loadout,
             first_kill_team=first_kill_team,
-            team_objectives=team_objectives,
         ))
 
     return results
@@ -598,12 +479,4 @@ def features_to_dict(f: RoundFeatures) -> dict:
         "map_anubis": 1 if f.map_name == "anubis" else 0,
         "map_overpass": 1 if f.map_name == "overpass" else 0,
         "map_vertigo": 1 if f.map_name == "vertigo" else 0,
-        # NEW tactical features
-        "h1_score_diff": f.h1_score_diff,
-        "plant_rate_diff": f.plant_rate_diff,
-        "plant_win_rate_diff": f.plant_win_rate_diff,
-        "ct_outperformance_a": f.ct_outperformance_a,
-        "defuse_attempt_rate_diff": f.defuse_attempt_rate_diff,
-        "post_pistol_r2_a": f.post_pistol_r2_a,
-        "post_pistol_r2_b": f.post_pistol_r2_b,
     }
