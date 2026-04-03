@@ -193,3 +193,11 @@ Watching series 2912651...
 [14:29:10] 0-1  M1(mirage):9-13  M2(ancient):3-8< R11(T) | ECSTATIC map:26% series:13% | $1k/$11k (pistol/eco) K:23-39 FK:3-7
   >>> BUY MAP2: ECSTATIC $23 @ $0.150 | edge:+8.4% | depth:$934 | model:26% | avail:$900
   [P/L] realized: $-56.50 | unrealized: $+0.00 | exposure: $123 | open(2): ECSTATIC@$0.76 | ECSTATIC@$0.15
+[14:30:56] 0-1  M1(mirage):9-13  M2(ancient):3-9< R11(T) | ECSTATIC map:26% series:13% | $1k/$11k (pistol/eco) K:23-39 FK:3-7
+  MAP2: HOLD ECSTATIC @ $0.150 | mtm: $-16.92 | model:26%
+  >>> BUY O/U: Over $15 @ $0.120 | edge:+11.4% | depth:$15 | model:26% | avail:$877
+  [P/L] realized: $-56.50 | unrealized: $-16.92 | exposure: $139 | open(3): ECSTATIC@$0.76 | ECSTATIC@$0.15 | Over@$0.12
+[14:31:08] 0-1  M1(mirage):9-13  M2(ancient):3-9< R12(T) | ECSTATIC map:16% series:8% | $5k/$2k (eco/pistol) K:23-44 FK:3-8
+  MAP2: HOLD ECSTATIC @ $0.150 | mtm: $-18.45 | model:16%
+  O/U: HOLD Over @ $0.120 | mtm: $-12.91 | model:16%
+  [P/L] realized: $-56.50 | unrealized: $-31.36 | exposure: $139 | open(3): ECSTATIC@$0.76 | ECSTATIC@$0.15 | Over@$0.12
