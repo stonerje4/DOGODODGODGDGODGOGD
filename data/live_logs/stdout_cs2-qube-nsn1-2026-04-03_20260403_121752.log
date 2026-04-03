@@ -130,3 +130,6 @@ Watching series 2922906...
   >>> BUY WINNER: The QUBE Esports $76 @ $0.870 | edge:+8.5% | depth:$150 | model:99% | avail:$994
   [P/L] realized: $-2.88 | unrealized: $+0.00 | exposure: $81 | open(2): NSN@$0.01 | The QUBE Esports@$0.87
   [cache] Refreshed PM markets: ['cs2-qube-nsn1-2026-04-03', 'cs2-qube-nsn1-2026-04-03-game1', 'cs2-qube-nsn1-2026-04-03-game2', 'cs2-qube-nsn1-2026-04-03-total-games-2pt5']
+[14:08:24] 1-0  M1(ancient):13-6  M2(inferno):1-0< R1(T) | The QUBE Esports map:57% series:79% | $4k/$4k (pistol/pistol) K:0-0 FK:0-0
+  WINNER: HOLD The QUBE Esports @ $0.870 | mtm: $-6.95 | model:79%
+  [P/L] realized: $-2.88 | unrealized: $-6.95 | exposure: $81 | open(2): NSN@$0.01 | The QUBE Esports@$0.87
