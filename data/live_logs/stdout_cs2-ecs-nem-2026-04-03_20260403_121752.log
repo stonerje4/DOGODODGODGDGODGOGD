@@ -214,3 +214,9 @@ Watching series 2912651...
   [P/L] realized: $-56.50 | unrealized: $-12.91 | exposure: $139 | open(3): ECSTATIC@$0.76 | ECSTATIC@$0.15 | Over@$0.12
 [14:36:05] 0-1  M1(mirage):9-13  M2(ancient):3-12< R15(CT) | ECSTATIC map:2% series:1% | $9k/$7k (eco/eco) K:29-59 FK:4-10
   [P/L] realized: $-56.50 | unrealized: $+0.00 | exposure: $139 | open(3): ECSTATIC@$0.76 | ECSTATIC@$0.15 | Over@$0.12
+[14:38:01] 0-1  M1(mirage):9-13  M2(ancient):4-12< R16(CT) | ECSTATIC map:1% series:1% | $9k/$1k (eco/pistol) K:31-62 FK:5-10
+  [P/L] realized: $-56.50 | unrealized: $+0.00 | exposure: $139 | open(3): ECSTATIC@$0.76 | ECSTATIC@$0.15 | Over@$0.12
+[14:38:12] 0-1  M1(mirage):9-13  M2(ancient):4-12< R16(CT) | ECSTATIC map:1% series:1% | $9k/$1k (eco/pistol) K:31-62 FK:5-10
+  >>> FORCE-EXIT MAP2: ECSTATIC @ $0.001 | bought $0.150 | P/L: $-27.53 | model:1% (map point!)
+  >>> FORCE-EXIT O/U: Over @ $0.001 | bought $0.120 | P/L: $-19.23 | model:1% (map point!)
+  [P/L] realized: $-103.26 | unrealized: $-38.27 | exposure: $100 | open(1): ECSTATIC@$0.76
