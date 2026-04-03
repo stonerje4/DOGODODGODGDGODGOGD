@@ -1,56 +1,54 @@
 # CS2 Live Paper Trader — 🟢 LIVE
 
-**Last update:** 2026-04-03 19:17:12 UTC  
-**Match:** `cs2-sta6-rust-2026-04-03`  
-**Teams:** STATE vs Rustec  
+**Last update:** 2026-04-03 19:20:15 UTC  
+**Match:** `cs2-justpl-tnc-2026-04-03`  
+**Teams:** Just_Players vs TNC esports  
 
 ## 📊 Current State
 | Field | Value |
 |-------|-------|
-| Series Score | STATE **0** — **1** Rustec |
-| Map 1 (overpass) | 6 — 3 |
-| Round | 9 |
-| Model P(STATE wins map) | **66.4%** |
-| Model P(STATE wins series) | **33.2%** |
-| P(goes to map 3) | 66.4% |
+| Series Score | Just_Players **1** — **1** TNC esports |
+| Map 2 (nuke) | 1 — 3 |
+| Round | 4 |
+| Model P(Just_Players wins map) | **53.9%** |
+| Model P(Just_Players wins series) | **53.9%** |
+| P(goes to map 3) | 100.0% |
 
 ## 💰 P&L
 | Field | Value |
 |-------|-------|
-| Realized P/L | **$-52.22** |
-| Unrealized P/L | $+0.00 |
-| Total risked | $223.55 |
-| Buys | 5 |
-| Exits | 5 |
-| Win rate | 2/5 (40%)
+| Realized P/L | **$-10.12** |
+| Unrealized P/L | $-21.03 |
+| Total risked | $93.13 |
+| Buys | 2 |
+| Exits | 1 |
+| Win rate | 0/1 (0%)
+
+## 📋 Open Positions
+| Market | Outcome | Shares | Avg Price | Entry Round |
+|--------|---------|--------|-----------|-------------|
+| WINNER | TNC | 105 | $0.490 | R3 |
 
 ## 📝 Trade Log
 | Time | Market | Action | Outcome | Price | Model% | Edge | P/L |
 |------|--------|--------|---------|-------|--------|------|-----|
-| 18:03:06 | WINNER | BUY | STATE | $0.390 | 59% | +16.6% | - |
-| 18:03:06 | MAP1 | BUY | STATE | $0.420 | 66% | +21.1% | - |
-| 18:08:07 | MAP1 | SELL | STATE | $0.500 | 47% | -3.2% | $+3.06 |
-| 18:19:46 | MAP1 | BUY | STATE | $0.610 | 79% | +14.9% | - |
-| 18:29:01 | WINNER | SELL | STATE | $0.480 | 40% | -8.1% | $+10.98 |
-| 18:29:01 | MAP1 | SELL | STATE | $0.530 | 29% | -24.3% | $-4.85 |
-| 18:35:47 | MAP1 | BUY | STATE | $0.380 | 52% | +11.3% | - |
-| 18:35:57 | WINNER | BUY | STATE | $0.350 | 56% | +18.0% | - |
-| 18:39:57 | WINNER | FORCE-EXIT | STATE | $0.230 | 41% | +18.3% | $-30.25 |
-| 18:39:57 | MAP1 | FORCE-EXIT | STATE | $0.001 | 32% | +31.4% | $-31.17 |
+| 17:10:26 | WINNER | BUY | TNC | $0.370 | 52% | +11.6% | - |
+| 17:35:12 | WINNER | SELL | TNC | $0.310 | 28% | -3.1% | $-10.12 |
+| 19:17:56 | WINNER | BUY | TNC | $0.490 | 62% | +9.9% | - |
 
 ## 📈 Round History (last 10)
 | Time | Round | Score | Side | Map% | Series% | Money A | Money B | Buy A/B | Kills | Edge |
 |------|-------|-------|------|------|---------|---------|---------|---------|-------|------|
-| 19:05:44 | R4 | 4-0 | CT | 66% | 33% | $3k | $8k | pistol/eco | 15-8 | -5.1% |
-| 19:07:49 | R4 | 5-0 | CT | 66% | 33% | $3k | $8k | pistol/eco | 15-8 | -2.1% |
-| 19:08:01 | R5 | 5-0 | CT | 73% | 37% | $7k | $6k | eco/eco | 20-11 | -7.8% |
-| 19:11:09 | R5 | 5-1 | CT | 73% | 37% | $7k | $6k | eco/eco | 20-11 | -7.8% |
-| 19:11:20 | R6 | 5-1 | CT | 79% | 39% | $9k | $0k | eco/pistol | 24-13 | -5.1% |
-| 19:12:46 | R6 | 6-1 | CT | 79% | 39% | $9k | $0k | eco/pistol | 24-13 | -5.1% |
-| 19:12:57 | R7 | 6-1 | CT | 72% | 36% | $4k | $5k | eco/eco | 25-15 | -2.2% |
-| 19:15:24 | R8 | 6-2 | CT | 80% | 40% | $6k | $0k | eco/pistol | 30-18 | -4.3% |
-| 19:16:59 | R8 | 6-3 | CT | 80% | 40% | $6k | $0k | eco/pistol | 30-18 | -4.3% |
-| 19:17:11 | R9 | 6-3 | CT | 66% | 33% | $2k | $6k | pistol/eco | 33-23 | -2.8% |
+| 18:50:42 | R20 | 8-12 | T | 4% | 52% | $3k | $9k | pistol/eco | 58-74 | -7.6% |
+| 18:52:27 | R20 | 9-12 | T | 4% | 52% | $3k | $9k | pistol/eco | 58-74 | -7.6% |
+| 18:52:38 | R21 | 9-12 | T | 7% | 54% | $9k | $6k | eco/eco | 63-75 | -5.9% |
+| 19:14:44 | R1 | 0-1 | T | 54% | 54% | $4k | $4k | pistol/pistol | 0-0 | -5.0% |
+| 19:15:47 | R1 | 0-2 | T | 54% | 54% | $4k | $4k | pistol/pistol | 0-0 | -5.0% |
+| 19:15:58 | R2 | 0-2 | T | 45% | 45% | $1k | $6k | pistol/eco | 1-5 | -7.3% |
+| 19:17:44 | R2 | 1-2 | T | 45% | 45% | $1k | $6k | pistol/eco | 1-5 | +3.3% |
+| 19:17:56 | R3 | 1-2 | T | 38% | 38% | $0k | $9k | pistol/eco | 1-10 | +9.9% |
+| 19:20:02 | R3 | 1-3 | T | 38% | 38% | $0k | $9k | pistol/eco | 1-10 | - |
+| 19:20:13 | R4 | 1-3 | T | 54% | 54% | $7k | $4k | eco/eco | 6-13 | - |
 
 ---
 *Auto-updated every 5 minutes by live.py*
