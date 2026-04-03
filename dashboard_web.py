@@ -336,46 +336,48 @@ function renderMatch(m, status) {
         html += `<div class="stat"><div class="stat-label">Unrealized</div><div class="stat-value ${valClass(m.unrealized)}">$${m.unrealized.toFixed(2)}</div><div class="stat-sub">Exposure: $${m.exposure.toFixed(0)}</div></div>`;
         html += `</div>`;
 
-        // Trade log table
+        // Build positions: match BUYs to their SELLs by market+outcome
         if (m.signals && m.signals.length > 0) {
-            html += `<div class="signals"><h3>Trade Log</h3>`;
-            html += `<table class="trade-table">`;
-            html += `<thead><tr><th>Time</th><th>Type</th><th>Market</th><th>Outcome</th><th>Score</th><th>Price</th><th>Edge</th><th>Model</th><th>Size</th><th>Realized</th><th>Unrealized</th></tr></thead><tbody>`;
-            // Newest on top
-            [...m.signals].reverse().forEach(s => {
-                const rowClass = s.type === 'BUY' ? 'row-buy' : 'row-sell';
+            let positions = [];
+            m.signals.forEach(s => {
                 if (s.type === 'BUY') {
-                    html += `<tr class="${rowClass}">`;
-                    html += `<td>${s.time}</td>`;
-                    html += `<td class="pos">BUY</td>`;
-                    html += `<td>${s.market}</td>`;
-                    html += `<td>${s.outcome}</td>`;
-                    html += `<td>${s.series_score} ${s.map_score} R${s.round}</td>`;
-                    html += `<td>$${s.price}</td>`;
-                    html += `<td class="pos">${s.edge}</td>`;
-                    html += `<td>${s.model}</td>`;
-                    html += `<td>$${s.bet}</td>`;
-                    html += `<td>-</td>`;
-                    html += `<td class="dim">open</td>`;
-                    html += `</tr>`;
+                    positions.push({ id: positions.length + 1, buy: s, sell: null, status: 'open' });
                 } else {
+                    const pos = [...positions].reverse().find(p =>
+                        p.status === 'open' && p.buy && p.buy.market === s.market && p.buy.outcome === s.outcome
+                    );
+                    if (pos) { pos.sell = s; pos.status = 'closed'; }
+                    else { positions.push({ id: positions.length + 1, buy: null, sell: s, status: 'closed' }); }
+                }
+            });
+
+            html += `<div class="signals"><h3>Positions (${positions.length})</h3>`;
+            html += `<table class="trade-table">`;
+            html += `<thead><tr><th>#</th><th>Market</th><th>Outcome</th><th>Entry</th><th>Entry Time</th><th>@ Score</th><th>Size</th><th>Edge</th><th>Model</th><th>Exit</th><th>Exit Time</th><th>@ Score</th><th>P&L</th><th>Status</th></tr></thead><tbody>`;
+            [...positions].reverse().forEach(p => {
+                const b = p.buy, s = p.sell;
+                if (p.status === 'open' && b) {
+                    html += `<tr class="row-buy">`;
+                    html += `<td class="dim">#${p.id}</td><td>${b.market}</td><td>${b.outcome}</td>`;
+                    html += `<td>$${b.price}</td><td class="dim">${b.time}</td><td>${b.series_score} ${b.map_score} R${b.round}</td>`;
+                    html += `<td>$${b.bet}</td><td class="pos">${b.edge}</td><td>${b.model}</td>`;
+                    html += `<td class="dim">-</td><td class="dim">-</td><td class="dim">-</td><td class="dim">-</td>`;
+                    html += `<td><span class="badge badge-live">OPEN</span></td></tr>`;
+                } else if (b && s) {
                     const pc = s.pnl >= 0 ? 'pos' : 'neg';
-                    html += `<tr class="${rowClass}">`;
-                    html += `<td>${s.time}</td>`;
-                    html += `<td class="neutral">SELL</td>`;
-                    html += `<td>${s.market}</td>`;
-                    html += `<td>${s.outcome}</td>`;
-                    html += `<td>${s.series_score} ${s.map_score} R${s.round}</td>`;
-                    html += `<td>$${s.entry} → $${s.exit}</td>`;
-                    html += `<td>-</td>`;
-                    html += `<td>-</td>`;
-                    html += `<td>-</td>`;
+                    const label = s.pnl >= 0 ? 'WIN' : 'LOSS';
+                    html += `<tr class="row-sell">`;
+                    html += `<td class="dim">#${p.id}</td><td>${b.market}</td><td>${b.outcome}</td>`;
+                    html += `<td>$${b.price}</td><td class="dim">${b.time}</td><td>${b.series_score} ${b.map_score} R${b.round}</td>`;
+                    html += `<td>$${b.bet}</td><td class="pos">${b.edge}</td><td>${b.model}</td>`;
+                    html += `<td>$${s.exit}</td><td class="dim">${s.time}</td><td>${s.series_score} ${s.map_score} R${s.round}</td>`;
                     html += `<td class="${pc}">$${s.pnl.toFixed(2)}</td>`;
-                    html += `<td>-</td>`;
-                    html += `</tr>`;
+                    html += `<td><span class="badge badge-done">${label}</span></td></tr>`;
                 }
             });
             html += `</tbody></table></div>`;
+        }
+
         }
     }
 
