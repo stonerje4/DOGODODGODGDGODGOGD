@@ -1,18 +1,18 @@
 # CS2 Live Paper Trader — 🟢 LIVE
 
-**Last update:** 2026-04-03 17:08:22 UTC  
-**Match:** `cs2-justpl-tnc-2026-04-03`  
-**Teams:** Just_Players vs TNC esports  
+**Last update:** 2026-04-03 17:08:42 UTC  
+**Match:** `cs2-atreid-qua1-2026-04-03`  
+**Teams:** Atreides vs QUAZAR  
 
 ## 📊 Current State
 | Field | Value |
 |-------|-------|
-| Series Score | Just_Players **0** — **0** TNC esports |
-| Map 0 (mirage) | 0 — 1 |
+| Series Score | Atreides **0** — **0** QUAZAR |
+| Map 0 (nuke) | 1 — 0 |
 | Round | 1 |
-| Model P(Just_Players wins map) | **54.6%** |
-| Model P(Just_Players wins series) | **53.3%** |
-| P(goes to map 3) | 49.8% |
+| Model P(Atreides wins map) | **51.8%** |
+| Model P(Atreides wins series) | **51.7%** |
+| P(goes to map 3) | 49.9% |
 
 ## 💰 P&L
 | Field | Value |
@@ -27,7 +27,7 @@
 ## 📈 Round History (last 10)
 | Time | Round | Score | Side | Map% | Series% | Money A | Money B | Buy A/B | Kills | Edge |
 |------|-------|-------|------|------|---------|---------|---------|---------|-------|------|
-| 17:08:21 | R1 | 0-1 | T | 55% | 53% | $4k | $4k | pistol/pistol | 0-0 | -6.2% |
+| 17:08:41 | R1 | 1-0 | CT | 52% | 52% | $4k | $4k | pistol/pistol | 0-0 | -4.3% |
 
 ---
 *Auto-updated every 5 minutes by live.py*
