@@ -1,13 +1,13 @@
 # CS2 Live Paper Trader — 🏁 FINISHED
 
-**Last update:** 2026-04-03 13:13:50 UTC  
-**Match:** `cs2-tyloo-bmz-2026-04-03`  
-**Teams:** TYLOO vs BMZ  
+**Last update:** 2026-04-03 13:14:30 UTC  
+**Match:** `cs2-erupt-js-2026-04-03`  
+**Teams:** Just Swing vs Eruption  
 
 ## 📊 Current State
 | Field | Value |
 |-------|-------|
-| Series Score | TYLOO **0** — **2** BMZ |
+| Series Score | Just Swing **2** — **0** Eruption |
 | Map 0 (FINISHED) | 0 — 0 |
 | Round | 0 |
 
