@@ -483,6 +483,10 @@ def run(series_id, pm_slug, poll_interval=10, prior_override=None, log_dir=None)
     print(f"  Map prior (fallback): {map_prior:.0%}", flush=True)
     print(f"\nWatching series {series_id}...\n", flush=True)
 
+    # ── Late-join detection (one-time on first GRID data) ────────────
+    late_join_checked = False
+    MAX_LATE_JOIN_ROUNDS = 3  # Allow joining if map 1 has ≤ this many rounds
+
     # ── Main loop ────────────────────────────────────────────────────
     while True:
         now = datetime.now(timezone.utc).strftime("%H:%M:%S")
@@ -499,6 +503,47 @@ def run(series_id, pm_slug, poll_interval=10, prior_override=None, log_dir=None)
         if not state:
             time.sleep(poll_interval)
             continue
+
+        # ── Late-join check (once, on first GRID data) ─────────────
+        if not late_join_checked:
+            late_join_checked = True
+            _games = state.get("games", [])
+            _teams = state.get("teams", [])
+            _series_a = _teams[0].get("score", 0) if _teams else 0
+            _series_b = _teams[1].get("score", 0) if len(_teams) > 1 else 0
+
+            if _series_a + _series_b > 0:
+                # A map already finished — we missed too much
+                print(f"  ⛔ LATE JOIN: Series score is {_series_a}-{_series_b}, "
+                      f"missed entire map(s). Exiting.", flush=True)
+                return
+
+            if _games:
+                _g0 = _games[0]
+                _g0_segs = len(_g0.get("segments", []))
+                _g0_teams = _g0.get("teams", [])
+                _g0_score = ((_g0_teams[0].get("score", 0) if _g0_teams else 0)
+                             + (_g0_teams[1].get("score", 0) if len(_g0_teams) > 1 else 0))
+
+                if _g0.get("finished"):
+                    print(f"  ⛔ LATE JOIN: Map 1 already finished. Exiting.",
+                          flush=True)
+                    return
+
+                if _g0_score > MAX_LATE_JOIN_ROUNDS:
+                    print(f"  ⛔ LATE JOIN: Map 1 already at round {_g0_score} "
+                          f"(>{MAX_LATE_JOIN_ROUNDS}). Starting odds unreliable. "
+                          f"Exiting.", flush=True)
+                    return
+
+                if _g0_score > 0:
+                    print(f"  ⚠ Joined slightly late (map 1 round {_g0_score}), "
+                          f"within tolerance (≤{MAX_LATE_JOIN_ROUNDS}). Continuing.",
+                          flush=True)
+                else:
+                    print(f"  ✅ Clean start: map 1 at round 0.", flush=True)
+            else:
+                print(f"  ✅ No games yet — waiting for match to begin.", flush=True)
 
         teams = state["teams"]
         ta, tb = teams[0]["name"], teams[1]["name"]
