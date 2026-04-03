@@ -67,3 +67,19 @@ Watching series 2912651...
   >>> BUY WINNER: ECSTATIC $58 @ $0.600 | edge:+9.6% | depth:$3648 | model:73% | avail:$900
   MAP1: HOLD ECSTATIC @ $0.760 | mtm: $-21.05 | model:91%
   [P/L] realized: $+23.96 | unrealized: $-21.05 | exposure: $158 | open(2): ECSTATIC@$0.76 | ECSTATIC@$0.60
+[13:35:31] 0-0  M1(mirage):9-5< R13(T) | ECSTATIC map:91% series:73% | $4k/$4k (pistol/pistol) K:49-28 FK:8-4
+  WINNER: HOLD ECSTATIC @ $0.600 | mtm: $-1.95 | model:73%
+  MAP1: HOLD ECSTATIC @ $0.760 | mtm: $-21.05 | model:91%
+  [P/L] realized: $+23.96 | unrealized: $-23.00 | exposure: $158 | open(2): ECSTATIC@$0.76 | ECSTATIC@$0.60
+[13:35:42] 0-0  M1(mirage):9-5< R14(T) | ECSTATIC map:85% series:69% | $1k/$6k (pistol/eco) K:49-33 FK:8-5
+  WINNER: HOLD ECSTATIC @ $0.600 | mtm: $-1.95 | model:69%
+  MAP1: HOLD ECSTATIC @ $0.760 | mtm: $-23.68 | model:85%
+  [P/L] realized: $+23.96 | unrealized: $-25.63 | exposure: $158 | open(2): ECSTATIC@$0.76 | ECSTATIC@$0.60
+[13:36:24] 0-0  M1(mirage):9-6< R14(T) | ECSTATIC map:85% series:69% | $1k/$6k (pistol/eco) K:49-33 FK:8-5
+  WINNER: HOLD ECSTATIC @ $0.600 | mtm: $-1.95 | model:69%
+  MAP1: HOLD ECSTATIC @ $0.760 | mtm: $-27.63 | model:85%
+  [P/L] realized: $+23.96 | unrealized: $-29.58 | exposure: $158 | open(2): ECSTATIC@$0.76 | ECSTATIC@$0.60
+[13:36:35] 0-0  M1(mirage):9-6< R15(T) | ECSTATIC map:79% series:66% | $0k/$9k (pistol/eco) K:50-38 FK:8-6
+  WINNER: HOLD ECSTATIC @ $0.600 | mtm: $-2.92 | model:66%
+  MAP1: HOLD ECSTATIC @ $0.760 | mtm: $-27.63 | model:79%
+  [P/L] realized: $+23.96 | unrealized: $-30.55 | exposure: $158 | open(2): ECSTATIC@$0.76 | ECSTATIC@$0.60
