@@ -166,29 +166,69 @@ def should_sell(model_prob, book_side, fee=config.POLYMARKET_TAKER_FEE):
 
 # ── Team name matching ───────────────────────────────────────────────────────
 
+# Canonical aliases: map alternate names to a shared key.
+# GRID and PM often use different names for the same org.
+TEAM_ALIASES = {
+    "tnt": "betboom",
+    "betboom": "betboom",
+    "betboom team": "betboom",
+    "bb": "betboom",
+    "natus vincere": "navi",
+    "navi": "navi",
+    "g2": "g2",
+    "g2 ares": "g2 ares",
+    "faze clan": "faze",
+    "faze": "faze",
+    "cloud9": "c9",
+    "c9": "c9",
+    "vitality": "vitality",
+    "heroic academy": "heroic academy",
+    "heroic": "heroic",
+}
+
+
 def normalize_team(name):
     """Normalize for comparison."""
-    return name.lower().strip().replace("team ", "").replace(" esports", "")
+    n = name.lower().strip()
+    for sfx in [" esports", " esport", " gaming"]:
+        if n.endswith(sfx):
+            n = n[:-len(sfx)].strip()
+    if n.startswith("team "):
+        n = n[5:].strip()
+    return TEAM_ALIASES.get(n, n)
 
 
 def teams_equivalent(name_a, name_b):
     """Check if two team names refer to the same team."""
     a, b = normalize_team(name_a), normalize_team(name_b)
-    return a == b or a in b or b in a
+    if a == b:
+        return True
+    # Substring only if shorter is >=4 chars (avoid false positives)
+    shorter, longer = (a, b) if len(a) <= len(b) else (b, a)
+    if len(shorter) >= 4 and shorter in longer:
+        return True
+    return False
 
 
 def resolve_outcome_idx(pm_outcomes, grid_team_a, grid_team_b):
     """Figure out which PM outcome index (0 or 1) = GRID team A.
-    Returns (idx_for_a, idx_for_b) or (0, 1) as fallback."""
+    Returns (idx_for_a, idx_for_b).
+    Logs warning if neither team matches - do NOT silently guess."""
     if len(pm_outcomes) < 2:
         return 0, 1
+    # Try matching team A
     for i, name in enumerate(pm_outcomes):
         if teams_equivalent(name, grid_team_a):
             return i, 1 - i
+    # Try matching team B (implies A is the other one)
     for i, name in enumerate(pm_outcomes):
         if teams_equivalent(name, grid_team_b):
             return 1 - i, i
-    return 0, 1  # fallback
+    # No match - log loudly but don't crash
+    print(f"  WARNING: TEAM MATCH FAILURE: PM={pm_outcomes} vs "
+          f"GRID=[{grid_team_a}, {grid_team_b}] - defaulting 0,1. "
+          f"ADD ALIAS TO TEAM_ALIASES!", flush=True)
+    return 0, 1
 
 
 # ── Excel logging ────────────────────────────────────────────────────────────
@@ -884,11 +924,17 @@ def run(series_id, pm_slug, poll_interval=10, prior_override=None, log_dir=None)
                 if sell and bid:
                     pnl = (bid - fee - pos.avg_price) * pos.shares
                     realized_pnl += pnl
-                    gamma_mid = gamma_price_a if pos.outcome_idx == oidx_a else (1 - gamma_price_a)
+                    # Use live orderbook mid for audit (not stale Gamma)
+                    sell_live_ask = book[held_key]["ask"]
+                    sell_live_bid = book[held_key]["bid"]
+                    if sell_live_ask is not None and sell_live_bid is not None:
+                        sell_live_mid = (sell_live_ask + sell_live_bid) / 2
+                    else:
+                        sell_live_mid = gamma_price_a if pos.outcome_idx == oidx_a else (1 - gamma_price_a)
                     exit_reason = "FORCE-EXIT" if force_exit else "SELL"
                     trades.append(Trade(now, f.round_num, ai + 1, mn, label,
                                         exit_reason, pos.outcome, pos.shares,
-                                        bid, held_prob, gamma_mid,
+                                        bid, held_prob, sell_live_mid,
                                         held_prob - bid, pnl))
                     snap_action += f"{exit_reason} {label} {pos.outcome} P/L:${pnl:+.2f}  "
                     print(f"  >>> {exit_reason} {label}: {pos.outcome} "
@@ -959,10 +1005,17 @@ def run(series_id, pm_slug, poll_interval=10, prior_override=None, log_dir=None)
                     positions[slug_key] = Position(
                         slug_key, label, s["outcome"], s["oi"], shares,
                         s["ask"], now, f.round_num, s["prob"])
-                    gamma_mid = gamma_price_a if s["oi"] == oidx_a else (1 - gamma_price_a)
+                    # Use live orderbook mid for audit trail (not stale Gamma)
+                    buy_book_key = s["key"]
+                    live_ask_t = book[buy_book_key]["ask"]
+                    live_bid_t = book[buy_book_key]["bid"]
+                    if live_ask_t is not None and live_bid_t is not None:
+                        live_mid = (live_ask_t + live_bid_t) / 2
+                    else:
+                        live_mid = gamma_price_a if s["oi"] == oidx_a else (1 - gamma_price_a)
                     trades.append(Trade(now, f.round_num, ai + 1, mn, label,
                                         "BUY", s["outcome"], shares,
-                                        s["ask"], s["prob"], gamma_mid,
+                                        s["ask"], s["prob"], live_mid,
                                         s["edge"], 0))
                     snap_action += f"BUY {label} {s['outcome']} ${rec:.0f}@{s['ask']:.3f}  "
                     print(f"  >>> BUY {label}: {s['outcome']} "
