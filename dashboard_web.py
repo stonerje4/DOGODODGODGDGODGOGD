@@ -106,6 +106,20 @@ def parse_log(lines):
             st["finished"] = True
 
     st["signals"] = st["signals"][-20:]
+    # Fallback: derive team names from slug if still unknown
+    if st["teams"] == ["?", "?"] and st["slug"]:
+        # cs2-teamA-teamB-2026-04-03 -> teamA vs teamB
+        parts = st["slug"].replace("cs2-", "").split("-")
+        # Remove date parts (4-digit year, 2-digit month/day)
+        name_parts = []
+        for p in parts:
+            if len(p) == 4 and p.isdigit():  # year
+                break
+            name_parts.append(p)
+        if len(name_parts) >= 2:
+            mid = len(name_parts) // 2
+            st["teams"] = ["-".join(name_parts[:mid]).upper(),
+                          "-".join(name_parts[mid:]).upper()]
     return st
 
 
