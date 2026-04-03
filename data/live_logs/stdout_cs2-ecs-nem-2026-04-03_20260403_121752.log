@@ -237,3 +237,12 @@ Watching series 2912651...
   >>> BUY MAP2: Team Nemesis $90 @ $0.780 | edge:+11.6% | depth:$11729 | model:93% | avail:$900
   >>> BUY O/U: Under $23 @ $0.810 | edge:+8.6% | depth:$32 | model:93% | avail:$810
   [P/L] realized: $-103.26 | unrealized: $+0.00 | exposure: $213 | open(3): ECSTATIC@$0.76 | Team Nemesis@$0.78 | Under@$0.81
+[14:48:59] 0-1  M1(mirage):9-13  M2(ancient):10-12< R21(CT) | ECSTATIC map:7% series:4% | $3k/$3k (pistol/pistol) K:56-77 FK:10-10
+  >>> BUY WINNER: Team Nemesis $79 @ $0.839 | edge:+9.4% | depth:$4698 | model:96% | avail:$787
+  >>> FORCE-EXIT MAP2: Team Nemesis @ $0.680 | bought $0.780 | P/L: $-15.00 | model:93% (map point!)
+  >>> FORCE-EXIT O/U: Under @ $0.600 | bought $0.810 | P/L: $-6.93 | model:93% (map point!)
+  [P/L] realized: $-125.20 | unrealized: $-17.61 | exposure: $179 | open(2): ECSTATIC@$0.76 | Team Nemesis@$0.84
+[14:49:11] 0-1  M1(mirage):9-13  M2(ancient):10-12< R22(CT) | ECSTATIC map:12% series:6% | $7k/$0k (eco/pistol) K:61-77 FK:11-10
+  >>> FORCE-EXIT WINNER: Team Nemesis @ $0.801 | bought $0.839 | P/L: $-6.38 | model:94% (map point!)
+  >>> BUY MAP2: Team Nemesis $90 @ $0.683 | edge:+16.6% | depth:$6318 | model:88% | avail:$900
+  [P/L] realized: $-131.57 | unrealized: $-3.56 | exposure: $190 | open(2): ECSTATIC@$0.76 | Team Nemesis@$0.68
