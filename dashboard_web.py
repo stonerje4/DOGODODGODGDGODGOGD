@@ -305,12 +305,14 @@ body { background: #0d1117; color: #c9d1d9; font-family: 'JetBrains Mono', 'Fira
     <div class="tab active" data-tab="live"><span class="dot dot-live"></span>Live <span class="count" id="cnt-live">0</span></div>
     <div class="tab" data-tab="waiting"><span class="dot dot-wait"></span>Upcoming <span class="count" id="cnt-waiting">0</span></div>
     <div class="tab" data-tab="finished"><span class="dot dot-done"></span>Finished <span class="count" id="cnt-finished">0</span></div>
+    <div class="tab" data-tab="trades">All Trades <span class="count" id="cnt-trades">0</span></div>
 </div>
 
 <div class="content">
     <div id="sec-live" class="section active"></div>
     <div id="sec-waiting" class="section"></div>
     <div id="sec-finished" class="section"></div>
+    <div id="sec-trades" class="section"></div>
 </div>
 
 <script>
@@ -471,6 +473,81 @@ function update() {
             document.getElementById('sec-waiting').innerHTML = waitHtmlFinal;
             document.getElementById('cnt-waiting').textContent = allWaiting.length;
             document.getElementById('sec-finished').innerHTML = doneHtml;
+
+            // Build All Trades tab — every signal from every match, sorted by time
+            let allTrades = [];
+            [...data.live, ...data.finished].forEach(m => {
+                if (!m.signals) return;
+                // Build positions first to link buys to sells
+                let positions = [];
+                m.signals.forEach(s => {
+                    if (s.type === 'BUY') {
+                        positions.push({buy: s, sell: null});
+                    } else {
+                        const pos = [...positions].reverse().find(p =>
+                            !p.sell && p.buy && p.buy.market === s.market && p.buy.outcome === s.outcome
+                        );
+                        if (pos) pos.sell = s;
+                    }
+                });
+                positions.forEach(p => {
+                    const b = p.buy;
+                    if (!b) return;
+                    const s = p.sell;
+                    allTrades.push({
+                        match: m.teams[0] + ' vs ' + m.teams[1],
+                        market: b.market,
+                        outcome: b.outcome,
+                        entry_time: b.time || '?',
+                        entry_price: b.price,
+                        entry_score: (b.series_score||'') + ' ' + (b.map_score||'') + ' R' + (b.round||'?'),
+                        size: b.bet,
+                        edge: b.edge,
+                        model: b.model,
+                        exit_time: s ? (s.time||'?') : '-',
+                        exit_price: s ? s.exit : '-',
+                        exit_score: s ? ((s.series_score||'') + ' ' + (s.map_score||'') + ' R' + (s.round||'?')) : '-',
+                        pnl: s ? s.pnl : null,
+                        status: s ? (s.pnl >= 0 ? 'WIN' : 'LOSS') : 'OPEN',
+                    });
+                });
+            });
+            // Sort by entry time descending
+            allTrades.sort((a, b) => (b.entry_time||'').localeCompare(a.entry_time||''));
+            
+            document.getElementById('cnt-trades').textContent = allTrades.length;
+            let tradesHtml = '';
+            if (allTrades.length) {
+                tradesHtml = `<table class="trade-table" style="width:100%">`;
+                tradesHtml += `<thead><tr><th>Time</th><th>Match</th><th>Market</th><th>Outcome</th><th>Entry</th><th>@ Score</th><th>Size</th><th>Edge</th><th>Model</th><th>Exit</th><th>Exit Time</th><th>@ Score</th><th>P&L</th><th>Status</th></tr></thead><tbody>`;
+                allTrades.forEach(t => {
+                    const sc = t.status === 'OPEN' ? 'row-buy' : (t.status === 'WIN' ? '' : 'row-sell');
+                    const pc = t.pnl !== null ? (t.pnl >= 0 ? 'pos' : 'neg') : 'dim';
+                    const badge = t.status === 'OPEN' ? '<span class="badge badge-live">OPEN</span>'
+                        : t.status === 'WIN' ? '<span class="badge badge-win">WIN</span>'
+                        : '<span class="badge badge-loss">LOSS</span>';
+                    tradesHtml += `<tr class="${sc}">`;
+                    tradesHtml += `<td>${t.entry_time}</td>`;
+                    tradesHtml += `<td style="max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${t.match}</td>`;
+                    tradesHtml += `<td>${t.market}</td>`;
+                    tradesHtml += `<td>${t.outcome}</td>`;
+                    tradesHtml += `<td>$${t.entry_price}</td>`;
+                    tradesHtml += `<td class="dim">${t.entry_score}</td>`;
+                    tradesHtml += `<td>$${t.size}</td>`;
+                    tradesHtml += `<td class="pos">${t.edge}</td>`;
+                    tradesHtml += `<td>${t.model}</td>`;
+                    tradesHtml += `<td>${t.exit_price !== '-' ? '$'+t.exit_price : '-'}</td>`;
+                    tradesHtml += `<td class="dim">${t.exit_time}</td>`;
+                    tradesHtml += `<td class="dim">${t.exit_score}</td>`;
+                    tradesHtml += `<td class="${pc}">${t.pnl !== null ? '$'+t.pnl.toFixed(2) : '-'}</td>`;
+                    tradesHtml += `<td>${badge}</td>`;
+                    tradesHtml += `</tr>`;
+                });
+                tradesHtml += `</tbody></table>`;
+            } else {
+                tradesHtml = '<div class="no-data">No trades yet</div>';
+            }
+            document.getElementById('sec-trades').innerHTML = tradesHtml;
 
             // Restore expanded state
             expandedSlugs.forEach(slug => {
