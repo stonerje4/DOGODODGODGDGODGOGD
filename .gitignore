@@ -16,3 +16,9 @@ scrape_log.txt
 
 # Secrets - DO NOT COMMIT (API key is in config.py, move to env var later)
 # config.py  -- keeping for now since key is already in repo history
+__pycache__/
+data/series/
+*.pyc
+data/live_logs/*.xlsx
+data/live_logs/stdout_*.log
+*.bak
