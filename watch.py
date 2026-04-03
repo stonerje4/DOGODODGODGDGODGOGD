@@ -20,7 +20,9 @@ DIM    = "\033[2m"
 RESET  = "\033[0m"
 
 def clear():
-    os.system("clear")
+    # Move cursor to top-left instead of clearing (prevents flicker)
+    sys.stdout.write("\033[H\033[J")
+    sys.stdout.flush()
 
 def tail(path, n=120):
     try:
@@ -50,13 +52,17 @@ def parse_log(lines):
         "kills": "0-0",
         "fk": "0-0",
         "pm_price": None,
+        "pm_ask": None,
+        "pm_bid": None,
         "edge_winner": None,
         "realized_pnl": 0.0,
         "unrealized_pnl": 0.0,
         "exposure": 0.0,
-        "open_positions": [],
+        "open_count": 0,
+        "open_str": "",
         "last_signals": [],
         "finished": False,
+        "has_data": False,
     }
 
     for line in lines:
@@ -89,6 +95,7 @@ def parse_log(lines):
             maps_part = m.group(3)
             state["round"] = int(m.group(4))
             state["side"] = m.group(5)
+            state["has_data"] = True
             # extract current map score from maps_part
             ms = re.findall(r"M\d+\((\w+)\):(\d+-\d+)<", maps_part)
             if ms:
@@ -104,11 +111,22 @@ def parse_log(lines):
             state["fk"] = m.group(14)
 
         # P/L line
-        m = re.search(r"\[P/L\] realized: \$([\d.+-]+)\s*\|\s*unrealized: \$([\d.+-]+)\s*\|\s*exposure: \$([\d.]+)", line)
+        m = re.search(r"\[P/L\] realized: \$([\d.+-]+)\s*\|\s*unrealized: \$([\d.+-]+)\s*\|\s*exposure: \$([\d.]+)\s*\|\s*open\((\d+)\):\s*(.*)", line)
         if m:
             state["realized_pnl"] = float(m.group(1))
             state["unrealized_pnl"] = float(m.group(2))
             state["exposure"] = float(m.group(3))
+            state["open_count"] = int(m.group(4))
+            state["open_str"] = m.group(5).strip()
+            state["has_data"] = True
+        # Fallback P/L without open details
+        elif not m:
+            m2 = re.search(r"\[P/L\] realized: \$([\d.+-]+)\s*\|\s*unrealized: \$([\d.+-]+)\s*\|\s*exposure: \$([\d.]+)", line)
+            if m2:
+                state["realized_pnl"] = float(m2.group(1))
+                state["unrealized_pnl"] = float(m2.group(2))
+                state["exposure"] = float(m2.group(3))
+                state["has_data"] = True
 
         # Buy signals
         m = re.search(r">>> BUY (\w+): (.+?) \$([\d.]+) @ \$([\d.]+) \| edge:([+\-\d.]+%) \| depth:\$([\d.]+) \| model:([\d.]+%)", line)
