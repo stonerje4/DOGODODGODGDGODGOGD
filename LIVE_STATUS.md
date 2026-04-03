@@ -1,13 +1,13 @@
 # CS2 Live Paper Trader — 🏁 FINISHED
 
-**Last update:** 2026-04-02 20:35:34 UTC  
-**Match:** `cs2-crash-shin-2026-04-02`  
-**Teams:** ShindeN vs Charrados  
+**Last update:** 2026-04-03 00:15:44 UTC  
+**Match:** `cs2-rei-sports-2026-04-02`  
+**Teams:** Reign Above vs SportsBetExpert  
 
 ## 📊 Current State
 | Field | Value |
 |-------|-------|
-| Series Score | ShindeN **2** — **0** Charrados |
+| Series Score | Reign Above **2** — **0** SportsBetExpert |
 | Map 0 (FINISHED) | 0 — 0 |
 | Round | 0 |
 
