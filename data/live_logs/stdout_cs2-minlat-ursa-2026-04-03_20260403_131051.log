@@ -12,3 +12,6 @@ Watching series 2912555...
 
   [cache] Refreshed PM markets: ['cs2-minlat-ursa-2026-04-03', 'cs2-minlat-ursa-2026-04-03-game1', 'cs2-minlat-ursa-2026-04-03-game2', 'cs2-minlat-ursa-2026-04-03-total-games-2pt5']
   [cache] Refreshed PM markets: ['cs2-minlat-ursa-2026-04-03', 'cs2-minlat-ursa-2026-04-03-game1', 'cs2-minlat-ursa-2026-04-03-game2', 'cs2-minlat-ursa-2026-04-03-total-games-2pt5']
+[14:11:14] 0-0  M1(nuke):1-0< R1(T) | MINLATE map:54% series:54% | $4k/$4k (pistol/pistol) K:0-0 FK:0-0
+  >>> BUY WINNER: MINLATE $67 @ $0.340 | edge:+17.0% | depth:$3720 | model:54% | avail:$1000
+  [P/L] realized: $+0.00 | unrealized: $+0.00 | exposure: $67 | open(1): MINLATE@$0.34
