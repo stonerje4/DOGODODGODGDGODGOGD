@@ -121,3 +121,7 @@ Watching series 2912651...
   [P/L] realized: $-8.15 | unrealized: $-29.19 | exposure: $100 | open(1): ECSTATIC@$0.76
 [13:49:41] 0-0  M1(mirage):9-12< R21(T) | ECSTATIC map:12% series:33% | $9k/$2k (eco/pistol) K:57-68 FK:8-12
   [P/L] realized: $-8.15 | unrealized: $+0.00 | exposure: $100 | open(1): ECSTATIC@$0.76
+[13:51:15] 0-1  M1(mirage):9-13 R22(T) | ECSTATIC map:5% series:3% | $3k/$4k (pistol/eco) K:60-73 FK:8-13
+  >>> BUY WINNER: Team Nemesis $90 @ $0.690 | edge:+25.3% | depth:$8950 | model:97% | avail:$900
+  >>> BUY O/U: Under $81 @ $0.520 | edge:+39.6% | depth:$101 | model:95% | avail:$810
+  [P/L] realized: $-8.15 | unrealized: $+0.00 | exposure: $271 | open(3): ECSTATIC@$0.76 | Team Nemesis@$0.69 | Under@$0.52
