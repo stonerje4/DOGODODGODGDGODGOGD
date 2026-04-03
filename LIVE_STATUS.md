@@ -1,48 +1,50 @@
 # CS2 Live Paper Trader — 🟢 LIVE
 
-**Last update:** 2026-04-03 18:39:25 UTC  
-**Match:** `cs2-justpl-tnc-2026-04-03`  
-**Teams:** Just_Players vs TNC esports  
+**Last update:** 2026-04-03 18:44:36 UTC  
+**Match:** `cs2-atreid-qua1-2026-04-03`  
+**Teams:** Atreides vs QUAZAR  
 
 ## 📊 Current State
 | Field | Value |
 |-------|-------|
-| Series Score | Just_Players **1** — **0** TNC esports |
-| Map 1 (ancient) | 5 — 9 |
-| Round | 14 |
-| Model P(Just_Players wins map) | **16.4%** |
-| Model P(Just_Players wins series) | **58.2%** |
-| P(goes to map 3) | 83.6% |
+| Series Score | Atreides **0** — **1** QUAZAR |
+| Map 1 (inferno) | 5 — 2 |
+| Round | 6 |
+| Model P(Atreides wins map) | **61.3%** |
+| Model P(Atreides wins series) | **30.7%** |
+| P(goes to map 3) | 61.3% |
 
 ## 💰 P&L
 | Field | Value |
 |-------|-------|
-| Realized P/L | **$-10.12** |
+| Realized P/L | **$-28.76** |
 | Unrealized P/L | $+0.00 |
-| Total risked | $41.60 |
-| Buys | 1 |
-| Exits | 1 |
-| Win rate | 0/1 (0%)
+| Total risked | $114.62 |
+| Buys | 2 |
+| Exits | 2 |
+| Win rate | 1/2 (50%)
 
 ## 📝 Trade Log
 | Time | Market | Action | Outcome | Price | Model% | Edge | P/L |
 |------|--------|--------|---------|-------|--------|------|-----|
-| 17:10:26 | WINNER | BUY | TNC | $0.370 | 52% | +11.6% | - |
-| 17:35:12 | WINNER | SELL | TNC | $0.310 | 28% | -3.1% | $-10.12 |
+| 17:11:17 | WINNER | BUY | Atreides | $0.400 | 57% | +13.8% | - |
+| 17:28:33 | WINNER | SELL | Atreides | $0.440 | 41% | -3.2% | $+1.52 |
+| 17:34:26 | WINNER | BUY | Atreides | $0.410 | 56% | +12.1% | - |
+| 18:02:36 | WINNER | FORCE-EXIT | Atreides | $0.210 | 35% | +13.9% | $-30.28 |
 
 ## 📈 Round History (last 10)
 | Time | Round | Score | Side | Map% | Series% | Money A | Money B | Buy A/B | Kills | Edge |
 |------|-------|-------|------|------|---------|---------|---------|---------|-------|------|
-| 18:28:59 | R8 | 4-5 | CT | 55% | 77% | $9k | $4k | eco/eco | 26-25 | -15.6% |
-| 18:29:10 | R9 | 4-5 | CT | 41% | 70% | $10k | $0k | eco/pistol | 29-30 | -2.4% |
-| 18:31:07 | R9 | 5-5 | CT | 41% | 70% | $10k | $0k | eco/pistol | 29-30 | -5.6% |
-| 18:31:18 | R10 | 5-5 | CT | 32% | 66% | $0k | $6k | pistol/eco | 31-34 | -6.1% |
-| 18:32:53 | R10 | 5-6 | CT | 32% | 66% | $0k | $6k | pistol/eco | 31-34 | -6.1% |
-| 18:33:04 | R11 | 5-6 | CT | 48% | 74% | $4k | $7k | eco/eco | 36-34 | -1.2% |
-| 18:35:00 | R12 | 5-7 | CT | 33% | 67% | $7k | $2k | eco/pistol | 39-39 | -1.4% |
-| 18:37:27 | R12 | 5-8 | CT | 33% | 67% | $7k | $2k | eco/pistol | 39-39 | +0.6% |
-| 18:37:39 | R13 | 5-8 | T | 24% | 62% | $4k | $4k | pistol/pistol | 41-44 | -3.0% |
-| 18:39:24 | R14 | 5-9 | T | 16% | 58% | $1k | $6k | pistol/eco | 42-49 | -1.3% |
+| 18:27:57 | R1 | 2-0 | CT | 52% | 26% | $4k | $4k | pistol/pistol | 0-0 | +1.0% |
+| 18:28:08 | R2 | 2-0 | CT | 63% | 31% | $6k | $1k | eco/pistol | 5-2 | +6.3% |
+| 18:30:46 | R3 | 2-1 | CT | 65% | 32% | $10k | $1k | eco/pistol | 10-4 | +4.4% |
+| 18:35:49 | R3 | 2-2 | CT | 65% | 32% | $10k | $1k | eco/pistol | 10-4 | -0.6% |
+| 18:36:00 | R4 | 2-2 | CT | 54% | 27% | $4k | $7k | eco/eco | 11-6 | -1.0% |
+| 18:37:45 | R4 | 3-2 | CT | 54% | 27% | $4k | $7k | eco/eco | 11-6 | -1.0% |
+| 18:37:56 | R5 | 3-2 | CT | 44% | 22% | $2k | $2k | pistol/pistol | 13-10 | +4.1% |
+| 18:39:51 | R5 | 4-2 | CT | 44% | 22% | $2k | $2k | pistol/pistol | 13-10 | +4.1% |
+| 18:40:03 | R6 | 4-2 | CT | 61% | 31% | $5k | $9k | eco/eco | 18-12 | -2.3% |
+| 18:44:34 | R6 | 5-2 | CT | 61% | 31% | $5k | $9k | eco/eco | 18-12 | -3.3% |
 
 ---
 *Auto-updated every 5 minutes by live.py*
