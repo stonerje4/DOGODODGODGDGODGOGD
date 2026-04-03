@@ -433,6 +433,7 @@ def run(series_id, pm_slug, poll_interval=10, prior_override=None, log_dir=None)
     pm_cache: Dict[str, dict] = {}
     pm_outcomes_cache: Dict[str, List[str]] = {}  # slug → [outcome_a, outcome_b]
     cache_map_key = None  # Track which map we cached for
+    map_change_ts = 0      # Timestamp of last map change (cooldown for trading)
 
     # ── Step 0: Get starting odds ────────────────────────────────────
     # Always try to grab PM starting odds. This is our prior.
@@ -544,6 +545,7 @@ def run(series_id, pm_slug, poll_interval=10, prior_override=None, log_dir=None)
         new_cache_key = f"{ai}_{mn}"
         if new_cache_key != cache_map_key:
             cache_map_key = new_cache_key
+            map_change_ts = time.time()  # Start cooldown
             pm_cache.clear()
             pm_outcomes_cache.clear()
             # Pre-fetch all market slugs for this match
@@ -809,7 +811,11 @@ def run(series_id, pm_slug, poll_interval=10, prior_override=None, log_dir=None)
             elif suffix.startswith("-game"):
                 snap_edge_map = best_edge if best_edge else (prob_a - gamma_price_a - fee)
 
-            if best_side and best_side["edge"] >= config.MIN_EDGE_THRESHOLD:
+            # Skip trading during map transition cooldown (90s)
+            # PM orderbooks are stale right after a map ends
+            map_cooldown = time.time() - map_change_ts < 90
+
+            if best_side and best_side["edge"] >= config.MIN_EDGE_THRESHOLD and not map_cooldown:
                 s = best_side
                 # Kelly with REAL available capital
                 open_exposure = sum(
